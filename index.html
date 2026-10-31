@@ -176,12 +176,39 @@ h1 em{font-style:normal;color:var(--blue)}
 <div class="profile"><div><p class="profile-copy">덴탈솔브는 치과 총괄 운영 경험을 바탕으로 전자차트 활용, 직원교육, 업무 표준화, AI 기반 업무 개선을 연결하는 치과 전문 컨설팅 브랜드입니다. 현장에서 반복되는 불편을 찾아내고 직원이 이해하고 실행할 수 있는 방식으로 시스템을 설계합니다.</p><ul class="credentials"><li>치과 총괄부장 실무 경험</li><li>치과 전자차트 교육 및 컨설팅</li><li>치과 업무 프로세스 · 내부교육 설계</li><li>생성형 AI · 구글 기반 업무혁신</li></ul></div>
 <div class="lecture"><div class="eyebrow">LECTURE & CONSULTING</div><h3>치과에서 바로 쓰는 실무 중심 교육</h3><p>이론을 길게 설명하기보다 실제 업무 사례와 따라 하기 쉬운 방법으로 교육합니다.</p><ul><li>전자차트 처치버튼 설정과 차팅 기준</li><li>보험청구에 도움이 되는 차트 입력 관리</li><li>신규 직원 교육과 업무 표준화</li><li>AI를 활용한 문서 · 교육자료 제작</li><li>치과 운영 데이터와 디지털 업무시스템</li></ul></div></div>
 </div></section>
-<section class="section" id="lectures"><div class="wrap">
-<div class="section-head"><div class="kicker">04 / LECTURES</div><div><h2>강의와 교육 활동</h2><p class="intro">치과 현장에서 쌓은 경험을 바탕으로 실무에 바로 적용할 수 있는 교육을 진행합니다. 외부 강의 소개 페이지에서 강의 내용을 확인할 수 있습니다.</p></div></div>
-<div class="lecture-feature" style="display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center;padding:36px;border:1px solid var(--line);border-radius:12px;background:linear-gradient(115deg,#f7f9fc,#fff)">
-<div><div class="eyebrow">DENTALBEAN · LECTURE</div><h3 style="margin:18px 0 12px;color:var(--navy);font-size:clamp(23px,3vw,32px);letter-spacing:-.05em">덴탈빈 강의 소개</h3><p style="max-width:700px;margin:0;color:var(--muted);font-size:17px;line-height:1.9">덴탈빈에 등록된 강의 페이지에서 강의 상세 내용을 확인하실 수 있습니다.</p></div>
-<a class="btn btn-primary" href="https://www.dentalbean.com/product/productDetail.aspx?_prKey=5093" target="_blank" rel="noopener noreferrer">덴탈빈 강의 보기 ↗</a>
+<section class="section" id="lectures">
+<style>
+.lecture-showcase{overflow:hidden;position:relative;padding:12px 0 22px}
+.lecture-track{display:flex;gap:18px;width:max-content;animation:lectureDrift 42s linear infinite}
+.lecture-showcase:hover .lecture-track,.lecture-showcase:focus-within .lecture-track{animation-play-state:paused}
+.lecture-card{width:270px;min-height:205px;display:flex;flex-direction:column;justify-content:space-between;padding:22px;border:1px solid #e2e8ef;border-radius:12px;background:linear-gradient(145deg,#f8fafc,#eef3f8);box-shadow:0 8px 24px rgba(20,38,63,.045)}
+.lecture-card:nth-child(3n+2){background:linear-gradient(145deg,#f5f8fc,#eaf2f9)}
+.lecture-card:nth-child(3n){background:linear-gradient(145deg,#fafbfc,#f0f2f5)}
+.lecture-card-top{display:flex;justify-content:space-between;align-items:center;color:#6f8298;font-size:10px;font-weight:800;letter-spacing:.13em}
+.lecture-card-mark{width:27px;height:27px;display:grid;place-items:center;border:1px solid #cbd9e7;border-radius:8px;color:#4779a8;font-size:12px}
+.lecture-card h3{margin:23px 0 9px;color:var(--navy);font-size:19px;line-height:1.45;letter-spacing:-.045em}
+.lecture-card p{margin:0;color:#718094;font-size:12px;line-height:1.7}
+.lecture-card-bottom{margin-top:20px;padding-top:12px;border-top:1px solid rgba(120,143,166,.22);color:#8292a3;font-size:9px;font-weight:800;letter-spacing:.12em}
+.lecture-caption{margin:8px 0 0;text-align:center;color:#8794a2;font-size:11px;line-height:1.7}
+.lecture-link-row{display:flex;justify-content:center;margin-top:25px}
+@keyframes lectureDrift{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media(max-width:600px){.lecture-card{width:238px;min-height:190px;padding:19px}.lecture-card h3{font-size:17px}.lecture-track{gap:13px;animation-duration:34s}}
+@media(prefers-reduced-motion:reduce){.lecture-track{animation:none;flex-wrap:wrap;width:auto;justify-content:center}}
+</style>
+<div class="wrap">
+<div class="section-head"><div class="kicker">04 / LECTURES</div><div><h2>강의와 교육 활동</h2><p class="intro">치과 현장 경험을 바탕으로 전자차트 활용부터 AI 업무 자동화까지, 치과 실무에 바로 연결되는 세 가지 분야를 교육합니다.</p></div></div>
+<div class="lecture-showcase" aria-label="덴탈솔브 주요 강의 분야 자동 슬라이드">
+<div class="lecture-track">
+<article class="lecture-card"><div class="lecture-card-top"><span>LECTURE 01</span><span class="lecture-card-mark">01</span></div><div><h3>치과 전자차트<br>실무 활용 강의</h3><p>차팅 기준부터 처치버튼 구성, 보험청구에 도움이 되는 전자차트 활용까지</p></div><div class="lecture-card-bottom">DENTAL EMR · PRACTICAL TRAINING</div></article>
+<article class="lecture-card"><div class="lecture-card-top"><span>LECTURE 02</span><span class="lecture-card-mark">02</span></div><div><h3>오스템임플란트 원클릭<br>전자차트 공인강사 강의</h3><p>전자차트 기능 이해와 실제 진료 현장 중심의 활용 교육</p></div><div class="lecture-card-bottom">CERTIFIED INSTRUCTOR LECTURE</div></article>
+<article class="lecture-card"><div class="lecture-card-top"><span>LECTURE 03</span><span class="lecture-card-mark">03</span></div><div><h3>구글 제미나이 활용<br>치과 업무 자동화 강의</h3><p>생성형 AI와 구글 도구로 문서 작성 및 반복 업무를 효율화하는 방법</p></div><div class="lecture-card-bottom">GOOGLE GEMINI · WORK AUTOMATION</div></article>
+<article class="lecture-card" aria-hidden="true"><div class="lecture-card-top"><span>LECTURE 01</span><span class="lecture-card-mark">01</span></div><div><h3>치과 전자차트<br>실무 활용 강의</h3><p>차팅 기준부터 처치버튼 구성, 보험청구에 도움이 되는 전자차트 활용까지</p></div><div class="lecture-card-bottom">DENTAL EMR · PRACTICAL TRAINING</div></article>
+<article class="lecture-card" aria-hidden="true"><div class="lecture-card-top"><span>LECTURE 02</span><span class="lecture-card-mark">02</span></div><div><h3>오스템임플란트 원클릭<br>전자차트 공인강사 강의</h3><p>전자차트 기능 이해와 실제 진료 현장 중심의 활용 교육</p></div><div class="lecture-card-bottom">CERTIFIED INSTRUCTOR LECTURE</div></article>
+<article class="lecture-card" aria-hidden="true"><div class="lecture-card-top"><span>LECTURE 03</span><span class="lecture-card-mark">03</span></div><div><h3>구글 제미나이 활용<br>치과 업무 자동화 강의</h3><p>생성형 AI와 구글 도구로 문서 작성 및 반복 업무를 효율화하는 방법</p></div><div class="lecture-card-bottom">GOOGLE GEMINI · WORK AUTOMATION</div></article>
 </div>
+<p class="lecture-caption">카드 위에 마우스를 올리면 움직임이 멈춥니다.</p>
+</div>
+<div class="lecture-link-row"><a class="btn btn-secondary" href="https://www.dentalbean.com/product/productDetail.aspx?_prKey=5093" target="_blank" rel="noopener noreferrer">덴탈빈 강의 상세 보기 ↗</a></div>
 </div></section>
 <section class="section" id="faq"><div class="wrap">
 <div class="section-head"><div class="kicker">05 / FAQ</div><div><h2>자주 묻는 질문</h2><p class="intro">상담 전에 컨설팅 범위와 진행 방식을 확인해 주세요.</p></div></div>
