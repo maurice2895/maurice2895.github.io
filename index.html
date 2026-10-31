@@ -123,6 +123,183 @@ h1 em{font-style:normal;color:var(--blue)}
 @media(max-width:600px){.hero-copy{font-size:16px;line-height:1.9}.intro{font-size:16px;line-height:1.9}.service p,.profile-copy,.lecture p,.faq details p{font-size:15px;line-height:1.9}.service h3{font-size:21px}.faq summary{font-size:16px}.credentials li{font-size:15px}.proof strong{font-size:12px}.wrap{width:calc(100% - 36px)}.header-in{height:67px}.brand{font-size:17px}.brand-mark{width:33px;height:33px}.nav a:not(.nav-cta){display:none}.nav .nav-cta{padding:10px 13px;font-size:11px}.hero{padding:65px 0 48px}h1{font-size:clamp(45px,12.5vw,62px)}.hero-copy{font-size:15px}.hero-panel{min-height:0;padding:20px}.proof{gap:11px;margin-top:48px}.proof strong{font-size:11px;line-height:1.5}.section{padding:75px 0}.section-head{margin-bottom:32px}.services{grid-template-columns:1fr}.service{min-height:205px}.service h3{margin-top:23px}.statement{padding:52px 0}.statement small{font-size:12px}.contact{padding:62px 0}.contact-actions{width:100%}.contact-actions .btn{flex:1;padding:0 12px;font-size:11px}.social{right:13px;bottom:13px;gap:7px}.social a{width:43px;height:43px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
 </style>
+
+<style id="dentalsolve-layout-refinement">
+:root{--max:1200px}
+html{scroll-padding-top:104px}
+body{padding-top:86px;line-height:1.7}
+.header{position:fixed;top:0;left:0;right:0;width:100%;box-shadow:0 5px 24px rgba(20,38,63,.055)}
+.header-in{height:86px;gap:24px}
+.brand{font-size:21px;flex-shrink:0}
+.brand small{font-size:10px;letter-spacing:.14em}
+.nav{margin-left:auto;gap:22px}
+.nav a{font-size:16px}
+.nav .nav-cta{padding:14px 19px}
+.social-head{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.social-head a{width:40px;height:40px;display:grid;place-items:center;border-radius:12px;box-shadow:0 4px 12px rgba(25,42,63,.13);transition:transform .2s,box-shadow .2s}
+.social-head a:hover{transform:translateY(-3px);box-shadow:0 8px 18px rgba(25,42,63,.16)}
+.social-head svg{width:21px;height:21px;fill:#fff}
+.social-head .instagram{background:linear-gradient(135deg,#feda75 0%,#fa7e1e 28%,#d62976 58%,#962fbf 78%,#4f5bd5 100%)}
+.social-head .kakao{background:#fee500}
+.social-head .kakao svg{fill:#191919}
+.social-head .naver{background:#03c75a}
+.hero{padding:124px 0 104px}
+.hero-copy{font-size:20px;line-height:2.15}
+.eyebrow{font-size:13px;letter-spacing:.13em}
+h1{margin:30px 0 28px;line-height:1.2}
+.hero-panel{padding:38px;min-height:440px}
+.panel-label{font-size:12px}
+.hero-panel h2{font-size:25px;margin:27px 0 10px}
+.panel-sub{font-size:15px}
+.workflow{gap:13px;margin-top:28px}
+.workflow-item{padding:18px}
+.workflow-item strong{font-size:18px}
+.workflow-item small{font-size:14px;line-height:1.75}
+.panel-foot{font-size:11px}
+.proof{margin-top:86px;padding-top:35px}
+.proof small{font-size:14px;margin-bottom:12px}
+.proof strong{font-size:18px}
+.section{padding:132px 0}
+.section-head{gap:68px;margin-bottom:70px}
+.kicker{font-size:13px;letter-spacing:.14em}
+.section h2{line-height:1.25}
+.intro{font-size:19px;line-height:2.15;margin-top:27px}
+.services{gap:24px}
+.service{min-height:285px;padding:36px}
+.service-no{font-size:12px}
+.service h3{font-size:24px;margin:38px 0 18px;line-height:1.4}
+.service p{font-size:17px;line-height:2.05}
+.service-tag{font-size:12px;margin-top:27px}
+.statement{padding:78px 0}
+.statement p{line-height:1.5}
+.statement small{font-size:15px;line-height:2.05}
+.process{gap:66px}
+.process-row{grid-template-columns:100px 1fr;padding:30px 0;gap:18px}
+.process-row b{font-size:12px}
+.process-row strong{font-size:21px}
+.process-row p{font-size:17px;line-height:2.05}
+.principle{padding:38px}
+.principle h3{font-size:30px;line-height:1.45}
+.principle p{font-size:16px;line-height:2.05}
+.profile{gap:68px}
+.profile-copy{font-size:19px;line-height:2.15}
+.credentials li{font-size:17px;padding:22px 0}
+.lecture{padding:36px}
+.lecture h3{font-size:24px;line-height:1.45}
+.lecture p{font-size:17px;line-height:2.05}
+.lecture li{font-size:16px;padding:19px 0}
+.lecture-card{width:300px;min-height:230px;padding:26px}
+.lecture-card-top{font-size:12px}
+.lecture-card h3{font-size:22px;line-height:1.5}
+.lecture-card p{font-size:14px;line-height:1.9}
+.lecture-card-bottom{font-size:10px}
+.lecture-caption{font-size:13px;margin-top:12px}
+.faq summary{font-size:20px;padding:30px 50px 30px 0;line-height:1.55}
+.faq summary:after{top:24px}
+.faq details p{font-size:17px;line-height:2.1;padding-bottom:32px}
+.contact{padding:90px 0}
+.contact p{font-size:16px;line-height:2}
+.footer{font-size:14px;padding:36px 0}
+.footer strong{font-size:14px}
+@media(max-width:1100px){
+  .header-in{gap:16px}
+  .nav{gap:14px}
+  .nav a{font-size:14px}
+  .social-head{gap:7px}
+  .social-head a{width:36px;height:36px}
+}
+@media(max-width:900px){
+  body{padding-top:76px}
+  .header-in{height:76px}
+  .nav a:not(.nav-cta){display:none}
+  .nav{gap:8px}
+  .social-head{gap:8px}
+  .section{padding:100px 0}
+  .section-head{gap:22px;margin-bottom:48px}
+  .intro{font-size:18px}
+}
+@media(max-width:600px){
+  body{padding-top:68px}
+  html{scroll-padding-top:82px}
+  .wrap{width:calc(100% - 32px)}
+  .header-in{height:68px;gap:8px}
+  .brand{font-size:17px;gap:8px}
+  .brand-mark{width:31px;height:31px;border-radius:9px}
+  .brand small{display:none}
+  .nav{margin-left:auto}
+  .nav .nav-cta{padding:10px 10px;font-size:12px;white-space:nowrap}
+  .social-head{gap:5px}
+  .social-head a{width:31px;height:31px;border-radius:9px}
+  .social-head svg{width:17px;height:17px}
+  .hero{padding:72px 0 58px}
+  h1{margin:24px 0 23px;line-height:1.23}
+  .hero-copy{font-size:16px;line-height:2.05}
+  .hero-panel{padding:23px;min-height:0}
+  .panel-label{font-size:10px}
+  .hero-panel h2{font-size:21px}
+  .panel-sub{font-size:14px}
+  .workflow-item{padding:15px}
+  .workflow-item strong{font-size:16px}
+  .workflow-item small{font-size:13px}
+  .proof{gap:12px;margin-top:54px;padding-top:25px}
+  .proof small{font-size:11px}
+  .proof strong{font-size:12px;line-height:1.65}
+  .section{padding:82px 0}
+  .section-head{margin-bottom:38px}
+  .kicker,.eyebrow{font-size:12px}
+  .section h2{font-size:34px;line-height:1.35}
+  .intro{font-size:16px;line-height:2.05;margin-top:20px}
+  .services{gap:15px}
+  .service{min-height:0;padding:25px}
+  .service-no{font-size:11px}
+  .service h3{font-size:21px;margin:25px 0 13px}
+  .service p{font-size:16px;line-height:2}
+  .service-tag{font-size:11px;margin-top:19px}
+  .statement{padding:58px 0}
+  .statement p{font-size:29px}
+  .statement small{font-size:14px;line-height:2}
+  .process{gap:30px}
+  .process-row{grid-template-columns:72px 1fr;padding:23px 0;gap:12px}
+  .process-row b{font-size:10px}
+  .process-row strong{font-size:18px}
+  .process-row p{font-size:15px;line-height:2}
+  .principle{padding:25px}
+  .principle h3{font-size:25px}
+  .principle p{font-size:15px;line-height:2}
+  .profile{gap:30px}
+  .profile-copy{font-size:16px;line-height:2.1}
+  .credentials li{font-size:15px;padding:17px 0}
+  .lecture{padding:25px}
+  .lecture h3{font-size:21px}
+  .lecture p{font-size:15px;line-height:2}
+  .lecture li{font-size:15px;padding:16px 0}
+  .lecture-card{width:250px;min-height:205px;padding:21px}
+  .lecture-card h3{font-size:19px}
+  .lecture-card p{font-size:13px;line-height:1.85}
+  .lecture-card-bottom{font-size:9px}
+  .lecture-caption{font-size:12px}
+  .faq summary{font-size:17px;padding:23px 35px 23px 0}
+  .faq summary:after{top:18px}
+  .faq details p{font-size:15px;line-height:2;padding:0 20px 24px 0}
+  .contact{padding:65px 0}
+  .contact h2{font-size:38px;line-height:1.3}
+  .contact p{font-size:14px}
+  .contact-actions{width:100%}
+  .contact-actions .btn{flex:1;min-height:52px;font-size:12px;padding:0 10px}
+  .footer{font-size:12px;padding:27px 0}
+  .footer strong{font-size:12px}
+}
+@media(max-width:380px){
+  .brand{font-size:15px}
+  .brand-mark{width:28px;height:28px}
+  .nav .nav-cta{font-size:11px;padding:9px 8px}
+  .social-head a{width:28px;height:28px}
+  .social-head svg{width:16px;height:16px}
+}
+@media(prefers-reduced-motion:reduce){
+  .social-head a,.service,.btn{transition:none!important}
+}
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"덴탈솔브","description":"치과 전자차트 컨설팅, 직원교육, 업무 표준화 및 AI 기반 업무 개선","url":"https://maurice2895.github.io/","sameAs":["https://blog.naver.com/maurice2895","https://www.instagram.com/maurice_02875"]}</script>
 <script src="/security.js?v=2" defer></script>
 </head>
@@ -130,6 +307,11 @@ h1 em{font-style:normal;color:var(--blue)}
 <header class="header"><div class="wrap header-in">
 <a class="brand" href="#top" aria-label="덴탈솔브 홈"><span class="brand-mark">D</span><span>덴탈솔브<small>DENTAL SYSTEM SOLUTION</small></span></a>
 <nav class="nav" aria-label="주요 메뉴"><a href="#services">서비스</a><a href="#process">진행 방식</a><a href="#about">전문가 소개</a><a href="#lectures">강의 활동</a><a class="nav-cta" href="#contact">상담 문의 ↗</a></nav>
+<div class="social-head" aria-label="공식 채널">
+<a class="instagram" href="https://www.instagram.com/maurice_02875" target="_blank" rel="noopener noreferrer" aria-label="인스타그램"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 3.1a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2.2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.1-3.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg></a>
+<a class="kakao" href="https://open.kakao.com/o/sYHWsSLi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.55 2 10.93c0 2.8 1.88 5.25 4.72 6.63l-.96 3.53a.4.4 0 0 0 .6.44l4.18-2.77c.48.06.96.1 1.46.1 5.52 0 10-3.55 10-7.93S17.52 3 12 3z"/></svg></a>
+<a class="naver" href="https://blog.naver.com/maurice2895" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h6.2l3.7 6.1V3H20v18h-6.1l-3.8-6.2V21H4V3z"/></svg></a>
+</div>
 </div></header>
 <main>
 <section class="hero" id="top"><div class="wrap">
@@ -220,10 +402,6 @@ h1 em{font-style:normal;color:var(--blue)}
 </div></div></section>
 <section class="contact" id="contact"><div class="wrap contact-in"><div><div class="eyebrow">LET'S BUILD A BETTER DENTAL SYSTEM</div><h2>우리 치과에 맞는<br>변화를 시작하세요.</h2><p>전자차트 컨설팅 · 직원교육 · 업무 표준화 · AI 업무혁신</p></div><div class="contact-actions"><a class="btn btn-primary" href="https://open.kakao.com/o/sYHWsSLi" target="_blank" rel="noopener noreferrer">카카오톡 상담 신청 ↗</a><a class="btn btn-secondary" href="https://blog.naver.com/maurice2895" target="_blank" rel="noopener noreferrer">블로그 보기 ↗</a></div></div></section>
 </main>
-<div class="social" aria-label="공식 채널">
-<a href="https://www.instagram.com/maurice_02875" target="_blank" rel="noopener noreferrer" aria-label="인스타그램"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 3.1a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2.2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.1-3.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg></a>
-<a href="https://open.kakao.com/o/sYHWsSLi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.55 2 10.93c0 2.8 1.88 5.25 4.72 6.63l-.96 3.53a.4.4 0 0 0 .6.44l4.18-2.77c.48.06.96.1 1.46.1 5.52 0 10-3.55 10-7.93S17.52 3 12 3z"/></svg></a>
-<a href="https://blog.naver.com/maurice2895" target="_blank" rel="noopener noreferrer" aria-label="네이버 블로그"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 3h6.2l3.7 6.1V3H20v18h-6.1l-3.8-6.2V21H4V3z"/></svg></a>
-</div>
+
 <footer class="footer"><div class="wrap footer-in"><strong>덴탈솔브 · DENTAL SYSTEM SOLUTION</strong><span>© 2026 DENTALSOLVE. All rights reserved.</span></div></footer>
 </body></html>
