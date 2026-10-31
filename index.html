@@ -30,10 +30,19 @@ a{color:#111111}a:hover{color:#0F5C57}
 .site-header{-webkit-backdrop-filter:saturate(180%) blur(12px);backdrop-filter:saturate(180%) blur(12px)}
 section[id]{scroll-margin-top:72px}
 .hdr-btn:hover{border-color:#111111}
-@media (max-width:860px){.hdr-nav,.hdr-sub{display:none !important}}
-@media (max-width:430px){.hdr-btn{padding:0 11px !important}.hdr-btn svg{display:none !important}}
+a:focus-visible,summary:focus-visible{outline:3px solid #0F5C57;outline-offset:4px}
+.faq-item{border-bottom:1px solid #DCDCD8}
+.faq-item summary{cursor:pointer;list-style:none;padding:22px 38px 22px 0;position:relative;font-size:18px;font-weight:600;letter-spacing:-0.01em}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";position:absolute;right:4px;top:17px;font-size:24px;font-weight:400;color:#0F5C57}
+.faq-item[open] summary::after{content:"−"}
+.faq-item p{margin:0;padding:0 38px 22px 0;font-size:16px;line-height:1.8;color:#3F3F46}
+@media (max-width:1024px){.hdr-nav,.hdr-sub{display:none !important}}
+@media (max-width:640px){.site-header .hdr-btn:not(:last-child){display:none !important}.hdr-btn{padding:0 12px !important}.hdr-btn svg{display:none !important}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 </style>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "조재연", "jobTitle": "치과 전자차트 컨설턴트", "url": "https://maurice2895.github.io/", "sameAs": ["https://blog.naver.com/maurice2895", "https://www.instagram.com/maurice_02875"]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"전자차트를 이미 사용 중인 치과도 컨설팅할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"가능합니다. 전자차트를 보험청구용으로만 사용하거나, 처치버튼과 차팅 흐름이 정리되지 않은 치과도 실제 치료술식과 업무 흐름에 맞춰 점검할 수 있습니다."}},{"@type":"Question","name":"보험청구 금액을 높이기 위한 차팅 교육인가요?","acceptedAnswer":{"@type":"Answer","text":"아닙니다. 필요한 진료를 하면서 누락 없이 기록하는 것이 원칙입니다. 보험청구를 높이기 위한 술식이나 차팅은 진행하지 않습니다."}},{"@type":"Question","name":"교육은 어떤 순서로 진행되나요?","acceptedAnswer":{"@type":"Answer","text":"방문 교육, 원내 교육, 1주일 후 온라인 확인 순서로 진행합니다. 이후 구글시트로 수정사항을 공유합니다."}},{"@type":"Question","name":"어떤 업무를 함께 정리할 수 있나요?","acceptedAnswer":{"@type":"Answer","text":"치과별 전자차트 처치버튼 세팅, 내부 업무 프로세스와 표준 매뉴얼 구축, AI를 활용한 업무 자동화와 데이터 연동형 워크스페이스를 다룹니다."}}]}</script>
 </head>
 <body>
 <div style="font-family: 'Pretendard Variable', 'Pretendard', -apple-system, 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif; color: #111111; background: #FFFFFF; line-height: 1.6; word-break: keep-all; -webkit-font-smoothing: antialiased; font-feature-settings: 'tnum'">
@@ -228,9 +237,40 @@ section[id]{scroll-margin-top:72px}
 </div>
 </section>
 
+
+<section id="faq" style="border-top: 1px solid #E7E7E4">
+<div style="max-width: 1200px; margin: 0 auto; padding: clamp(80px, 9vw, 128px) clamp(20px, 4vw, 40px); display: flex; flex-wrap: wrap; gap: 40px 48px">
+<div style="flex: 1 1 220px; min-width: 0; display: flex; gap: 16px; font-size: 15px; font-weight: 600">
+<span style="color: #0F5C57">06</span><span>자주 묻는 질문</span>
+</div>
+<div style="flex: 999 1 640px; min-width: 0; display: flex; flex-direction: column; gap: 32px">
+<h2 style="margin: 0; font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.25; font-weight: 700; letter-spacing: -0.035em">상담 전에 확인하세요</h2>
+<div style="border-top: 1px solid #111111">
+<details class="faq-item">
+<summary>전자차트를 이미 사용 중인 치과도 컨설팅할 수 있나요?</summary>
+<p>가능합니다. 전자차트를 보험청구용으로만 사용하거나, 처치버튼과 차팅 흐름이 정리되지 않은 치과도 실제 치료술식과 업무 흐름에 맞춰 점검할 수 있습니다.</p>
+</details>
+<details class="faq-item">
+<summary>보험청구 금액을 높이기 위한 차팅 교육인가요?</summary>
+<p>아닙니다. 필요한 진료를 하면서 누락 없이 기록하는 것이 원칙입니다. 보험청구를 높이기 위한 술식이나 차팅은 진행하지 않습니다.</p>
+</details>
+<details class="faq-item">
+<summary>교육은 어떤 순서로 진행되나요?</summary>
+<p>방문 교육, 원내 교육, 1주일 후 온라인 확인 순서로 진행합니다. 이후 구글시트로 수정사항을 공유합니다.</p>
+</details>
+<details class="faq-item">
+<summary>어떤 업무를 함께 정리할 수 있나요?</summary>
+<p>치과별 전자차트 처치버튼 세팅, 내부 업무 프로세스와 표준 매뉴얼 구축, AI를 활용한 업무 자동화와 데이터 연동형 워크스페이스를 다룹니다.</p>
+</details>
+</div>
+<a href="#contact" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 50px; padding: 0 24px; border-radius: 999px; background: #111111; color: #FFFFFF; text-decoration: none; font-size: 16px; font-weight: 600">우리 치과 상담하기</a>
+</div>
+</div>
+</section>
+
 <section id="contact" style="border-top: 1px solid #E7E7E4; background: #F5F5F3">
 <div style="max-width: 1200px; margin: 0 auto; padding: clamp(88px, 10vw, 144px) clamp(20px, 4vw, 40px); display: flex; flex-direction: column; gap: 40px">
-<div style="display: flex; gap: 16px; font-size: 15px; font-weight: 600"><span style="color: #0F5C57">06</span><span>문의</span></div>
+<div style="display: flex; gap: 16px; font-size: 15px; font-weight: 600"><span style="color: #0F5C57">07</span><span>문의</span></div>
 <h2 style="margin: 0; font-size: clamp(2.4rem, 6vw, 5rem); line-height: 1.15; font-weight: 700; letter-spacing: -0.045em">컨설팅 · 강의 문의</h2>
 <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 48px; border-top: 1px solid #111111; padding-top: 32px">
 <p style="flex: 999 1 420px; min-width: 0; margin: 0; font-size: 19px; line-height: 1.75; color: #3F3F46">치과 이름과 문의 내용을 남겨주세요.</p>
