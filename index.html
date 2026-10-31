@@ -300,13 +300,77 @@ h1{margin:30px 0 28px;line-height:1.2}
   .social-head a,.service,.btn{transition:none!important}
 }
 </style>
+
+<style id="dentalsolve-added-content">
+.clinic-fit{background:linear-gradient(180deg,#f8fafc 0%,#fff 100%)}
+.clinic-signals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.clinic-signals article{padding:25px 24px;border:1px solid #e3eaf1;border-radius:11px;background:#fff;min-height:160px}
+.clinic-signals article>span{display:block;margin-bottom:19px;color:var(--blue);font-size:12px;font-weight:900;letter-spacing:.12em}
+.clinic-signals article strong{display:block;color:var(--navy);font-size:18px;line-height:1.55;letter-spacing:-.035em}
+.clinic-signals article p{margin:10px 0 0;color:#657386;font-size:15px;line-height:1.85}
+.deliverables{margin-top:76px;padding:42px;border-radius:16px;background:#14263f;color:#fff}
+.deliverables-head{display:flex;align-items:flex-end;justify-content:space-between;gap:32px;margin-bottom:30px}
+.mini-kicker{color:#8bc5f4;font-size:11px;font-weight:900;letter-spacing:.15em}
+.deliverables-head h3,.chart-flow-title h3{margin:14px 0 0;font-size:29px;line-height:1.45;letter-spacing:-.055em}
+.deliverables-head>p{max-width:340px;margin:0;color:#c4d0de;font-size:15px;line-height:1.9}
+.deliverable-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:13px}
+.deliverable-grid article{padding:22px 19px;border:1px solid rgba(255,255,255,.16);border-radius:10px;background:rgba(255,255,255,.06)}
+.deliverable-grid b{display:block;color:#8bc5f4;font-size:11px;letter-spacing:.1em}
+.deliverable-grid strong{display:block;margin-top:17px;color:#fff;font-size:17px;line-height:1.5}
+.deliverable-grid p{margin:11px 0 0;color:#c4d0de;font-size:13px;line-height:1.9}
+.chart-flow{margin-top:72px;padding:36px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.chart-flow-title h3{color:var(--navy);font-size:27px}
+.chart-flow-steps{display:grid;grid-template-columns:1fr 30px 1fr 30px 1fr 30px 1fr;gap:10px;align-items:center;margin-top:28px}
+.chart-flow-steps>div{min-height:105px;padding:17px 14px;border:1px solid #e1e9f1;border-radius:10px;background:#fff}
+.chart-flow-steps b{display:block;color:var(--blue);font-size:11px}
+.chart-flow-steps strong{display:block;margin-top:10px;color:var(--navy);font-size:16px;line-height:1.45}
+.chart-flow-steps small{display:block;margin-top:5px;color:#8795a5;font-size:11px;font-weight:800;letter-spacing:.07em}
+.chart-flow-steps>i{color:#8ba4bc;text-align:center;font-size:20px;font-style:normal}
+.clinic-fit-cta{display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:35px;padding:27px 30px;border:1px solid #dce7f0;border-radius:12px;background:#f4f8fc}
+.clinic-fit-cta p{margin:0}
+.clinic-fit-cta strong{display:block;color:var(--navy);font-size:19px}
+.clinic-fit-cta span{display:block;margin-top:7px;color:#68788a;font-size:14px;line-height:1.8}
+@media(max-width:900px){
+ .clinic-signals{grid-template-columns:repeat(2,1fr)}
+ .deliverable-grid{grid-template-columns:repeat(2,1fr)}
+ .deliverables-head{align-items:flex-start;flex-direction:column}
+ .chart-flow-steps{grid-template-columns:1fr 22px 1fr;row-gap:12px}
+ .chart-flow-steps>i:nth-of-type(2){display:none}
+ .chart-flow-steps>div:nth-of-type(3){grid-column:1}
+ .chart-flow-steps>i:nth-of-type(3){grid-column:2;grid-row:2}
+ .chart-flow-steps>div:nth-of-type(4){grid-column:3;grid-row:2}
+}
+@media(max-width:600px){
+ .clinic-signals{grid-template-columns:1fr;gap:11px}
+ .clinic-signals article{min-height:0;padding:21px}
+ .clinic-signals article>span{margin-bottom:12px}
+ .clinic-signals article strong{font-size:17px}
+ .clinic-signals article p{font-size:14px}
+ .deliverables{margin-top:45px;padding:25px 20px}
+ .deliverables-head h3{font-size:24px}
+ .deliverables-head>p{font-size:14px}
+ .deliverable-grid{grid-template-columns:1fr}
+ .deliverable-grid article{padding:19px}
+ .deliverable-grid strong{margin-top:12px}
+ .chart-flow{margin-top:46px;padding:28px 0}
+ .chart-flow-title h3{font-size:23px}
+ .chart-flow-steps{grid-template-columns:1fr 18px 1fr;gap:8px;margin-top:20px}
+ .chart-flow-steps>div{min-height:100px;padding:14px 11px}
+ .chart-flow-steps strong{font-size:14px}
+ .chart-flow-steps>i{font-size:16px}
+ .clinic-fit-cta{align-items:stretch;flex-direction:column;padding:22px}
+ .clinic-fit-cta strong{font-size:17px}
+ .clinic-fit-cta span{font-size:13px}
+ .clinic-fit-cta .btn{width:100%;font-size:13px}
+}
+</style>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"덴탈솔브","description":"치과 전자차트 컨설팅, 직원교육, 업무 표준화 및 AI 기반 업무 개선","url":"https://maurice2895.github.io/","sameAs":["https://blog.naver.com/maurice2895","https://www.instagram.com/maurice_02875"]}</script>
 <script src="/security.js?v=3" defer></script>
 </head>
 <body>
 <header class="header"><div class="wrap header-in">
 <a class="brand" href="#top" aria-label="덴탈솔브 홈"><span class="brand-mark">D</span><span>덴탈솔브<small>DENTAL SYSTEM SOLUTION</small></span></a>
-<nav class="nav" aria-label="주요 메뉴"><a href="#services">서비스</a><a href="#process">진행 방식</a><a href="#about">전문가 소개</a><a href="#lectures">강의 활동</a><a class="nav-cta" href="#contact">상담 문의 ↗</a></nav>
+<nav class="nav" aria-label="주요 메뉴"><a href="#services">서비스</a><a href="#clinic-fit">치과 점검</a><a href="#process">진행 방식</a><a href="#about">전문가 소개</a><a href="#lectures">강의 활동</a><a class="nav-cta" href="#contact">상담 문의 ↗</a></nav>
 <div class="social-head" aria-label="공식 채널">
 <a class="instagram" href="https://www.instagram.com/maurice_02875" target="_blank" rel="noopener noreferrer" aria-label="인스타그램"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7zm5 3.1a4.7 4.7 0 1 1 0 9.4 4.7 4.7 0 0 1 0-9.4zm0 2.2a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zm5.1-3.8a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2z"/></svg></a>
 <a class="kakao" href="https://open.kakao.com/o/sYHWsSLi" target="_blank" rel="noopener noreferrer" aria-label="카카오톡"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C6.48 3 2 6.55 2 10.93c0 2.8 1.88 5.25 4.72 6.63l-.96 3.53a.4.4 0 0 0 .6.44l4.18-2.77c.48.06.96.1 1.46.1 5.52 0 10-3.55 10-7.93S17.52 3 12 3z"/></svg></a>
@@ -343,6 +407,56 @@ h1{margin:30px 0 28px;line-height:1.2}
 <article class="service"><span class="service-no">SERVICE 05</span><h3>전자차트 데이터 활용</h3><p>차트 입력 기준과 통계 흐름을 함께 점검해 치과 운영에 활용할 데이터 기반을 만듭니다.</p><span class="service-tag">DATA · CLINIC INSIGHT</span></article>
 <article class="service"><span class="service-no">SERVICE 06</span><h3>디지털 업무시스템 구축</h3><p>업무일지, 체크리스트, 교육자료, 자료실 등 치과에 필요한 디지털 업무 환경을 구축합니다.</p><span class="service-tag">DIGITAL WORKSPACE</span></article>
 </div></div></section>
+<section class="section clinic-fit" id="clinic-fit">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="kicker">02 / CLINIC CHECK</div>
+      <div>
+        <h2>이런 문제가 반복된다면<br>업무 시스템을 점검할 때입니다.</h2>
+        <p class="intro">사람이 바뀌어도 업무가 흔들리지 않도록, 직원 개인의 경험에 의존하는 일을 치과의 공통 기준으로 정리합니다.</p>
+      </div>
+    </div>
+    <div class="clinic-signals">
+      <article><span>01</span><strong>직원마다 차팅 방식이 다릅니다.</strong><p>같은 진료인데 기록 내용과 입력 순서가 달라집니다.</p></article>
+      <article><span>02</span><strong>필요한 처치버튼을 찾기 어렵습니다.</strong><p>버튼이 많고 기준이 불분명해 입력 시간이 길어집니다.</p></article>
+      <article><span>03</span><strong>보험청구에 필요한 기록이 빠집니다.</strong><p>진료 기록과 청구 기준을 함께 확인하기 어렵습니다.</p></article>
+      <article><span>04</span><strong>신규 직원 교육이 매번 달라집니다.</strong><p>누가 가르치는지에 따라 안내 내용과 업무 방식이 달라집니다.</p></article>
+      <article><span>05</span><strong>업무 자료가 여러 곳에 흩어져 있습니다.</strong><p>업무일지, 재료대장, 회의록과 교육자료를 찾는 데 시간이 듭니다.</p></article>
+      <article><span>06</span><strong>반복 문서 작성과 확인 업무가 많습니다.</strong><p>회의 정리, 안내문, 보고서 작성에 같은 작업을 반복합니다.</p></article>
+    </div>
+    <div class="deliverables">
+      <div class="deliverables-head">
+        <div>
+          <span class="mini-kicker">PRACTICAL OUTPUTS</span>
+          <h3>말로만 설명하지 않고,<br>실제 업무에 사용할 자료로 정리합니다.</h3>
+        </div>
+        <p>치과의 규모와 현재 업무 환경을 확인한 뒤 필요한 항목부터 맞춤 구성합니다.</p>
+      </div>
+      <div class="deliverable-grid">
+        <article><b>결과물 01</b><strong>전자차트 설정 기준표</strong><p>처치버튼 분류, 차팅 문구, 입력 기준과 확인 항목</p></article>
+        <article><b>결과물 02</b><strong>직원 업무 매뉴얼</strong><p>업무 순서, 담당 기준, 신규 직원 교육 체크리스트</p></article>
+        <article><b>결과물 03</b><strong>공유 업무 자료</strong><p>업무일지, 재료 관리대장, 회의록과 점검표</p></article>
+        <article><b>결과물 04</b><strong>AI 활용 업무 양식</strong><p>문서 초안, 교육자료, 반복 업무를 줄이는 작성 흐름</p></article>
+      </div>
+    </div>
+    <div class="chart-flow">
+      <div class="chart-flow-title"><span class="mini-kicker">DENTAL CHART WORKFLOW</span><h3>전자차트 기록은 다음 진료까지 이어져야 합니다.</h3></div>
+      <div class="chart-flow-steps">
+        <div><b>01</b><strong>환자 정보 확인</strong><small>P.I</small></div>
+        <i>→</i>
+        <div><b>02</b><strong>치료 계획 등록</strong><small>TX.PLAN</small></div>
+        <i>→</i>
+        <div><b>03</b><strong>진료·처치 기록</strong><small>TX</small></div>
+        <i>→</i>
+        <div><b>04</b><strong>다음 진료 연결</strong><small>NEXT.TX</small></div>
+      </div>
+    </div>
+    <div class="clinic-fit-cta">
+      <p><strong>우리 치과는 무엇부터 바꾸면 좋을까요?</strong><span>현재 가장 불편한 업무 한 가지부터 상담을 시작할 수 있습니다.</span></p>
+      <a class="btn btn-primary" href="https://open.kakao.com/o/sYHWsSLi" target="_blank" rel="noopener noreferrer">카카오톡으로 상담하기 ↗</a>
+    </div>
+  </div>
+</section>
 <section class="statement"><div class="wrap statement-in"><p>좋은 시스템은<br><span>직원이 쉽게 사용하고,</span><br>치과의 성장을 돕습니다.</p><small>복잡한 도구를 더하는 것이 아니라 실제 업무에 필요한 기준을 정리합니다. 직원이 이해하고 꾸준히 사용할 수 있는 구조를 만드는 것이 덴탈솔브의 목표입니다.</small></div></section>
 <section class="section" id="process"><div class="wrap">
 <div class="section-head"><div class="kicker">02 / PROCESS</div><div><h2>진단부터 적용까지<br>단계별로 진행합니다.</h2><p class="intro">현재 업무를 파악하고 개선 우선순위를 정한 뒤, 직원이 실제로 사용할 수 있도록 세팅과 교육을 진행합니다.</p></div></div>
@@ -355,7 +469,7 @@ h1{margin:30px 0 28px;line-height:1.2}
 </div></section>
 <section class="section" id="about"><div class="wrap">
 <div class="section-head"><div class="kicker">03 / ABOUT</div><div><h2>치과 현장을 이해하는<br>실무형 컨설턴트.</h2><p class="intro">치과 운영 경험을 바탕으로 현장에서 필요한 교육과 시스템을 설계합니다.</p></div></div>
-<div class="profile"><div><p class="profile-copy">덴탈솔브는 치과 총괄 운영 경험을 바탕으로 전자차트 활용, 직원교육, 업무 표준화, AI 기반 업무 개선을 연결하는 치과 전문 컨설팅 브랜드입니다. 현장에서 반복되는 불편을 찾아내고 직원이 이해하고 실행할 수 있는 방식으로 시스템을 설계합니다.</p><ul class="credentials"><li>치과 총괄부장 실무 경험</li><li>치과 전자차트 교육 및 컨설팅</li><li>치과 업무 프로세스 · 내부교육 설계</li><li>생성형 AI · 구글 기반 업무혁신</li></ul></div>
+<div class="profile"><div><p class="profile-copy">덴탈솔브는 치과 총괄 운영 경험을 바탕으로 전자차트 활용, 직원교육, 업무 표준화, AI 기반 업무 개선을 연결하는 치과 전문 컨설팅 브랜드입니다. 현장에서 반복되는 불편을 찾아내고 직원이 이해하고 실행할 수 있는 방식으로 시스템을 설계합니다.</p><ul class="credentials"><li>치과 총괄부장 실무 경험</li><li>한국의료경영교육협회 강사</li><li>오스템임플란트 원클릭 전자차트 공인강사</li><li>치과 전자차트 교육 및 컨설팅</li><li>치과 업무 프로세스 · 내부교육 설계</li><li>생성형 AI · 구글 기반 업무혁신</li></ul></div>
 <div class="lecture"><div class="eyebrow">LECTURE & CONSULTING</div><h3>치과에서 바로 쓰는 실무 중심 교육</h3><p>이론을 길게 설명하기보다 실제 업무 사례와 따라 하기 쉬운 방법으로 교육합니다.</p><ul><li>전자차트 처치버튼 설정과 차팅 기준</li><li>보험청구에 도움이 되는 차트 입력 관리</li><li>신규 직원 교육과 업무 표준화</li><li>AI를 활용한 문서 · 교육자료 제작</li><li>치과 운영 데이터와 디지털 업무시스템</li></ul></div></div>
 </div></section>
 <section class="section" id="lectures">
