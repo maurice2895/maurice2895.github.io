@@ -638,7 +638,7 @@ html{scroll-padding-top:164px}
 }
 @media(max-width:600px){
   body{padding-top:125px}
-  html{scroll-padding-top:143px}
+  html{scroll-padding-top:150px}
   .header-in{width:calc(100% - 24px);padding:8px 0 9px}
   .header-top{min-height:37px;gap:8px}
   .brand{font-size:17px;gap:8px}
@@ -664,6 +664,45 @@ html{scroll-padding-top:164px}
   .nav .nav-item,.nav .nav-cta,.nav-icon{transition:none}
 }
 </style>
+
+
+<style id="dentalsolve-nav-mobile-fix">
+@media(max-width:900px){
+  .header .nav a.nav-item{display:flex!important;visibility:visible!important}
+}
+.nav .nav-item[aria-current="location"]{
+  border-color:#9fc2e1;
+  background:linear-gradient(180deg,#f7fbff,#edf6fd);
+  box-shadow:0 7px 18px rgba(40,120,199,.09);
+}
+.nav .nav-item[aria-current="location"] .nav-icon{
+  background:#dceeff;
+  color:#246eae;
+}
+@media(max-width:600px){
+  .header .nav{display:flex!important}
+  .header .nav a.nav-item{display:flex!important}
+}
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const links = [...document.querySelectorAll(".header .nav-item")];
+  const targets = links
+    .map(link => ({link, section: document.querySelector(link.getAttribute("href"))}))
+    .filter(item => item.section);
+  if (!("IntersectionObserver" in window)) return;
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      targets.forEach(({link, section}) => {
+        if (section === entry.target) link.setAttribute("aria-current", "location");
+        else link.removeAttribute("aria-current");
+      });
+    });
+  }, {rootMargin:"-24% 0px -62% 0px", threshold:0});
+  targets.forEach(({section}) => observer.observe(section));
+});
+</script>
 
 </head>
 <body>
@@ -854,7 +893,7 @@ html{scroll-padding-top:164px}
       </article>
       <article class="lecture-visual-card">
         <div class="lecture-visual-image"><img src="/images/lecture-oneclick.webp" alt="원클릭 전자차트 강의 표지" loading="lazy" decoding="async"><span class="lecture-visual-number">LECTURE 02</span></div>
-        <div class="lecture-visual-body"><span class="lecture-visual-tag">ONECLICK · CERTIFIED INSTRUCTOR</span><h3>오스템임플란트 원클릭 전자차트 강의</h3><p>원클릭 전자차트의 기능을 이해하고 실제 진료 흐름에 맞게 활용하는 방법을 교육합니다.</p><a class="lecture-visual-link" href="#contact">교육 문의하기 <span>↗</span></a></div>
+        <div class="lecture-visual-body"><span class="lecture-visual-tag">ONECLICK · CERTIFIED INSTRUCTOR</span><h3>오스템임플란트 원클릭 전자차트 공인강사 강의</h3><p>원클릭 전자차트의 기능을 이해하고 실제 진료 흐름에 맞게 활용하는 방법을 교육합니다.</p><a class="lecture-visual-link" href="#contact">교육 문의하기 <span>↗</span></a></div>
       </article>
       <article class="lecture-visual-card">
         <div class="lecture-visual-image"><img src="/images/lecture-gemini.webp" alt="구글 제미나이 치과 업무 자동화 강의 표지" loading="lazy" decoding="async"><span class="lecture-visual-number">LECTURE 03</span></div>
@@ -866,7 +905,7 @@ html{scroll-padding-top:164px}
       </article>
       <article class="lecture-visual-card" aria-hidden="true">
         <div class="lecture-visual-image"><img src="/images/lecture-oneclick.webp" alt="" loading="lazy" decoding="async"><span class="lecture-visual-number">LECTURE 02</span></div>
-        <div class="lecture-visual-body"><span class="lecture-visual-tag">ONECLICK · CERTIFIED INSTRUCTOR</span><h3>오스템임플란트 원클릭 전자차트 강의</h3><p>원클릭 전자차트의 기능을 이해하고 실제 진료 흐름에 맞게 활용하는 방법을 교육합니다.</p><span class="lecture-visual-link">교육 분야 살펴보기 <span>↗</span></span></div>
+        <div class="lecture-visual-body"><span class="lecture-visual-tag">ONECLICK · CERTIFIED INSTRUCTOR</span><h3>오스템임플란트 원클릭 전자차트 공인강사 강의</h3><p>원클릭 전자차트의 기능을 이해하고 실제 진료 흐름에 맞게 활용하는 방법을 교육합니다.</p><span class="lecture-visual-link">교육 분야 살펴보기 <span>↗</span></span></div>
       </article>
       <article class="lecture-visual-card" aria-hidden="true">
         <div class="lecture-visual-image"><img src="/images/lecture-gemini.webp" alt="" loading="lazy" decoding="async"><span class="lecture-visual-number">LECTURE 03</span></div>
