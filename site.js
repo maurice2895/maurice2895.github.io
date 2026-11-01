@@ -1,53 +1,62 @@
-/* 덴탈솔브 홈페이지 동작 스크립트
-   - 인라인 스크립트를 이 파일로 옮겨 Content-Security-Policy(script-src 'self')를 적용할 수 있게 했습니다.
-   - 'js' 클래스가 붙은 경우에만 등장 애니메이션용으로 문장을 숨기므로,
-     스크립트가 실행되지 않는 환경(일부 검색 수집기 등)에서도 문장이 그대로 보입니다. */
+/* 조재연 강사 홈페이지 동작 스크립트 (모든 페이지 공용)
+   1) 모바일 메뉴 열기·닫기
+   2) 스크롤 등장 효과(.reveal) — 스크립트가 실행되지 않는 환경에서는 내용이 그대로 보입니다.
+   3) 푸터 연도 자동 표시 */
 (() => {
   "use strict";
-  const root = document.documentElement;
-  root.classList.add("js");
+  document.documentElement.classList.add("js");
 
   const init = () => {
-    /* 1) 브랜드 문장(#brand-statement) 등장 효과 */
-    const statement = document.querySelector("#brand-statement");
-    if (statement) {
+    /* 1) 모바일 메뉴 */
+    const header = document.querySelector(".header");
+    const toggle = document.querySelector(".nav-toggle");
+    const nav = document.getElementById("site-nav");
+    if (header && toggle && nav) {
+      const setOpen = (open) => {
+        header.classList.toggle("is-open", open);
+        toggle.setAttribute("aria-expanded", String(open));
+        toggle.setAttribute("aria-label", open ? "메뉴 닫기" : "메뉴 열기");
+      };
+      toggle.addEventListener("click", () => setOpen(toggle.getAttribute("aria-expanded") !== "true"));
+      nav.addEventListener("click", (event) => {
+        if (event.target instanceof Element && event.target.closest("a")) setOpen(false);
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && header.classList.contains("is-open")) {
+          setOpen(false);
+          toggle.focus();
+        }
+      });
+      document.addEventListener("click", (event) => {
+        if (header.classList.contains("is-open") && event.target instanceof Node && !header.contains(event.target)) setOpen(false);
+      });
+      window.matchMedia("(min-width: 1081px)").addEventListener("change", (mq) => {
+        if (mq.matches) setOpen(false);
+      });
+    }
+
+    /* 2) 등장 효과 */
+    const items = document.querySelectorAll(".reveal");
+    if (items.length) {
       if (!("IntersectionObserver" in window)) {
-        statement.classList.add("is-visible");
+        items.forEach((el) => el.classList.add("is-visible"));
       } else {
         const io = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
-              statement.classList.add("is-visible");
-              io.unobserve(statement);
+              entry.target.classList.add("is-visible");
+              io.unobserve(entry.target);
             }
           });
-        }, { threshold: 0.28 });
-        io.observe(statement);
+        }, { threshold: 0.2 });
+        items.forEach((el) => io.observe(el));
       }
     }
 
-    /* 2) 상단 메뉴: 현재 보고 있는 섹션 표시 (같은 페이지 안의 #링크만) */
-    const links = [...document.querySelectorAll(".header .nav-item")];
-    const targets = links
-      .map((link) => {
-        const href = link.getAttribute("href") || "";
-        if (!href.startsWith("#")) return null;
-        const section = document.querySelector(href);
-        return section ? { link, section } : null;
-      })
-      .filter(Boolean);
-    if (targets.length && "IntersectionObserver" in window) {
-      const navIo = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          targets.forEach(({ link, section }) => {
-            if (section === entry.target) link.setAttribute("aria-current", "location");
-            else link.removeAttribute("aria-current");
-          });
-        });
-      }, { rootMargin: "-24% 0px -62% 0px", threshold: 0 });
-      targets.forEach(({ section }) => navIo.observe(section));
-    }
+    /* 3) 연도 */
+    document.querySelectorAll("[data-year]").forEach((el) => {
+      el.textContent = String(new Date().getFullYear());
+    });
   };
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
