@@ -45,7 +45,7 @@ def fail(message):
     ERRORS.append(message)
     print("ERROR:", message)
 
-html_files = sorted(ROOT.rglob("*.html"))
+html_files = sorted(\n    file for file in ROOT.rglob("*.html")\n    if not file.name.startswith("google")\n)
 if not html_files:
     fail("No HTML files were found.")
 
