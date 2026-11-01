@@ -3,7 +3,6 @@
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, urlparse, unquote
-import re
 import sys
 import xml.etree.ElementTree as ET
 
@@ -45,7 +44,11 @@ def fail(message):
     ERRORS.append(message)
     print("ERROR:", message)
 
-html_files = sorted(\n    file for file in ROOT.rglob("*.html")\n    if not file.name.startswith("google")\n)
+# Google verification files and the noindex 404 page are utility documents.
+html_files = sorted(
+    file for file in ROOT.rglob("*.html")
+    if not file.name.startswith("google")
+)
 if not html_files:
     fail("No HTML files were found.")
 
@@ -59,12 +62,13 @@ for file in html_files:
         fail(f"{rel}: HTML parsing failed: {exc}")
         continue
 
-    if not "".join(parser.title).strip():
-        fail(f"{rel}: missing page title")
-    if not parser.description:
-        fail(f"{rel}: missing meta description")
-    if not parser.canonical:
-        fail(f"{rel}: missing canonical URL")
+    if rel != "404.html":
+        if not "".join(parser.title).strip():
+            fail(f"{rel}: missing page title")
+        if not parser.description:
+            fail(f"{rel}: missing meta description")
+        if not parser.canonical:
+            fail(f"{rel}: missing canonical URL")
 
     page_url = urljoin(BASE, rel)
     for ref in parser.refs:
@@ -75,10 +79,8 @@ for file in html_files:
         if parsed.scheme not in ("http", "https") or parsed.netloc != "maurice2895.github.io":
             continue
         path = unquote(parsed.path).lstrip("/")
-        target = ROOT / path
-        if not path:
-            target = ROOT / "index.html"
-        elif target.is_dir() or parsed.path.endswith("/"):
+        target = ROOT / path if path else ROOT / "index.html"
+        if path and (target.is_dir() or parsed.path.endswith("/")):
             target = target / "index.html"
         if not target.is_file():
             fail(f"{rel}: internal reference not found: {ref}")
@@ -110,7 +112,7 @@ else:
                 continue
             path = unquote(parsed.path).lstrip("/")
             target = ROOT / path if path else ROOT / "index.html"
-            if target.is_dir() or parsed.path.endswith("/"):
+            if path and (target.is_dir() or parsed.path.endswith("/")):
                 target = target / "index.html"
             if not target.is_file():
                 fail(f"sitemap URL does not map to a file: {url}")
