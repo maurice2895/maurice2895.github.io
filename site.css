@@ -366,3 +366,6 @@ html.protect img{-webkit-user-drag:none}
   html.protect body::before{content:"이 페이지는 인쇄가 제한되어 있습니다. © 조재연 강사 · maurice2895.github.io";display:block;padding:40px;font-size:16px;color:#000}
 }
 .page-hero .actions{margin-top:32px}
+.center-note{text-align:center}
+.brand-mark svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:3.6;stroke-linejoin:round}
+@media (max-width:720px){.brand-mark svg{width:21px;height:21px}}
