@@ -1,0 +1,32 @@
+name: Website checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  site-check:
+    name: HTML, links, sitemap and JavaScript checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Validate HTML pages and internal links
+        run: python scripts/site_check.py
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check site.js
+          node --check security.js
