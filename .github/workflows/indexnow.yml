@@ -26,12 +26,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.x"
-
+      # 표준 라이브러리만 쓰므로 실행 환경에 기본 설치된 python3를 사용합니다.
       - name: Wait for deploy and submit to IndexNow
-        run: python scripts/indexnow.py
+        run: python3 scripts/indexnow.py
