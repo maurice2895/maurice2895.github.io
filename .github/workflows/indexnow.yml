@@ -1,0 +1,37 @@
+name: IndexNow 검색엔진 알림
+
+# 페이지(.html)나 sitemap.xml이 바뀌어 main에 올라가면,
+# 실제 사이트 배포가 끝난 것을 확인한 뒤 Bing·네이버 등 IndexNow 참여 검색엔진에 알립니다.
+# Actions 탭에서 "Run workflow"를 눌러 직접 실행할 수도 있습니다.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**.html"
+      - "sitemap.xml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# 짧은 시간에 여러 번 올리면 마지막 한 번만 제출합니다.
+concurrency:
+  group: indexnow
+  cancel-in-progress: true
+
+jobs:
+  indexnow:
+    name: Submit sitemap URLs to IndexNow
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Wait for deploy and submit to IndexNow
+        run: python scripts/indexnow.py
