@@ -55,13 +55,9 @@ main:focus{outline:none}
 .header{position:sticky;top:0;z-index:80;background:rgba(246,248,251,.78);-webkit-backdrop-filter:saturate(1.5) blur(16px);backdrop-filter:saturate(1.5) blur(16px);border-bottom:1px solid transparent;transition:background-color .25s,border-color .25s}
 .header.is-scrolled{background:rgba(255,255,255,.9);border-bottom-color:var(--line)}
 .header-in{height:var(--header-h);display:flex;align-items:center;gap:24px}
-.brand{display:inline-flex;align-items:center;gap:10px;flex:none;color:var(--ink)}
-.brand-mark{width:38px;height:38px;border-radius:12px;background:var(--ink);display:grid;place-items:center;transition:transform .4s var(--ease)}
-.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.05)}
-.brand-mark svg{width:22px;height:22px;fill:none;stroke:#fff;stroke-width:5;stroke-linejoin:round}
-.brand-text{display:flex;flex-direction:column;line-height:1.1}
-.brand-text strong{font-size:19px;font-weight:800;letter-spacing:-.045em;color:var(--ink)}
-.brand-text small{margin-top:3px;font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--muted)}
+.brand{display:inline-flex;align-items:center;flex:none}
+.brand-logo{display:block;width:auto;height:42px;transition:transform .4s var(--ease)}
+.brand:hover .brand-logo{transform:translateY(-1px)}
 .site-nav{display:flex;align-items:center;gap:2px;margin-left:auto}
 .site-nav a{padding:10px 14px;border-radius:999px;font-size:15px;font-weight:600;color:var(--text);transition:background-color .2s,color .2s}
 .site-nav a:hover{background:#EAEFF6;color:var(--ink)}
@@ -246,10 +242,7 @@ h2{font-size:clamp(30px,3.6vw,48px);line-height:1.2;letter-spacing:-.04em}
 
 /* ---------- 바닥글 ---------- */
 .footer{padding:72px 0 36px;background:#070F24;color:#9AA8C3;font-size:15px}
-.footer .brand-text strong{color:#fff}
-.footer .brand-text small{color:#7E8CA8}
-.footer .brand-mark{background:#fff}
-.footer .brand-mark svg{stroke:var(--navy)}
+.footer .brand-logo{height:48px}
 .footer-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:40px}
 .footer-desc{max-width:380px;margin-top:18px;font-size:14px;line-height:1.75}
 .footer h2{margin-bottom:16px;font-size:14px;font-weight:800;letter-spacing:0;color:#fff}
@@ -257,11 +250,16 @@ h2{font-size:clamp(30px,3.6vw,48px);line-height:1.2;letter-spacing:-.04em}
 .footer a{transition:color .2s}
 .footer a:hover{color:#fff}
 .social{display:flex;gap:8px;margin-top:22px}
-.social a{display:grid;place-items:center;width:42px;height:42px;border-radius:13px;background:rgba(255,255,255,.07);color:#fff;transition:transform .3s var(--ease),background-color .2s}
-.social a:hover{transform:translateY(-3px);background:rgba(255,255,255,.14)}
-.social svg{width:18px;height:18px;fill:currentColor}
-.social .kakao{background:var(--kakao);color:var(--kakao-ink)}
-.social .kakao:hover{background:var(--kakao)}
+.social a{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;transition:transform .25s var(--ease),box-shadow .25s var(--ease)}
+.social a:hover{transform:translateY(-2px);box-shadow:0 6px 14px rgba(10,20,40,.2)}
+.social svg{width:20px;height:20px;fill:#fff}
+.social .kakao{background:#FEE500}
+.social .kakao svg{fill:#191919}
+.social .instagram{background:linear-gradient(135deg,#feda75 0%,#fa7e1e 28%,#d62976 58%,#962fbf 78%,#4f5bd5 100%)}
+.social .naver{background:#03C75A}
+.header .social{display:flex;align-items:center;gap:6px;flex:none;margin:0}
+.header .social a{width:36px;height:36px;border-radius:10px}
+.header .social svg{width:18px;height:18px}
 .footer-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;margin-top:52px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#7E8CA8}
 
 /* 휴대폰 하단 고정 상담 버튼 */
@@ -362,7 +360,7 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 /* ---------- 반응형 ---------- */
 @media (max-width:1080px){
   .nav-toggle{display:inline-flex}
-  .header-cta{margin-left:auto}
+  .header .social{margin-left:auto}
   .site-nav{position:absolute;left:0;right:0;top:100%;display:none;flex-direction:column;align-items:stretch;gap:2px;margin:0;padding:12px 20px 20px;background:var(--surface);border-bottom:1px solid var(--line);box-shadow:0 24px 40px rgba(10,20,40,.1)}
   .header.is-open .site-nav{display:flex}
   .header.is-open{background:var(--surface)}
@@ -396,9 +394,12 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
   :root{--header-h:64px}
   .wrap{width:calc(100% - 40px)}
   body{font-size:16px}
-  .brand-text small{display:none}
+  .brand-logo{height:34px}
+  .header-in{gap:10px}
   .header-cta{display:none}
-  .nav-toggle{margin-left:auto}
+  .header .social{gap:5px}
+  .header .social a{width:32px;height:32px;border-radius:9px}
+  .header .social svg{width:16px;height:16px}
   .section{padding:80px 0}
   .sec-head{margin-bottom:36px}
   .hero{padding:28px 0 64px}
