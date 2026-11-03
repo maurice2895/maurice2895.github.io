@@ -30,3 +30,4 @@ jobs:
         run: |
           node --check site.js
           node --check security.js
+          node --check studio/app.js
