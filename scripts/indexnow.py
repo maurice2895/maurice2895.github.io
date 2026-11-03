@@ -96,7 +96,8 @@ def main():
         return 0
 
     if not wait_for_deploy(urls):
-        print("배포가 끝나지 않았을 수 있지만, 제출은 진행합니다.")
+        print("오류: 배포 확인에 실패하여 IndexNow 제출을 중단합니다. 배포 상태를 확인한 뒤 다시 실행하세요.")
+        return 1
 
     req = urllib.request.Request(ENDPOINT, data=json.dumps(payload).encode("utf-8"), method="POST",
                                  headers={"Content-Type": "application/json; charset=utf-8"})
