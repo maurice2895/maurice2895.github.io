@@ -434,3 +434,16 @@ body{font-size:16px;line-height:1.65;color:#536176}h1,h2,h3{color:#0a1a36}.heade
 .footer .social a{font-size:13px}
 @media(max-width:900px){.home-services .service-visual-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.home-services{padding:48px 0 58px}.home-services .service-visual-grid{grid-template-columns:1fr 1fr;gap:10px}.home-services .service-visual{min-height:175px;padding:17px 14px}.home-services .service-visual h3{font-size:15px}.home-services .service-visual p{font-size:11px}.home-services .service-visual .card-link{font-size:11px;margin-top:12px}}
+
+
+/* 실무 교육실 연결 */
+.studio-entry{padding:58px 0;background:#eef5fc;border-top:1px solid #e0eaf4}
+.studio-entry-in{display:flex;align-items:center;justify-content:space-between;gap:35px}
+.studio-entry .eyebrow{font-size:11px;letter-spacing:.02em;color:#0877d9}
+.studio-entry h2{font-size:clamp(26px,3vw,37px);line-height:1.4;margin:15px 0 12px;letter-spacing:-.045em}
+.studio-entry p{font-size:14px;color:#62768d}
+.studio-entry-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:19px}
+.studio-entry-tags span{font-size:11px;padding:6px 11px;border:1px solid #d3e2f1;border-radius:5px;color:#49769f;background:#ffffff80}
+.studio-entry .btn{flex-shrink:0;background:#176cce;border-color:#176cce;color:#fff}
+@media(min-width:1081px) and (max-width:1180px){.header-in{gap:13px}.site-nav a{padding-inline:8px;font-size:14px}}
+@media(max-width:650px){.studio-entry{padding:42px 0}.studio-entry-in{align-items:flex-start;flex-direction:column;gap:26px}.studio-entry p{font-size:12px}.studio-entry .btn{width:100%;font-size:13px}.studio-entry-tags{gap:5px}.studio-entry-tags span{font-size:10px;padding:5px 8px}}
