@@ -61,7 +61,7 @@
     /* 3) 등장 효과 — 화면 아래에 있는 요소에만 적용해 첫 화면이 깜빡이지 않게 합니다. */
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const groups = ".bento, .criteria, .process, .lectures, .cred, .card-grid, .steps, .signal-grid, .check-list, .faq";
-    const singles = ".sec-head, .page-sec h2, .page-sec .kicker, .studio-card, .contact-in, .cta-strip, .profile-grid > div:first-child";
+    const singles = ".sec-head, .page-sec h2, .page-sec .kicker, .contact-in, .cta-strip, .profile-grid > div:first-child";
     if (!reduce && "IntersectionObserver" in window) {
       const below = (el) => el.getBoundingClientRect().top > window.innerHeight * 0.92;
       const targets = [];

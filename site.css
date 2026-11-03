@@ -232,15 +232,6 @@ h2{font-size:clamp(30px,3.6vw,48px);line-height:1.2;letter-spacing:-.04em}
 .cred span{font-size:13px;font-weight:800;letter-spacing:.06em;color:var(--mint)}
 .cred strong{font-size:17px;font-weight:700;line-height:1.5;color:#fff}
 
-/* ---------- 실무 교육실 안내 ---------- */
-.studio-card{position:relative;overflow:hidden;display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:40px;align-items:center;padding:56px;border-radius:32px;background:var(--accent-soft);border:1px solid #D4DEFF}
-.studio-card::after{content:"";position:absolute;right:-130px;top:-130px;width:260px;height:260px;border-radius:50%;border:2px dashed #BFD0FF;animation:spin 40s linear infinite;pointer-events:none}
-.studio-card h2{font-size:clamp(26px,3vw,40px)}
-.studio-card p{margin-top:12px;color:var(--text)}
-.studio-side{position:relative;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:20px}
-.studio-tags{display:flex;flex-wrap:wrap;gap:8px}
-.studio-tags li{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border-radius:999px;background:var(--surface);font-size:14px;font-weight:700;color:var(--ink)}
-.studio-tags .lock::before{content:"";width:16px;height:16px;background:url(/images/icon-lock.svg) center/contain no-repeat}
 
 /* ---------- 문의 (어두운 띠) ---------- */
 .contact{position:relative;overflow:hidden;padding:112px 0;background:var(--navy);color:var(--on-navy)}
@@ -388,7 +379,7 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
   .b-wide{grid-column:span 2}
   .criteria,.process{grid-template-columns:minmax(0,1fr)}
   .process li::after{display:none}
-  .profile-grid,.contact-in,.studio-card{grid-template-columns:minmax(0,1fr)}
+  .profile-grid,.contact-in{grid-template-columns:minmax(0,1fr)}
   .contact .actions{justify-content:flex-start}
   .footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
   .footer-grid>div:first-child{grid-column:1 / -1}
@@ -431,7 +422,6 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
   .bento-card{padding:22px}
   .lectures,.cred{grid-template-columns:minmax(0,1fr)}
   .lecture-body{padding:20px}
-  .studio-card{padding:32px 24px;border-radius:26px}
   .contact{padding:88px 0}
   .contact .actions .btn{flex:1 1 100%}
   .footer-grid{grid-template-columns:minmax(0,1fr)}
