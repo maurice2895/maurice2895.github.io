@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maurice2895.github.io/sitemap.xml
+Sitemap: https://dentalsolve.kr/sitemap.xml

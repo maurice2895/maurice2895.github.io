@@ -19,7 +19,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-HOST = "maurice2895.github.io"
+HOST = "dentalsolve.kr"
 KEY = "254b7bd0955f7cd140d82f0f30a69fab"
 ENDPOINT = "https://api.indexnow.org/indexnow"
 WAIT_SECONDS = 600      # 배포 완료를 기다리는 최대 시간(10분)

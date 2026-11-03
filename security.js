@@ -6,7 +6,7 @@
    - 검색엔진과 AI 검색 수집기는 HTML 원문을 읽으므로 검색 노출에는 영향을 주지 않습니다. */
 (() => {
   "use strict";
-  const NOTICE = "© 조재연 강사 (https://maurice2895.github.io/) — 이 사이트의 글·이미지·디자인은 무단 복제·배포를 금지합니다.";
+  const NOTICE = "© 조재연 강사 (https://dentalsolve.kr/) — 이 사이트의 글·이미지·디자인은 무단 복제·배포를 금지합니다.";
   const root = document.documentElement;
   root.classList.add("protect");
 

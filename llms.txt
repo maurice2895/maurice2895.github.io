@@ -19,18 +19,18 @@
 
 ## 페이지
 
-- [홈](https://maurice2895.github.io/): 서비스 전체 소개, 진행 방식, 강의 활동, 전자차트 자료
-- [조재연 강사 소개](https://maurice2895.github.io/about/): 경력과 활동, 다루는 분야, 채널
-- [치과 전자차트 컨설팅](https://maurice2895.github.io/consulting/): 처치 버튼 구성, 치료 술식 입력 기준, 치과 전용 차팅 기준
-- [원클릭 전자차트 강의·직원 교육](https://maurice2895.github.io/oneclick/): 처치 버튼 설정, 치료 술식 입력, 차팅 기준 교육
-- [치과 업무 표준화](https://maurice2895.github.io/standardization/): 전자차트 중심 업무 절차, 차팅 기준 일원화, 신규 직원 인수인계
-- [치과 AI·구글 도구 업무 활용 교육](https://maurice2895.github.io/ai-training/): 구글 스프레드시트·문서, 종이 문서의 디지털 전환, 생성형 AI 문서 작성
-- [치과 전자차트 처치 버튼 정리 기준](https://maurice2895.github.io/emr-button-guide/): 버튼 이름 규칙, 폴더 구성, 마취 버튼 분리, 치면 입력, 상용구 기준
-- [자주 묻는 질문](https://maurice2895.github.io/faq/): 진행 방식, 대상 차트, 비용 안내 방식 등
+- [홈](https://dentalsolve.kr/): 서비스 전체 소개, 진행 방식, 강의 활동, 전자차트 자료
+- [조재연 강사 소개](https://dentalsolve.kr/about/): 경력과 활동, 다루는 분야, 채널
+- [치과 전자차트 컨설팅](https://dentalsolve.kr/consulting/): 처치 버튼 구성, 치료 술식 입력 기준, 치과 전용 차팅 기준
+- [원클릭 전자차트 강의·직원 교육](https://dentalsolve.kr/oneclick/): 처치 버튼 설정, 치료 술식 입력, 차팅 기준 교육
+- [치과 업무 표준화](https://dentalsolve.kr/standardization/): 전자차트 중심 업무 절차, 차팅 기준 일원화, 신규 직원 인수인계
+- [치과 AI·구글 도구 업무 활용 교육](https://dentalsolve.kr/ai-training/): 구글 스프레드시트·문서, 종이 문서의 디지털 전환, 생성형 AI 문서 작성
+- [치과 전자차트 처치 버튼 정리 기준](https://dentalsolve.kr/emr-button-guide/): 버튼 이름 규칙, 폴더 구성, 마취 버튼 분리, 치면 입력, 상용구 기준
+- [자주 묻는 질문](https://dentalsolve.kr/faq/): 진행 방식, 대상 차트, 비용 안내 방식 등
 
 ## 채널
 
 - [네이버 블로그 '재연의 슬기로운 치과생활'](https://blog.naver.com/maurice2895)
 - [인스타그램 @maurice_02875](https://www.instagram.com/maurice_02875)
 
-이 사이트의 글·이미지·디자인은 무단 복제·배포를 금지합니다. 인용 시 출처(https://maurice2895.github.io/)를 밝혀 주세요.
+이 사이트의 글·이미지·디자인은 무단 복제·배포를 금지합니다. 인용 시 출처(https://dentalsolve.kr/)를 밝혀 주세요.

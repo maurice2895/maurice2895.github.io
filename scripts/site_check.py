@@ -7,7 +7,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = "https://maurice2895.github.io/"
+BASE = "https://dentalsolve.kr/"
 ERRORS = []
 
 class PageParser(HTMLParser):
@@ -76,7 +76,7 @@ for file in html_files:
             continue
         target_url = urljoin(page_url, ref)
         parsed = urlparse(target_url)
-        if parsed.scheme not in ("http", "https") or parsed.netloc != "maurice2895.github.io":
+        if parsed.scheme not in ("http", "https") or parsed.netloc != "dentalsolve.kr":
             continue
         path = unquote(parsed.path).lstrip("/")
         target = ROOT / path if path else ROOT / "index.html"
@@ -107,7 +107,7 @@ else:
             fail("sitemap.xml contains no URLs")
         for url in urls:
             parsed = urlparse(url)
-            if parsed.scheme != "https" or parsed.netloc != "maurice2895.github.io":
+            if parsed.scheme != "https" or parsed.netloc != "dentalsolve.kr":
                 fail(f"sitemap contains an unexpected URL: {url}")
                 continue
             path = unquote(parsed.path).lstrip("/")
