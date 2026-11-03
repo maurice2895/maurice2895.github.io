@@ -44,10 +44,10 @@ def fail(message):
     ERRORS.append(message)
     print("ERROR:", message)
 
-# Google verification files and the noindex 404 page are utility documents.
+# Google/Naver verification files and the noindex 404 page are utility documents.
 html_files = sorted(
     file for file in ROOT.rglob("*.html")
-    if not file.name.startswith("google")
+    if not file.name.startswith(("google", "naver"))
 )
 if not html_files:
     fail("No HTML files were found.")
