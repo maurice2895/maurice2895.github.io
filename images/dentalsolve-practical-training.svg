@@ -1,1 +1,32 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440"><title>치과 직원 실무교육</title><desc>치과 직원들이 함께 배우고 실습하는 교육을 상징하는 이미지</desc><defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#07182e"/><stop offset="1" stop-color="#164a78"/></linearGradient></defs><rect width="720" height="440" rx="28" fill="url(#b)"/><rect x="88" y="68" width="544" height="290" rx="18" fill="#0c2947" stroke="#2bbff0" stroke-width="3"/><rect x="120" y="100" width="480" height="185" rx="12" fill="#133e62"/><path d="M180 245l64-65 58 42 90-100" fill="none" stroke="#38d8ff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/><path d="M382 122h20v20" fill="none" stroke="#38d8ff" stroke-width="8"/><g fill="#cceeff"><circle cx="225" cy="333" r="27"/><circle cx="360" cy="333" r="27"/><circle cx="495" cy="333" r="27"/></g><g fill="#28bde9"><path d="M177 393c0-29 21-44 48-44s48 15 48 44"/><path d="M312 393c0-29 21-44 48-44s48 15 48 44"/><path d="M447 393c0-29 21-44 48-44s48 15 48 44"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-label="전자차트 화면을 보며 진행하는 직원 실무교육 일러스트">
+  <rect width="720" height="440" fill="#F1F5FF"/>
+  <circle cx="90" cy="70" r="70" fill="#E3EAFF"/>
+  <rect x="150" y="40" width="420" height="252" rx="22" fill="#0B1733"/>
+  <rect x="182" y="72" width="108" height="58" rx="12" fill="#2453FF"/>
+  <rect x="210" y="97" width="52" height="8" rx="4" fill="#FFFFFF"/>
+  <rect x="306" y="72" width="108" height="58" rx="12" fill="#14244A"/>
+  <rect x="334" y="97" width="52" height="8" rx="4" fill="#5E739B"/>
+  <rect x="430" y="72" width="108" height="58" rx="12" fill="#14244A"/>
+  <rect x="458" y="97" width="52" height="8" rx="4" fill="#5E739B"/>
+  <rect x="182" y="144" width="108" height="58" rx="12" fill="#14244A"/>
+  <rect x="210" y="169" width="52" height="8" rx="4" fill="#5E739B"/>
+  <rect x="306" y="144" width="108" height="58" rx="12" fill="#14244A"/>
+  <rect x="334" y="169" width="52" height="8" rx="4" fill="#5E739B"/>
+  <rect x="430" y="144" width="108" height="58" rx="12" fill="#14244A"/>
+  <rect x="458" y="169" width="52" height="8" rx="4" fill="#5E739B"/>
+  <rect x="182" y="218" width="356" height="44" rx="12" fill="#14244A"/>
+  <circle cx="206" cy="240" r="8" fill="#19C2A0"/>
+  <path d="M202 240.5l2.8 2.8 5.4-5.6" fill="none" stroke="#0B1733" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="224" y="236" width="170" height="8" rx="4" fill="#FFFFFF"/>
+  <path d="M262 112l26 15.2-11.6 3.1-5.7 11.4z" fill="#FFFFFF" stroke="#0A1428" stroke-width="2.2" stroke-linejoin="round"/>
+  <rect x="346" y="292" width="28" height="24" fill="#C9D4E8"/>
+  <rect x="302" y="314" width="116" height="10" rx="5" fill="#C9D4E8"/>
+  <circle cx="232" cy="372" r="24" fill="#2453FF"/>
+  <path d="M186 440a46 42 0 0 1 92 0z" fill="#2453FF"/>
+  <circle cx="360" cy="378" r="24" fill="#0B1733"/>
+  <path d="M314 446a46 42 0 0 1 92 0z" fill="#0B1733"/>
+  <circle cx="488" cy="372" r="24" fill="#19C2A0"/>
+  <path d="M442 440a46 42 0 0 1 92 0z" fill="#19C2A0"/>
+  <path d="M612 92l7 17 17 7-17 7-7 17-7-17-17-7 17-7z" fill="#2453FF"/>
+  <path d="M646 170l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#19C2A0"/>
+</svg>

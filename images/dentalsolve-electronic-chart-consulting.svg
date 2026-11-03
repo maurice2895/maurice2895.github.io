@@ -1,1 +1,45 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440"><title>치과 전자차트 컨설팅</title><desc>치과 진료 기록과 처치 버튼을 체계적으로 정리하는 전자차트 화면 이미지</desc><defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#07182e"/><stop offset="1" stop-color="#164a78"/></linearGradient></defs><rect width="720" height="440" rx="28" fill="url(#b)"/><rect x="70" y="55" width="580" height="330" rx="20" fill="#0c2947" stroke="#37bdf0" stroke-width="3"/><rect x="94" y="82" width="532" height="42" rx="9" fill="#17466b"/><circle cx="117" cy="103" r="6" fill="#26d7ff"/><rect x="105" y="150" width="130" height="208" rx="12" fill="#153b5c"/><g fill="#2dcdf5"><rect x="124" y="173" width="90" height="8" rx="4"/><rect x="124" y="201" width="72" height="7" rx="3"/><rect x="124" y="228" width="80" height="7" rx="3"/><rect x="124" y="255" width="64" height="7" rx="3"/></g><g fill="#143a5e"><rect x="258" y="150" width="340" height="90" rx="12"/><rect x="258" y="258" width="160" height="100" rx="12"/><rect x="438" y="258" width="160" height="100" rx="12"/></g><path d="M288 205l35-30 36 15 34-30" fill="none" stroke="#37d5ff" stroke-width="7" stroke-linecap="round"/><path d="M472 327l22-25 22 12 43-42" fill="none" stroke="#37d5ff" stroke-width="7" stroke-linecap="round"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-label="치과 전자차트 처치 버튼과 차팅 기록 화면 일러스트">
+  <rect width="720" height="440" fill="#F1F5FF"/>
+  <circle cx="64" cy="392" r="88" fill="#E3EAFF"/>
+  <circle cx="676" cy="40" r="60" fill="#E3EAFF"/>
+  <rect x="60" y="48" width="600" height="344" rx="22" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <circle cx="92" cy="78" r="5.5" fill="#DCE4F2"/>
+  <circle cx="110" cy="78" r="5.5" fill="#DCE4F2"/>
+  <circle cx="128" cy="78" r="5.5" fill="#DCE4F2"/>
+  <rect x="160" y="72" width="132" height="12" rx="6" fill="#E8EEF8"/>
+  <rect x="84" y="104" width="130" height="264" rx="14" fill="#F6F8FC"/>
+  <rect x="96" y="116" width="106" height="32" rx="9" fill="#EAF0FF"/>
+  <rect x="110" y="128" width="62" height="8" rx="4" fill="#2453FF"/>
+  <rect x="110" y="168" width="78" height="8" rx="4" fill="#D3DCEB"/>
+  <rect x="110" y="196" width="58" height="8" rx="4" fill="#D3DCEB"/>
+  <rect x="110" y="224" width="70" height="8" rx="4" fill="#D3DCEB"/>
+  <rect x="110" y="252" width="50" height="8" rx="4" fill="#D3DCEB"/>
+  <rect x="234" y="104" width="94" height="32" rx="16" fill="#0B1733"/>
+  <rect x="256" y="116" width="50" height="8" rx="4" fill="#FFFFFF"/>
+  <rect x="336" y="104" width="94" height="32" rx="16" fill="#F1F5FF"/>
+  <rect x="358" y="116" width="50" height="8" rx="4" fill="#B9C6DC"/>
+  <rect x="438" y="104" width="94" height="32" rx="16" fill="#F1F5FF"/>
+  <rect x="460" y="116" width="50" height="8" rx="4" fill="#B9C6DC"/>
+  <rect x="234" y="152" width="128" height="56" rx="13" fill="#2453FF"/>
+  <rect x="266" y="176" width="64" height="9" rx="4.5" fill="#FFFFFF"/>
+  <rect x="374" y="152" width="128" height="56" rx="13" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="406" y="176" width="64" height="9" rx="4.5" fill="#C9D4E8"/>
+  <rect x="514" y="152" width="128" height="56" rx="13" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="546" y="176" width="64" height="9" rx="4.5" fill="#C9D4E8"/>
+  <rect x="234" y="218" width="128" height="56" rx="13" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="266" y="242" width="64" height="9" rx="4.5" fill="#C9D4E8"/>
+  <rect x="374" y="218" width="128" height="56" rx="13" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="406" y="242" width="64" height="9" rx="4.5" fill="#C9D4E8"/>
+  <rect x="514" y="218" width="128" height="56" rx="13" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="546" y="242" width="64" height="9" rx="4.5" fill="#C9D4E8"/>
+  <rect x="234" y="288" width="408" height="80" rx="14" fill="#0B1733"/>
+  <circle cx="260" cy="314" r="8" fill="#19C2A0"/>
+  <path d="M256 314.5l2.8 2.8 5.4-5.6" fill="none" stroke="#0B1733" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="278" y="310" width="176" height="9" rx="4.5" fill="#FFFFFF"/>
+  <circle cx="260" cy="344" r="8" fill="#19C2A0"/>
+  <path d="M256 344.5l2.8 2.8 5.4-5.6" fill="none" stroke="#0B1733" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="278" y="340" width="132" height="9" rx="4.5" fill="#8FA3C8"/>
+  <path d="M318 196l30 17.6-13.4 3.6-6.6 13.2z" fill="#FFFFFF" stroke="#0A1428" stroke-width="2.4" stroke-linejoin="round"/>
+  <circle cx="640" cy="66" r="36" fill="#19C2A0"/>
+  <path transform="translate(620 46) scale(0.625)" d="M 19 6.6 C 13.8 6.6 11.2 11.8 11.72 18.3 C 12.24 24.8 14.32 28.7 15.88 35.2 C 17.44 43 17.96 53.4 21.6 55.48 C 24.72 57.3 26.28 50.8 27.32 45.6 C 28.36 40.92 29.92 39.1 32 39.1 C 34.08 39.1 35.64 40.92 36.68 45.6 C 37.72 50.8 39.28 57.3 42.4 55.48 C 46.04 53.4 46.56 43 48.12 35.2 C 49.68 28.7 51.76 24.8 52.28 18.3 C 52.8 11.8 50.2 6.6 45 6.6 C 40.32 6.6 37.2 9.72 32 9.72 C 26.8 9.72 23.68 6.6 19 6.6 Z" fill="none" stroke="#FFFFFF" stroke-width="6" stroke-linejoin="round"/>
+</svg>

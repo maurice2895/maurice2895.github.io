@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img"><title>덴탈솔브 치과 실무 기반 시스템 컨설팅</title><desc>치과 진료 공간과 전자차트 화면, 디지털 데이터 흐름을 표현한 덴탈솔브 대표 이미지</desc><defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#07172e"/><stop offset="1" stop-color="#123d68"/></linearGradient><linearGradient id="glow"><stop stop-color="#16d9ff"/><stop offset="1" stop-color="#2877ff"/></linearGradient><radialGradient id="halo"><stop stop-color="#20cfff" stop-opacity=".28"/><stop offset="1" stop-color="#20cfff" stop-opacity="0"/></radialGradient></defs><rect width="1200" height="720" rx="36" fill="url(#bg)"/><circle cx="930" cy="300" r="340" fill="url(#halo)"/><path d="M0 590 Q270 510 520 590T1200 560V720H0Z" fill="#061225" opacity=".7"/><g opacity=".16" stroke="#7bdfff"><path d="M60 100H1140M60 180H1140M60 260H1140M60 340H1140M60 420H1140M60 500H1140M60 580H1140"/><path d="M120 50V660M240 50V660M360 50V660M480 50V660M600 50V660M720 50V660M840 50V660M960 50V660M1080 50V660"/></g><g transform="translate(110 115)"><rect x="0" y="0" width="520" height="360" rx="26" fill="#0d2a4a" stroke="#2a8ecb" stroke-width="3"/><rect x="28" y="28" width="464" height="44" rx="12" fill="#123c63"/><circle cx="54" cy="50" r="7" fill="#25d9ff"/><circle cx="80" cy="50" r="7" fill="#4b9fff"/><circle cx="106" cy="50" r="7" fill="#7b9fff"/><rect x="28" y="100" width="130" height="224" rx="14" fill="#12395c"/><rect x="180" y="100" width="312" height="92" rx="14" fill="#102f50"/><rect x="180" y="208" width="146" height="116" rx="14" fill="#102f50"/><rect x="346" y="208" width="146" height="116" rx="14" fill="#102f50"/><g fill="#38d7ff"><rect x="48" y="124" width="88" height="9" rx="4"/><rect x="48" y="153" width="66" height="7" rx="3"/><rect x="48" y="179" width="78" height="7" rx="3"/><rect x="48" y="205" width="58" height="7" rx="3"/><rect x="48" y="231" width="74" height="7" rx="3"/><rect x="202" y="122" width="98" height="10" rx="5"/><rect x="202" y="148" width="240" height="7" rx="3"/><rect x="202" y="168" width="178" height="7" rx="3"/></g><path d="M202 286l38-26 36 14 31-36" fill="none" stroke="url(#glow)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/><path d="M365 286h94M365 266h68M365 246h42" stroke="#39d7ff" stroke-width="8" stroke-linecap="round"/></g><g transform="translate(760 90)"><path d="M145 38c-63 0-108 48-108 111v104c0 35 28 63 63 63h194c35 0 63-28 63-63V149c0-63-45-111-108-111Z" fill="#eaf7ff" opacity=".09" stroke="#5bdfff" stroke-width="5"/><path d="M190 90c-29 0-38 24-54 24s-25-24-54-24c-42 0-60 39-48 81l42 152c8 29 24 45 44 45 29 0 35-44 54-44s25 44 54 44c20 0 36-16 44-45l42-152c12-42-6-81-48-81Z" fill="none" stroke="url(#glow)" stroke-width="10" stroke-linejoin="round"/><path d="M190 134v190" stroke="#7ce7ff" stroke-width="4" opacity=".6"/><circle cx="190" cy="210" r="80" fill="url(#halo)"/></g><g transform="translate(90 545)" fill="none" stroke="#42d8ff" stroke-width="4"><rect width="1020" height="110" rx="24" fill="#0a2441" stroke="#1b77b8"/><g transform="translate(48 25)"><circle cx="28" cy="22" r="14"/><circle cx="66" cy="22" r="14"/><path d="M4 67c0-17 12-28 24-28s24 11 24 28M42 67c0-17 12-28 24-28s24 11 24 28"/></g><path d="M240 22v66M490 22v66M740 22v66"/><g transform="translate(286 25)"><rect x="0" y="0" width="54" height="46" rx="8"/><path d="M12 57h30M27 46v11"/></g><g transform="translate(535 24)"><path d="M0 18h60M0 42h60M0 66h40"/></g><g transform="translate(785 23)"><path d="M0 65V8M0 65h70M14 50l18-18 16 10 18-26"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 720" role="img" aria-label="전자차트를 중심으로 업무 표준화, 직원 교육, AI 활용을 연결한 치과 시스템 일러스트">
+  <rect width="1200" height="720" fill="#F1F5FF"/>
+  <circle cx="600" cy="360" r="236" fill="none" stroke="#C9D4E8" stroke-width="3" stroke-dasharray="4 14" stroke-linecap="round"/>
+  <path d="M600 360L437 197M600 360L763 197M600 360L763 523M600 360L437 523" stroke="#2453FF" stroke-width="4" stroke-opacity=".35"/>
+  <circle cx="600" cy="360" r="128" fill="#0B1733"/>
+  <path transform="translate(536 296) scale(2)" d="M 19 6.6 C 13.8 6.6 11.2 11.8 11.72 18.3 C 12.24 24.8 14.32 28.7 15.88 35.2 C 17.44 43 17.96 53.4 21.6 55.48 C 24.72 57.3 26.28 50.8 27.32 45.6 C 28.36 40.92 29.92 39.1 32 39.1 C 34.08 39.1 35.64 40.92 36.68 45.6 C 37.72 50.8 39.28 57.3 42.4 55.48 C 46.04 53.4 46.56 43 48.12 35.2 C 49.68 28.7 51.76 24.8 52.28 18.3 C 52.8 11.8 50.2 6.6 45 6.6 C 40.32 6.6 37.2 9.72 32 9.72 C 26.8 9.72 23.68 6.6 19 6.6 Z" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round"/>
+  <rect x="374" y="134" width="126" height="126" rx="30" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="404" y="166" width="28" height="22" rx="6" fill="#2453FF"/>
+  <rect x="440" y="166" width="28" height="22" rx="6" fill="#DCE5FF"/>
+  <rect x="404" y="196" width="28" height="22" rx="6" fill="#DCE5FF"/>
+  <rect x="440" y="196" width="28" height="22" rx="6" fill="#DCE5FF"/>
+  <rect x="700" y="134" width="126" height="126" rx="30" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <circle cx="738" cy="174" r="9" fill="#19C2A0"/>
+  <rect x="756" y="170" width="44" height="8" rx="4" fill="#C9D4E8"/>
+  <circle cx="738" cy="200" r="9" fill="#19C2A0"/>
+  <rect x="756" y="196" width="36" height="8" rx="4" fill="#C9D4E8"/>
+  <circle cx="738" cy="226" r="9" fill="#FFFFFF" stroke="#C9D4E8" stroke-width="2.4"/>
+  <rect x="756" y="222" width="40" height="8" rx="4" fill="#C9D4E8"/>
+  <rect x="700" y="460" width="126" height="126" rx="30" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <circle cx="742" cy="506" r="15" fill="#0B1733"/>
+  <path d="M718 552a24 22 0 0 1 48 0z" fill="#0B1733"/>
+  <circle cx="786" cy="506" r="15" fill="#2453FF"/>
+  <path d="M762 552a24 22 0 0 1 48 0z" fill="#2453FF"/>
+  <rect x="374" y="460" width="126" height="126" rx="30" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <path d="M437 490l8 19.5 19.5 8-19.5 8-8 19.5-8-19.5-19.5-8 19.5-8z" fill="#2453FF"/>
+  <circle cx="232" cy="560" r="10" fill="#19C2A0"/>
+  <circle cx="980" cy="160" r="14" fill="#19C2A0"/>
+  <circle cx="1010" cy="560" r="8" fill="#2453FF"/>
+  <circle cx="190" cy="180" r="8" fill="#2453FF"/>
+</svg>

@@ -1,1 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="720" height="440" viewBox="0 0 720 440"><title>치과 업무 표준화와 매뉴얼</title><desc>업무 절차와 체크리스트를 정리해 공통 기준을 만드는 이미지</desc><defs><linearGradient id="b" x2="1" y2="1"><stop stop-color="#07182e"/><stop offset="1" stop-color="#164a78"/></linearGradient></defs><rect width="720" height="440" rx="28" fill="url(#b)"/><rect x="175" y="55" width="370" height="330" rx="22" fill="#0c2947" stroke="#36c6f5" stroke-width="3"/><path d="M250 120h220M250 185h220M250 250h220M250 315h220" stroke="#2e7ca9" stroke-width="12" stroke-linecap="round"/><g fill="none" stroke="#35d6ff" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M210 112l15 15 28-34"/><path d="M210 177l15 15 28-34"/><path d="M210 242l15 15 28-34"/><path d="M210 307l15 15 28-34"/></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 440" role="img" aria-label="업무 기준표와 인수인계 일러스트">
+  <rect width="720" height="440" fill="#F1F5FF"/>
+  <circle cx="610" cy="380" r="110" fill="#E3EAFF"/>
+  <rect x="148" y="70" width="260" height="316" rx="22" fill="#DCE5FF" transform="rotate(-6 278 228)"/>
+  <rect x="168" y="58" width="264" height="324" rx="22" fill="#FFFFFF" stroke="#DCE4F2" stroke-width="2"/>
+  <rect x="198" y="90" width="124" height="14" rx="7" fill="#0B1733"/>
+  <rect x="198" y="114" width="80" height="9" rx="4.5" fill="#C9D4E8"/>
+  <circle cx="212" cy="164" r="13" fill="#2453FF"/>
+  <path d="M206 164.5l4 4 8-8.4" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="236" y="159" width="164" height="10" rx="5" fill="#DCE4F2"/>
+  <circle cx="212" cy="216" r="13" fill="#2453FF"/>
+  <path d="M206 216.5l4 4 8-8.4" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="236" y="211" width="136" height="10" rx="5" fill="#DCE4F2"/>
+  <circle cx="212" cy="268" r="13" fill="#2453FF"/>
+  <path d="M206 268.5l4 4 8-8.4" fill="none" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="236" y="263" width="150" height="10" rx="5" fill="#DCE4F2"/>
+  <circle cx="212" cy="320" r="13" fill="#FFFFFF" stroke="#C9D4E8" stroke-width="2.4"/>
+  <rect x="236" y="315" width="118" height="10" rx="5" fill="#DCE4F2"/>
+  <circle cx="420" cy="94" r="32" fill="#19C2A0"/>
+  <path d="M407 95l9 9 17-18" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="536" cy="150" r="28" fill="#0B1733"/>
+  <path d="M490 236a46 40 0 0 1 92 0z" fill="#0B1733"/>
+  <circle cx="606" cy="276" r="28" fill="#19C2A0"/>
+  <path d="M560 362a46 40 0 0 1 92 0z" fill="#19C2A0"/>
+  <path d="M584 176c40 14 58 40 40 72" fill="none" stroke="#2453FF" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 12"/>
+  <path d="M612 240l12 10 6-15" fill="none" stroke="#2453FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
