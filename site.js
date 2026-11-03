@@ -30,9 +30,15 @@
       document.addEventListener("click", (event) => {
         if (header.classList.contains("is-open") && event.target instanceof Node && !header.contains(event.target)) setOpen(false);
       });
-      window.matchMedia("(min-width: 1081px)").addEventListener("change", (mq) => {
+      const desktopQuery = window.matchMedia("(min-width: 1081px)");
+      const closeOnDesktop = (mq) => {
         if (mq.matches) setOpen(false);
-      });
+      };
+      if (typeof desktopQuery.addEventListener === "function") {
+        desktopQuery.addEventListener("change", closeOnDesktop);
+      } else if (typeof desktopQuery.addListener === "function") {
+        desktopQuery.addListener(closeOnDesktop);
+      }
     }
 
     /* 2) 등장 효과 */
