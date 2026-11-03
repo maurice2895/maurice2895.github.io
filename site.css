@@ -369,3 +369,8 @@ html.protect img{-webkit-user-drag:none}
 .center-note{text-align:center}
 .brand-mark svg{width:24px;height:24px;fill:none;stroke:#fff;stroke-width:3.6;stroke-linejoin:round}
 @media (max-width:720px){.brand-mark svg{width:21px;height:21px}}
+
+/* 처치 버튼 정리 기준 페이지 */
+.principles-sec .card-no{font-size:16px;font-weight:900;letter-spacing:.08em}
+.principles-sec .card h3{font-size:21px}
+.principles-sec .card p{font-size:15px;line-height:1.7}
