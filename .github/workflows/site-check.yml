@@ -30,3 +30,7 @@ jobs:
         run: |
           node --check site.js
           node --check security.js
+
+      # Cloudflare Pages가 쓰는 빌드 스크립트가 정상 동작하는지 확인합니다.
+      - name: Check Cloudflare Pages build
+        run: bash scripts/build-site.sh

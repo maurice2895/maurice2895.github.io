@@ -1,0 +1,14 @@
+# Cloudflare Pages 응답 헤더 설정 (GitHub Pages에서는 쓰이지 않습니다)
+# 공식 주소는 https://dentalsolve.kr/ 입니다.
+
+# 모든 페이지: 다른 사이트가 이 홈페이지를 프레임(iframe)에 넣어 보여주지 못하게 합니다.
+/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+
+# Cloudflare 임시 주소(pages.dev)와 미리보기 주소가 검색에 노출되지 않게 합니다.
+https://:project.pages.dev/*
+  X-Robots-Tag: noindex
+
+https://:version.:project.pages.dev/*
+  X-Robots-Tag: noindex
