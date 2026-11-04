@@ -19,7 +19,7 @@ for item in *; do
 done
 
 # 필수 파일이 빠지면 배포를 멈춥니다.
-for required in index.html 404.html _headers robots.txt sitemap.xml security.js site.css site.js; do
+for required in index.html 404.html _headers _redirects robots.txt sitemap.xml security.js site.css site.js; do
   if [ ! -f "$OUT/$required" ]; then
     echo "오류: $required 파일이 없어 배포를 중단합니다." >&2
     exit 1
