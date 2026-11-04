@@ -457,8 +457,8 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 
 /* 복사·인쇄 제한 (security.js와 함께 동작) */
 .protect body{-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-touch-callout:none}
-.protect input,html.protect textarea{-webkit-user-select:text;user-select:text}
-.protect img{-webkit-user-drag:none}
+.protect input,.protect textarea,.protect select,.protect [contenteditable]:not([contenteditable='false']),.protect [data-allow-copy],.protect [data-allow-copy] *{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
+.protect img,.protect svg{-webkit-user-drag:none;user-select:none;-webkit-touch-callout:none}
 @media print{
   .protect body>*{display:none!important}
   .protect body::before{content:"이 페이지는 인쇄가 제한되어 있습니다. © 조재연 강사 · dentalsolve.kr";display:block;padding:40px;font-size:16px;color:#000}
