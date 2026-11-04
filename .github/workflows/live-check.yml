@@ -8,7 +8,7 @@ on:
       base_url:
         description: "점검할 주소 (예: https://dentalsolve.pages.dev 또는 https://dentalsolve.kr)"
         required: true
-        default: "https://dentalsolve.pages.dev"
+        default: "https://dentalsolve.kr"
 
 permissions:
   contents: read

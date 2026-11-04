@@ -26,6 +26,9 @@ jobs:
       - name: Validate HTML pages and internal links
         run: python scripts/site_check.py
 
+      - name: Verify SEO and mapping regression guards
+        run: python scripts/test_site_check.py
+
       - name: Check JavaScript syntax
         run: |
           node --check site.js
