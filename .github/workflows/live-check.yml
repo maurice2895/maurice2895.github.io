@@ -1,8 +1,11 @@
 name: Live site check
 
-# 배포된 실제 주소를 점검합니다. 자동으로 돌지 않고, 필요할 때 수동으로만 실행합니다.
+# 수동 실행 또는 이 점검 파일 수정 시 운영 주소를 검증합니다.
 # (Actions 탭 → Live site check → Run workflow, 또는 gh workflow run live-check.yml)
 on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/live-check.yml']
   workflow_dispatch:
     inputs:
       base_url:
@@ -17,6 +20,7 @@ jobs:
   live-check:
     name: Status codes, redirects and headers
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       # 네임서버 변경(가비아 → Cloudflare)이 반영됐는지 확인합니다.
       # .kr 등록소에 직접 묻는 값이 가장 정확하고, 공용 DNS 값은 캐시 때문에 늦게 바뀔 수 있습니다.
@@ -35,7 +39,7 @@ jobs:
 
       - name: Check public pages, assets and indexing
         env:
-          BASE: ${{ inputs.base_url }}
+          BASE: ${{ inputs.base_url || 'https://dentalsolve.kr' }}
         run: |
           set -euo pipefail
           BASE="${BASE%/}"
