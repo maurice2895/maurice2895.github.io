@@ -40,6 +40,12 @@ class SiteGuardTests(unittest.TestCase):
              "RSS items must map"),
             ("index.html", '"@context":', '"@context" BROKEN:', "invalid structured data"),
             ("robots.txt", "Allow: /", "Disallow: /", "robots.txt blocks Googlebot"),
+            ("index.html", 'alt="치과 전자차트 처치 버튼과 차팅 기록 화면 일러스트"',
+             'data-removed-alt="description"', "image is missing alt attribute"),
+            ("sitemap.xml", '<image:loc>https://dentalsolve.kr/images/lecture-emr.webp</image:loc>',
+             '<image:loc>https://dentalsolve.kr/members/private.webp</image:loc>',
+             "sitemap images do not match visible content images"),
+            ("robots.txt", "Allow: /", "Disallow: /images/", "robots.txt blocks image"),
         ]
         for path, old, new, message in cases:
             with self.subTest(path=path, message=message):

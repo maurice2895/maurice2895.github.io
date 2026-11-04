@@ -27,9 +27,12 @@ class PageParser(HTMLParser):
         self.schema_blocks = []
         self.schema_open = False
         self.schema_text = []
+        self.images = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
+        if tag == "img":
+            self.images.append(attrs)
         if attrs.get("id"):
             self.ids.append(attrs["id"])
         if tag == "h1":
@@ -78,6 +81,7 @@ if not html_files:
 
 pages = {}
 public_urls = set()
+public_images = {}
 titles = {}
 descriptions = {}
 for file in html_files:
@@ -91,6 +95,9 @@ for file in html_files:
         continue
 
     pages[file.resolve()] = parser
+    for image in parser.images:
+        if "alt" not in image:
+            fail(f"{rel}: image is missing alt attribute: {image.get('src')}")
     if parser.h1_count != 1:
         fail(f"{rel}: expected one h1, found {parser.h1_count}")
     for value, count in Counter(parser.ids).items():
@@ -116,6 +123,14 @@ for file in html_files:
         fail(f"{rel}: public page is unexpectedly noindex")
     else:
         public_urls.add(parser.canonical)
+        public_images[parser.canonical] = set()
+        for image in parser.images:
+            if (not image.get("alt", "").strip() or
+                    "brand-logo" in image.get("class", "").split() or
+                    image.get("aria-hidden") == "true" or image.get("role") == "presentation"):
+                continue
+            image_url = urlparse(urljoin(parser.canonical, image.get("src", "")))
+            public_images[parser.canonical].add(image_url._replace(query="", fragment="").geturl())
         title = "".join(parser.title).strip()
         if title in titles:
             fail(f"{rel}: duplicate title with {titles[title]}")
@@ -220,6 +235,24 @@ else:
                 target = target / "index.html"
             if not target.is_file():
                 fail(f"sitemap URL does not map to a file: {url}")
+        image_ns = {**ns, "image": "http://www.google.com/schemas/sitemap-image/1.1"}
+        for entry in tree.findall("sm:url", ns):
+            page_url = entry.findtext("sm:loc", namespaces=ns)
+            image_urls = [node.text.strip() for node in entry.findall("image:image/image:loc", image_ns)
+                          if node.text]
+            if len(image_urls) != len(set(image_urls)):
+                fail(f"{page_url}: duplicate sitemap images")
+            if set(image_urls) != public_images.get(page_url, set()):
+                fail(f"{page_url}: sitemap images do not match visible content images")
+            for image_url in image_urls:
+                parsed = urlparse(image_url)
+                target = ROOT / unquote(parsed.path).lstrip("/")
+                if (parsed.scheme != "https" or parsed.netloc != "dentalsolve.kr" or
+                        parsed.query or parsed.fragment or not target.is_file()):
+                    fail(f"invalid sitemap image URL: {image_url}")
+                for agent in ("Googlebot-Image", "Googlebot", "Yeti", "bingbot"):
+                    if robots.is_file() and not rules.can_fetch(agent, image_url):
+                        fail(f"robots.txt blocks image for {agent}: {image_url}")
     except ET.ParseError as exc:
         fail(f"sitemap.xml is not valid XML: {exc}")
 
