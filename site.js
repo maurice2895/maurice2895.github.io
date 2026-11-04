@@ -31,9 +31,12 @@
       document.addEventListener("click", (event) => {
         if (header.classList.contains("is-open") && event.target instanceof Node && !header.contains(event.target)) setOpen(false);
       });
-      window.matchMedia("(min-width: 1081px)").addEventListener("change", (mq) => {
+      const desktop = window.matchMedia("(min-width: 1081px)");
+      const onDesktop = (mq) => {
         if (mq.matches) setOpen(false);
-      });
+      };
+      if (desktop.addEventListener) desktop.addEventListener("change", onDesktop);
+      else if (desktop.addListener) desktop.addListener(onDesktop);
     }
 
     /* 2) 스크롤 상태 */
@@ -63,6 +66,7 @@
     const groups = ".bento, .criteria, .process, .lectures, .cred, .card-grid, .steps, .signal-grid, .check-list, .faq";
     const singles = ".sec-head, .page-sec h2, .page-sec .kicker, .contact-in, .cta-strip, .profile-grid > div:first-child";
     if (!reduce && "IntersectionObserver" in window) {
+      try {
       const below = (el) => el.getBoundingClientRect().top > window.innerHeight * 0.92;
       const targets = [];
       document.querySelectorAll(groups).forEach((group) => {
@@ -92,6 +96,10 @@
         });
       }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
       targets.forEach((el) => io.observe(el));
+      } catch (_) {
+        // Animation must never prevent visitors or search renderers from reading.
+        document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
+      }
     } else {
       document.querySelectorAll(".reveal").forEach((el) => el.classList.add("is-visible"));
     }
@@ -105,3 +113,4 @@
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", init);
   else init();
 })();
+

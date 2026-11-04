@@ -29,6 +29,10 @@ class SiteGuardTests(unittest.TestCase):
 
     def test_bad_mappings_are_rejected(self):
         cases = [
+            ("index.html", 'content="https://dentalsolve.kr/og-image.png?v=20261104"',
+             'content="https://dentalsolve.kr/missing-preview.png"', "internal reference not found"),
+            ("site.css", "url(/images/icon-kakao.svg)", "url(/images/missing-icon.svg)",
+             "CSS asset not found"),
             ("index.html", 'href="#main"', 'href="#missing-section"', "fragment target not found"),
             ("about/index.html", 'href="https://dentalsolve.kr/about/"',
              'href="https://dentalsolve.kr/"', "canonical must be"),
@@ -56,3 +60,4 @@ class SiteGuardTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+

@@ -6,6 +6,7 @@ from urllib.parse import urljoin, urlparse, unquote
 from urllib.robotparser import RobotFileParser
 import sys
 import json
+import re
 from collections import Counter
 import xml.etree.ElementTree as ET
 
@@ -28,6 +29,7 @@ class PageParser(HTMLParser):
         self.schema_open = False
         self.schema_text = []
         self.images = []
+        self.styles = []
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -39,6 +41,8 @@ class PageParser(HTMLParser):
             self.h1_count += 1
         if tag == "meta":
             self.meta[attrs.get("name", attrs.get("property", ""))] = attrs.get("content", "")
+            if attrs.get("property", attrs.get("name", "")) in ("og:image", "twitter:image"):
+                self.refs.append(attrs.get("content", ""))
         if tag == "script" and attrs.get("type") == "application/ld+json":
             self.schema_open = True
             self.schema_text = []
@@ -181,6 +185,17 @@ for file in html_files:
             fail(f"{rel}: internal reference not found: {ref}")
 
 # Resolve fragment links after all target HTML IDs have been collected.
+# CSS assets are not represented by HTML src/href attributes.
+for css in ROOT.glob("*.css"):
+    for match in re.finditer(r"url\(\s*(['\"]?)(.*?)\1\s*\)", css.read_text(encoding="utf-8")):
+        ref = match.group(2)
+        parsed = urlparse(urljoin(urljoin(BASE, css.name), ref))
+        if parsed.netloc != "dentalsolve.kr":
+            continue
+        target = ROOT / unquote(parsed.path).lstrip("/")
+        if not target.is_file():
+            fail(f"{css.name}: CSS asset not found: {ref}")
+
 for file, parser in pages.items():
     for ref in parser.refs:
         parsed = urlparse(urljoin(urljoin(BASE, file.relative_to(ROOT).as_posix()), ref))
@@ -272,3 +287,4 @@ if ERRORS:
     sys.exit(1)
 
 print(f"Site check passed: {len(html_files)} HTML files checked; sitemap and internal references are valid.")
+
