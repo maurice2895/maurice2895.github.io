@@ -27,7 +27,9 @@ jobs:
         run: python scripts/site_check.py
 
       - name: Verify SEO and mapping regression guards
-        run: python scripts/test_site_check.py
+        run: |
+          python scripts/test_site_check.py
+          python scripts/test_indexnow.py
 
       - name: Check JavaScript syntax
         run: |

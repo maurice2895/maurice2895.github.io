@@ -11,6 +11,7 @@ IndexNow 규칙에 따라 한 곳(api.indexnow.org)에만 제출하면
             python scripts/indexnow.py --dry-run  (제출하지 않고 내용만 출력)
 """
 import json
+import re
 import sys
 import time
 import urllib.error
@@ -24,6 +25,20 @@ KEY = "254b7bd0955f7cd140d82f0f30a69fab"
 ENDPOINT = "https://api.indexnow.org/indexnow"
 WAIT_SECONDS = 600      # 배포 완료를 기다리는 최대 시간(10분)
 POLL_INTERVAL = 20
+
+# Cloudflare Web Analytics adds this script after deployment. Ignore only this
+# known empty script element; all page text, metadata and other scripts must match.
+CLOUDFLARE_BEACON = re.compile(
+    rb'''<script\b(?=[^>]*\bsrc=["']https://static\.cloudflareinsights\.com/beacon\.min\.js(?:/[^"']*)?["'])[^>]*>\s*</script>\r?\n?''',
+    re.IGNORECASE,
+)
+
+
+def deployment_matches(url, live, expected):
+    if url.endswith(("/", ".html")):
+        live = CLOUDFLARE_BEACON.sub(b"", live)
+        expected = CLOUDFLARE_BEACON.sub(b"", expected)
+    return live.strip() == expected.strip()
 
 RESULT_TEXT = {
     200: "제출 성공",
@@ -64,7 +79,7 @@ def wait_for_deploy(urls):
         for url, expected in checks:
             try:
                 live = fetch(url)
-                if live.strip() != expected.strip():
+                if not deployment_matches(url, live, expected):
                     pending.append(url)
             except (urllib.error.URLError, TimeoutError):
                 pending.append(url)

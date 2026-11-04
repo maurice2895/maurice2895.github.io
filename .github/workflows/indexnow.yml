@@ -9,6 +9,7 @@ on:
     paths:
       - "**.html"
       - "sitemap.xml"
+      - "scripts/indexnow.py"
   workflow_dispatch:
 
 permissions:
