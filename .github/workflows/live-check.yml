@@ -18,6 +18,21 @@ jobs:
     name: Status codes, redirects and headers
     runs-on: ubuntu-latest
     steps:
+      # 네임서버 변경(가비아 → Cloudflare)이 반영됐는지 확인합니다.
+      # .kr 등록소에 직접 묻는 값이 가장 정확하고, 공용 DNS 값은 캐시 때문에 늦게 바뀔 수 있습니다.
+      - name: Check DNS for dentalsolve.kr
+        run: |
+          set -u
+          kr_ns=$(dig +short NS kr. | head -1)
+          echo "== .kr 등록소($kr_ns)에 등록된 네임서버"
+          dig +norecurse +noall +authority NS dentalsolve.kr. @"$kr_ns" | awk '{print $5}' | sort
+          for r in 8.8.8.8 1.1.1.1; do
+            echo "== 공용 DNS $r"
+            echo "NS:    $(dig +short NS dentalsolve.kr. @$r | sort | tr '\n' ' ')"
+            echo "A:     $(dig +short A dentalsolve.kr. @$r | sort | tr '\n' ' ')"
+            echo "www:   $(dig +short CNAME www.dentalsolve.kr. @$r | tr '\n' ' ')"
+          done
+
       - name: Check pages and protected paths
         env:
           BASE: ${{ inputs.base_url }}
