@@ -27,3 +27,8 @@ https://:version.:project.pages.dev/*
 
 /site.css
   Cache-Control: public, max-age=0, must-revalidate
+
+# 회원 자료실 입구: 검색 제외
+/members/*
+  X-Robots-Tag: noindex, nofollow, noarchive, nosnippet
+  Cache-Control: no-store
