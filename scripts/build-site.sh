@@ -9,7 +9,7 @@ PUBLIC_FILES=(index.html 404.html _headers _redirects robots.txt sitemap.xml rss
   security.js site.css site.js favicon.ico favicon.svg favicon-32.png apple-touch-icon.png og-image.png
   googlef97ab000014e40e4.html naver133c3117ea7348c1738597f91a5a3d64.html
   254b7bd0955f7cd140d82f0f30a69fab.txt)
-PUBLIC_DIRS=(about consulting oneclick standardization ai-training emr-button-guide faq images)
+PUBLIC_DIRS=(about consulting oneclick standardization ai-training emr-button-guide faq members images)
 for item in "${PUBLIC_FILES[@]}"; do
   test -f "$item" || { echo "필수 공개 파일 누락: $item" >&2; exit 1; }
   cp "$item" "$OUT/"
