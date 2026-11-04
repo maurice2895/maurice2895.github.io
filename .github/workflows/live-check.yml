@@ -1,0 +1,34 @@
+name: Live site check
+
+# 배포된 실제 주소를 점검합니다. 자동으로 돌지 않고, 필요할 때 수동으로만 실행합니다.
+# (Actions 탭 → Live site check → Run workflow, 또는 gh workflow run live-check.yml)
+on:
+  workflow_dispatch:
+    inputs:
+      base_url:
+        description: "점검할 주소 (예: https://dentalsolve.pages.dev 또는 https://dentalsolve.kr)"
+        required: true
+        default: "https://dentalsolve.pages.dev"
+
+permissions:
+  contents: read
+
+jobs:
+  live-check:
+    name: Status codes, redirects and headers
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check pages and protected paths
+        env:
+          BASE: ${{ inputs.base_url }}
+        run: |
+          set -u
+          paths="/ /about/ /consulting/ /oneclick/ /standardization/ /ai-training/ /emr-button-guide/ /faq/ /sitemap.xml /robots.txt /googlef97ab000014e40e4.html /naver133c3117ea7348c1738597f91a5a3d64.html /README.md /CNAME /.gitignore /.nojekyll /scripts/build-site.sh /scripts/indexnow.py /.github/workflows/site-check.yml /no-such-page/"
+          echo "BASE=$BASE"
+          for p in $paths; do
+            r=$(curl -sS -o /tmp/body -w '%{http_code} -> %{redirect_url}' "$BASE$p" 2>&1 || echo "curl-error")
+            printf '%-48s %s | %s\n' "$p" "$r" "$(head -c 60 /tmp/body | tr '\n\r' '  ')"
+          done
+          echo
+          echo "== 홈 응답 헤더"
+          curl -sSI "$BASE/" | grep -iE '^(http|x-robots-tag|x-frame-options|x-content-type-options|server|cf-cache-status|age)' || true
