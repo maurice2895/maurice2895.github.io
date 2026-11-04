@@ -33,17 +33,58 @@ jobs:
             echo "www:   $(dig +short CNAME www.dentalsolve.kr. @$r | tr '\n' ' ')"
           done
 
-      - name: Check pages and protected paths
+      - name: Check public pages, assets and indexing
         env:
           BASE: ${{ inputs.base_url }}
         run: |
-          set -u
-          paths="/ /about/ /consulting/ /oneclick/ /standardization/ /ai-training/ /emr-button-guide/ /faq/ /sitemap.xml /robots.txt /googlef97ab000014e40e4.html /naver133c3117ea7348c1738597f91a5a3d64.html /README.md /CNAME /.gitignore /.nojekyll /scripts/build-site.sh /scripts/indexnow.py /.github/workflows/site-check.yml /no-such-page/"
-          echo "BASE=$BASE"
+          set -euo pipefail
+          BASE="${BASE%/}"
+          failures=0
+          body=$(mktemp)
+          headers=$(mktemp)
+          trap 'rm -f "$body" "$headers"' EXIT
+          paths="/ /about/ /consulting/ /oneclick/ /standardization/ /ai-training/ /emr-button-guide/ /faq/ /members/ /sitemap.xml /robots.txt /rss.xml /llms.txt /site.js /site.css /security.js /og-image.png /googlef97ab000014e40e4.html /naver133c3117ea7348c1738597f91a5a3d64.html"
           for p in $paths; do
-            r=$(curl -sS -o /tmp/body -w '%{http_code} -> %{redirect_url}' "$BASE$p" 2>&1 || echo "curl-error")
-            printf '%-48s %s | %s\n' "$p" "$r" "$(head -c 60 /tmp/body | tr '\n\r' '  ')"
+            if ! code=$(curl --silent --show-error --location --max-redirs 5 --connect-timeout 10 --max-time 30 -D "$headers" -o "$body" -w '%{http_code}' "$BASE$p"); then
+              echo "::error::Connection failed: $p"
+              failures=$((failures + 1))
+              continue
+            fi
+            echo "$p -> $code"
+            if [ "$code" != 200 ]; then
+              echo "::error::Expected HTTP 200: $p"
+              failures=$((failures + 1))
+              continue
+            fi
+            case "$p" in
+              /|/about/|/consulting/|/oneclick/|/standardization/|/ai-training/|/emr-button-guide/|/faq/)
+                if grep -Eiq '^x-robots-tag:.*noindex' "$headers" || grep -Eiq '<meta[^>]*name="robots"[^>]*content="[^"]*noindex' "$body"; then
+                  echo "::error::Public page unexpectedly noindex: $p"
+                  failures=$((failures + 1))
+                fi
+                ;;
+              /members/)
+                if ! grep -Eiq '<meta[^>]*name="robots"[^>]*content="[^"]*noindex' "$body"; then
+                  echo "::error::Member entry page must remain noindex"
+                  failures=$((failures + 1))
+                fi
+                ;;
+              /robots.txt)
+                if ! grep -Fq 'Sitemap: https://dentalsolve.kr/sitemap.xml' "$body"; then
+                  echo "::error::robots.txt sitemap mapping missing"
+                  failures=$((failures + 1))
+                fi
+                ;;
+            esac
           done
-          echo
-          echo "== 홈 응답 헤더"
-          curl -sSI "$BASE/" | grep -iE '^(http|x-robots-tag|x-frame-options|x-content-type-options|server|cf-cache-status|age)' || true
+          if code=$(curl --silent --show-error --connect-timeout 10 --max-time 30 -o "$body" -w '%{http_code}' "$BASE/no-such-page/"); then
+            if [ "$code" != 404 ]; then
+              echo "::error::Unknown page should return HTTP 404, received $code"
+              failures=$((failures + 1))
+            fi
+          else
+            echo "::error::404 check could not connect"
+            failures=$((failures + 1))
+          fi
+          echo "Live check failures: $failures"
+          test "$failures" -eq 0
