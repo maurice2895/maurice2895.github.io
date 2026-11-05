@@ -1,6 +1,5 @@
-User-agent: Googlebot-Image
-Disallow: /
-
+# Public pages and promotional images may be crawled for search.
+# Member pages remain noindex in HTML and response headers.
 User-agent: *
 Allow: /
 
