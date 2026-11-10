@@ -1,0 +1,548 @@
+<!doctype html><html><head><meta charset=utf8><meta name="robots" content="noindex,nofollow"><title>병의원 무이자 할부 안내판 · 덴탈솔브</title><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR:wght@400;500;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<style>
+/* Layout: 데스크용 도구 — 상단 조건 바 → 카드사 안내판 그리드 → 할부 지도 → 계산기·안내문 2열 → 원문·유의사항 */
+:root{
+  --bg:#F3F6F6; --surface:#FFFFFF; --sunk:#E9EFEF; --ink:#13282B; --muted:#5A6D70; --line:#D8E2E2;
+  --free:#0F766E; --free-soft:#D3EEEA; --pay:#C96A12; --pay-soft:#FBE9D3; --waive:#7FB8B1;
+  --warn-bg:#FFF4E0; --warn-fg:#8A4B00; --focus:#0F766E;
+  --f-body:"IBM Plex Sans KR",system-ui,-apple-system,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --f-num:"IBM Plex Mono",ui-monospace,"SF Mono",Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0C1416; --surface:#132024; --sunk:#0F1A1D; --ink:#E4EEEE; --muted:#93A7A9; --line:#24383C;
+  --free:#36C2B1; --free-soft:#123F3A; --pay:#F0A24A; --pay-soft:#46301A; --waive:#2E6E66;
+  --warn-bg:#3A2A12; --warn-fg:#F6C987; --focus:#36C2B1; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0C1416; --surface:#132024; --sunk:#0F1A1D; --ink:#E4EEEE; --muted:#93A7A9; --line:#24383C;
+  --free:#36C2B1; --free-soft:#123F3A; --pay:#F0A24A; --pay-soft:#46301A; --waive:#2E6E66;
+  --warn-bg:#3A2A12; --warn-fg:#F6C987; --focus:#36C2B1; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:20px 48px}
+.wrap{max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:28px}
+h1,h2,h3{margin:0;text-wrap:balance}
+h1{font-size:clamp(22px,3.4vw,30px);font-weight:700;letter-spacing:-.01em}
+h2{font-size:19px;font-weight:700}
+.num{font-family:var(--f-num);font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+a{color:var(--free)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+.eyebrow{font-size:12px;letter-spacing:.08em;color:var(--muted);font-weight:500}
+
+/* header */
+header{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:flex-end}
+header .meta{display:flex;flex-direction:column;gap:6px}
+.stamp{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:999px;background:var(--sunk);color:var(--muted);font-size:12.5px;white-space:nowrap}
+.chip.free{background:var(--free-soft);color:var(--free)}
+.chip.pay{background:var(--pay-soft);color:var(--pay)}
+.warn{background:var(--warn-bg);color:var(--warn-fg);border-radius:10px;padding:12px 16px;font-size:14px}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;justify-content:space-between;
+  padding:14px 16px;background:var(--surface);border:1px solid var(--line);border-radius:14px}
+.seg{display:flex;flex-wrap:wrap;gap:4px;background:var(--sunk);padding:4px;border-radius:10px}
+.seg button{border:0;background:transparent;padding:7px 14px;border-radius:7px;cursor:pointer;font-weight:500;color:var(--muted)}
+.seg button[aria-pressed="true"]{background:var(--surface);color:var(--ink);box-shadow:0 1px 2px rgb(0 0 0 / .12)}
+.toggle{display:flex;gap:8px;align-items:center;font-size:14px;cursor:pointer}
+.toggle input{width:18px;height:18px;accent-color:var(--free)}
+.actions{display:flex;flex-wrap:wrap;gap:8px}
+.btn{border:1px solid var(--line);background:var(--surface);padding:8px 14px;border-radius:9px;cursor:pointer;font-weight:500}
+.btn.primary{background:var(--free);border-color:var(--free);color:var(--surface)}
+.btn:hover{border-color:var(--free)}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.stat{padding:14px 16px;border-top:3px solid var(--free);background:var(--surface);border-radius:4px 4px 12px 12px}
+.stat .v{font-size:26px;font-weight:600;margin-top:2px}
+.stat .s{font-size:13px;color:var(--muted)}
+@media (max-width:640px){.stats{grid-template-columns:1fr}}
+
+/* card board */
+.sechead{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:12px}
+.board{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:10px;cursor:pointer;text-align:left;min-width:0}
+.card:hover{border-color:var(--free)}
+.card[aria-expanded="true"]{grid-column:1/-1;cursor:default}
+.card .top{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.card .name{font-size:18px;font-weight:700}
+.rank{font-family:var(--f-num);font-size:12px;color:var(--muted)}
+.freebig{display:flex;align-items:baseline;gap:6px}
+.freebig .v{font-size:30px;font-weight:600;color:var(--free);line-height:1.1}
+.freebig .l{font-weight:500;color:var(--free)}
+.freebig.none .v{color:var(--muted);font-size:20px}
+.plist{display:flex;flex-direction:column;gap:4px;border-top:1px dashed var(--line);padding-top:8px}
+.plist .h{font-size:12.5px;color:var(--muted)}
+.prow{display:grid;grid-template-columns:54px 1fr auto;gap:8px;align-items:center;font-size:14px}
+.prow .m{font-family:var(--f-num);font-weight:600}
+.bar{height:8px;border-radius:4px;background:var(--waive);overflow:hidden;display:flex}
+.bar i{display:block;height:100%;background:var(--pay)}
+.prow .t{color:var(--pay);font-size:13px;white-space:nowrap}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.detail{border-top:1px solid var(--line);padding-top:12px;display:flex;flex-direction:column;gap:10px;cursor:auto}
+.drow{display:grid;grid-template-columns:110px 1fr;gap:4px 14px;font-size:14px;padding:10px 12px;background:var(--sunk);border-radius:10px}
+.drow b{font-weight:500;color:var(--muted)}
+.drow div{min-width:0;overflow-wrap:anywhere;white-space:pre-line}
+@media (max-width:520px){.drow{grid-template-columns:1fr}}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted)}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* heatmap */
+.mapbox{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;overflow-x:auto}
+table.map{border-collapse:separate;border-spacing:3px;min-width:760px;width:100%}
+.map th{font-size:12px;font-weight:500;color:var(--muted);text-align:center;font-family:var(--f-num)}
+.map th.r{text-align:left;font-family:var(--f-body);font-size:13.5px;color:var(--ink);white-space:nowrap;padding-right:6px}
+.map td{height:30px;border-radius:5px;background:var(--sunk);position:relative;cursor:pointer;padding:0;font-size:11px;text-align:center;font-family:var(--f-num)}
+.map td.f{background:var(--free);color:var(--surface)}
+.map td.p{background:var(--waive);color:var(--ink);overflow:hidden}
+.map td.p i{position:absolute;left:0;right:0;bottom:0;background:var(--pay);display:block}
+.map td.p span{position:relative;font-weight:600}
+.map td.sel{outline:2px solid var(--ink);outline-offset:1px}
+
+/* calc + desk */
+.two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:16px}
+@media (max-width:860px){.two{grid-template-columns:1fr}}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:13px;color:var(--muted);font-weight:500}
+.inrow{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.inrow input[type=text],.inrow select{padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--bg);min-width:0}
+#amount{width:160px;font-family:var(--f-num);font-size:17px;text-align:right}
+.quick{display:flex;flex-wrap:wrap;gap:6px}
+.quick button{border:1px solid var(--line);background:var(--bg);padding:5px 11px;border-radius:999px;cursor:pointer;font-size:13px}
+.quick button[aria-pressed="true"]{background:var(--ink);color:var(--surface);border-color:var(--ink)}
+.result{display:flex;flex-direction:column;gap:6px}
+.rrow{display:grid;grid-template-columns:22px 70px minmax(0,1fr) auto;gap:10px;align-items:center;padding:9px 10px;border-radius:10px;background:var(--sunk);font-size:14px}
+.rrow.best{background:var(--free-soft)}
+.rrow.mine{outline:2px solid var(--pay);outline-offset:-2px}
+.rrow .how{color:var(--muted);font-size:13px;min-width:0}
+.rrow .c{font-family:var(--f-num);font-weight:600;text-align:right;white-space:nowrap}
+.rrow .c small{display:block;font-weight:500;font-size:11.5px;color:var(--free)}
+.headline{font-size:17px;font-weight:700}
+textarea#desk{width:100%;min-height:290px;resize:vertical;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font-size:14px;line-height:1.6}
+.toast{font-size:13px;color:var(--free);min-height:1.2em}
+
+/* other promos, sources, notes */
+.promos{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.promo{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.promo .t{font-weight:700}
+.promo p{margin:0;font-size:13.5px;color:var(--muted);overflow-wrap:anywhere}
+.srcs{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px}
+.srcs a{display:flex;justify-content:space-between;gap:8px;padding:10px 14px;background:var(--surface);border:1px solid var(--line);border-radius:10px;text-decoration:none;color:var(--ink);font-weight:500}
+.srcs a span{color:var(--free);font-size:13px}
+.srcs a:hover{border-color:var(--free)}
+ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:flex;flex-direction:column;gap:6px;max-width:75ch}
+
+/* big view */
+.big{position:fixed;inset:0;z-index:20;background:var(--bg);overflow:auto;
+  padding:calc(24px + env(safe-area-inset-top,0px)) max(20px,env(safe-area-inset-right,0px)) calc(24px + env(safe-area-inset-bottom,0px)) max(20px,env(safe-area-inset-left,0px))}
+.big .in{max-width:980px;margin:0 auto;display:flex;flex-direction:column;gap:18px}
+.big .bh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.big h2{font-size:clamp(24px,4vw,38px)}
+.bigrow{display:grid;grid-template-columns:minmax(90px,150px) minmax(110px,190px) minmax(0,1fr);gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--line)}
+.bigrow .n{font-size:clamp(20px,3vw,30px);font-weight:700}
+.bigrow .f{font-size:clamp(22px,3.4vw,34px);font-weight:600;color:var(--free)}
+.bigrow .f.none{color:var(--muted);font-size:20px}
+.bigrow .p{font-size:clamp(15px,2vw,19px);color:var(--pay)}
+@media (max-width:560px){.bigrow{grid-template-columns:1fr 1fr}.bigrow .p{grid-column:1/-1}}
+@media (prefers-reduced-motion:no-preference){.card,.btn,.map td{transition:border-color .15s,background-color .15s}}
+</style>
+
+<div class="wrap">
+  <header>
+    <div class="meta">
+      <span class="eyebrow">신용카드 무이자 할부 · 카드사 9곳 중 3곳 공식 확인</span>
+      <h1 id="title">11월 병의원 신용카드 무이자 할부</h1>
+      <div class="stamp">
+        <span class="chip num">행사기간 2026.11.01 ~ 11.30</span>
+        <span class="chip">자료 기준 2026.11.10 · 공식 확인 3/9곳</span>
+        <span class="chip">개인 신용카드 · 대부분 5만원 이상</span>
+      </div>
+    </div>
+    <div class="actions">
+      <button class="btn primary" id="openBig" type="button">환자에게 크게 보여주기</button>
+      <button class="btn" id="copyAll" type="button">환자 안내문 복사</button>
+    </div>
+  </header>
+
+  <div class="warn" id="expired" hidden></div>
+
+  <div class="controls">
+    <div class="seg" id="cats" role="group" aria-label="진료 업종"></div>
+    <label class="toggle"><input type="checkbox" id="small"> 우리 병원은 연매출 5억 이하(영세·중소 가맹점)</label>
+  </div>
+
+  <section class="stats" id="stats" aria-label="이번 달 요약"></section>
+
+  <section>
+    <div class="sechead">
+      <h2 id="boardTitle">카드사별 무이자·부분무이자</h2>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--free)"></i>전액 무이자</span>
+        <span><i class="sw" style="background:var(--pay)"></i>환자가 이자 내는 회차</span>
+        <span><i class="sw" style="background:var(--waive)"></i>카드사가 이자 면제하는 회차</span>
+      </div>
+    </div>
+    <div class="board" id="board"></div>
+    <p class="small muted" style="margin:10px 0 0">카드를 누르면 행사 조건 원문 요약과 카드사 공지 링크가 펼쳐집니다.</p>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>할부 지도 <span class="muted small">카드사 × 2~24개월</span></h2>
+      <span class="small muted">칸을 누르면 아래 계산기가 그 카드사·개월로 바뀝니다. 주황 높이 = 환자가 이자 내는 회차 비율</span></div>
+    <div class="mapbox"><table class="map" id="map"></table></div>
+  </section>
+
+  <section class="two">
+    <div class="panel" id="calc">
+      <div class="sechead" style="margin:0"><h2>진료비 할부 이자 계산</h2><span class="small muted" id="calcCat"></span></div>
+      <div class="field">
+        <label for="amount">진료비</label>
+        <div class="inrow"><input type="text" id="amount" inputmode="numeric" autocomplete="off"><span>원</span>
+          <div class="quick" id="qa"></div></div>
+      </div>
+      <div class="field">
+        <label for="months">할부 개월</label>
+        <div class="inrow"><select id="months"></select><div class="quick" id="qm"></div></div>
+      </div>
+      <div class="field">
+        <label for="mycard">환자 카드</label>
+        <div class="inrow"><select id="mycard"></select>
+          <select id="rate" aria-label="일반 할부 수수료율 가정"><option value="10">연 10% 가정</option><option value="15">연 15% 가정</option><option value="19.9">연 19.9% 가정</option></select></div>
+      </div>
+      <div class="headline" id="calcHead"></div>
+      <div class="result" id="result"></div>
+      <p class="small muted" style="margin:0">일반 할부 수수료율을 가정한 예상 이자입니다. 매 회차 남은 원금 × 연 수수료율 ÷ 12로 계산하고, 원금은 회차마다 똑같이 갚는 것으로 봅니다. 100원 단위 반올림.</p>
+    </div>
+    <div class="panel">
+      <div class="sechead" style="margin:0"><h2>데스크 안내문</h2>
+        <div class="seg" id="deskMode"><button type="button" data-m="all" aria-pressed="true">이번 달 전체</button><button type="button" data-m="one" aria-pressed="false">계산 결과로</button></div></div>
+      <textarea id="desk" aria-label="안내문"></textarea>
+      <div class="inrow"><button class="btn primary" id="copyDesk" type="button">안내문 복사</button><span class="toast" id="toast"></span></div>
+      <p class="small muted" style="margin:0">카톡·문자에 그대로 붙여 넣을 수 있습니다. 내용은 고쳐 쓴 뒤 복사해도 됩니다.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>업종과 별도로 받는 무이자</h2><span class="small muted">전 가맹점 행사, 연매출 기준 영세·중소 가맹점 행사</span></div>
+    <div class="promos" id="promos"></div>
+  </section>
+
+  <section>
+    <div class="sechead"><h2>카드사 공지 원문</h2><span class="small muted">11월 행사가 나오면 이 링크에서 새 조건을 확인하세요</span></div>
+    <div class="srcs" id="srcs"></div>
+  </section>
+
+  <section>
+    <h2 style="margin-bottom:10px">유의사항</h2>
+    <ul class="notes">
+      <li>개인 신용카드 기준입니다. 체크·법인·기프트카드와 개인사업자 카드는 대부분 빠집니다. 대부분 5만원 이상 결제 때만 적용됩니다.</li>
+      <li>병원이 카드사에 어떤 업종(종합병원·일반병원·치과 등)으로 등록되어 있는지에 따라 적용이 달라집니다. 결제 전 단말기 할부 화면에서 한 번 더 확인하세요.</li>
+      <li>하나카드는 공지의 치과·한방병원 칸이 비어 있어 일반병원 조건으로 표시했습니다(“일반병원 기준” 표시). 실제 적용 여부는 카드사에 확인하세요.</li>
+      <li>부분무이자는 표시된 앞 회차만 환자가 이자를 내고, 나머지 회차는 카드사가 면제합니다. 신한 슬림할부·삼성 다이어트할부·비씨 Light할부가 여기에 해당합니다.</li>
+      <li>카드사가 행사를 중간에 바꾸거나 멈출 수 있습니다. 이 페이지는 2026년 11월 10일 기준으로 신한·하나·NH농협 공식 공지만 확인해 정리한 것이며 자동 갱신되지 않습니다. 나머지 6개 카드사(삼성·현대·롯데·우리·비씨·KB국민)는 확인되지 않아 숫자를 표시하지 않습니다. 매달 1일 전후로 위 공지 원문에서 새 조건을 확인하세요.</li>
+    </ul>
+  </section>
+</div>
+<p class="small muted" style="max-width:1120px;margin:24px auto 0;text-align:center">© 덴탈솔브 · <a href="/members/">회원전용</a> · 무단 재배포·판매 금지</p>
+
+<div class="big" id="big" hidden role="dialog" aria-modal="true" aria-labelledby="bigTitle">
+  <div class="in">
+    <div class="bh"><div><span class="eyebrow" id="bigSub"></span><h2 id="bigTitle"></h2></div>
+      <button class="btn" id="closeBig" type="button">닫기</button></div>
+    <div id="bigList"></div>
+    <p class="muted" style="font-size:16px;margin:0" id="bigMiss"></p>
+    <p class="muted" style="font-size:16px;margin:0">※ 개인 신용카드, 5만원 이상 결제 시 적용 · 체크·법인카드 제외<br>※ 부분무이자: 표시된 앞 회차만 이자, 나머지 회차는 카드사가 면제</p>
+  </div>
+</div>
+
+<script>
+(function(){
+"use strict";
+// ───────── 자료: 2026년 11월 카드사 공지 (2026.11.10 기준, 신한·하나·NH농협 공식 페이지 확인분) ─────────
+const MONTH = "2026-11", EXPIRE = new Date(2026, 11, 1); // 12월 1일 0시부터 만료 안내
+const VERIFIED = new Set(["shinhan","hana","nh"]);
+const CARDS = [["samsung","삼성"],["shinhan","신한"],["kb","KB국민"],["hyundai","현대"],["lotte","롯데"],["hana","하나"],["woori","우리"],["nh","NH농협"],["bc","비씨"]];
+const NAMES = Object.fromEntries(CARDS);
+const CATS = ["치과","일반병원","한의원","종합병원","동물병원","약국"];
+const SRC = {
+  shinhan:"https://www.shinhancard.com/pconts/html/benefit/info/CONFM50046/CONFM50046R01.html",
+  samsung:"https://www.samsungcard.com/personal/services/merchant/free-install/UHPPBE0701M0.jsp",
+  kb:"https://m.kbcard.com/BON/DVIEW/MBEMCXHIABNC0005",
+  hyundai:"https://www.hyundaicard.com/cpb/ev/CPBEV0101_06.hc?bnftWebEvntCd=XJO693",
+  lotte:"https://www.lottecard.co.kr/app/LPBNFDA_V300.lc?evnBultSeq=11326",
+  hana:"https://m.hanacard.co.kr/MKEVT1010M.web?EVN_SEQ=8699",
+  woori:"https://pc.wooricard.com/dcpc/totSearch.do?searchTerm=%EC%9D%B4%EB%8B%AC%EC%9D%98%20%ED%95%A0%EB%B6%80%20%ED%98%9C%ED%83%9D&gubn=01&mGubn=W",
+  nh:"https://card.nonghyup.com/servlet/IpCb2002R.act?EVT_CRT_SQNO=5896",
+  bc:"https://web.paybooc.co.kr/web/evnt/evnt-dts?pybcUnifEvntNo=2026090059"
+};
+const P = (s, name) => s.split(",").map(x => { const [m, paid] = x.split(":").map(Number); return { m, paid, name }; });
+const HANA_N1 = "하나 개인 신용카드 소지 손님(하나BC제외). 병원 內 부대시설(식당, 매점, 어린이집 등) 이용건 제외.";
+const HANA_N2 = "하나 개인 신용카드 소지 손님(하나BC제외).";
+const WOORI_N = "우리카드 개인 신용카드 고객(체크, 법인, 선불/기프트카드 제외)";
+const H4 = ["종합병원","일반병원","치과","한의원"];
+// scope: 업종별 / 전가맹점 / 영중소 — 2026-11 공식 페이지 확인분만 수록
+const OFFERS = [
+  // 신한 (2026.11.01~11.30, 개인 신용카드, 5만원 이상)
+  {card:"shinhan",scope:"업종별",cats:["종합병원"],label:"종합병원",free:"2~3",note:"슬림할부 7·9·11개월 별도(고객 부담 회차는 공지에 없음 → 카드사 확인)"},
+  {card:"shinhan",scope:"업종별",cats:["일반병원","치과","동물병원","한의원","산후조리원"],label:"개인병원/치과병원/동물병원/한의원, 한약방/산후조리원 등",free:"2~3",note:"종합병원 제외. 슬림할부 7·9·11·23개월 별도(고객 부담 회차는 공지에 없음 → 카드사 확인). 일시불을 할부로 전환하면 무이자 혜택 없음."},
+  // 하나 (2026.11.01~11.30, 개인 신용카드, 하나BC 제외)
+  {card:"hana",scope:"업종별",cats:["종합병원"],label:"종합병원",free:"2~3",note:"하나 개인 신용카드(하나BC 제외). 병원 內 부대시설(식당·매점·어린이집 등) 제외."},
+  {card:"hana",scope:"업종별",cats:["일반병원"],label:"일반병원",free:"2~3",note:"하나 개인 신용카드(하나BC 제외). 병원 內 부대시설 제외. 공지의 한방병원·치과병원 칸은 비어 있어 치과·한의원은 일반병원 기준으로 표시(적용 여부 카드사 확인).",partial:P("10:4,12:5,18:8","부분무이자할부")},
+  // NH농협 (연간 행사 2026.01.01~12.31, 개인 신용카드)
+  {card:"nh",scope:"업종별",cats:["종합병원","일반병원","한의원","치과","동물병원","약국","산후조리원"],label:"병원(종합/일반, 한의원, 치과, 동물병원 등), 약국, 산후조리원",free:"2~3",note:"연간 행사 2026.01.01~12.31. 기업카드(개인사업자 카드 포함)·체크·기프트카드 제외. 일시불의 할부 전환·개월 변경은 적용 안 됨.",partial:P("4:2,5:2,6:2,7:3,8:3,9:3,10:3,12:4,18:5,24:6","부분무이자할부")}
+].map(o => Object.assign({ note:"", partial:[], min:50000 }, o));
+
+// ───────── 상태 ─────────
+const st = { cat:"치과", small:false, amount:3000000, months:12, rate:15, card:"", mode:"all" };
+try { const s = JSON.parse(localStorage.getItem("muija-desk") || "{}"); for (const k of ["cat","small","amount","months","rate","card"]) if (k in s) st[k] = s[k]; } catch(e) {}
+if (!CATS.includes(st.cat)) st.cat = "치과";
+const save = () => { try { localStorage.setItem("muija-desk", JSON.stringify(st)); } catch(e) {} };
+let views = [], openCard = null;
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const won = n => Math.round(n).toLocaleString("ko-KR");
+const won100 = n => (Math.round(n / 100) * 100).toLocaleString("ko-KR");
+const manwon = n => n % 10000 === 0 ? `${(n/10000).toLocaleString("ko-KR")}만원` : `${won(n)}원`;
+const range = s => { const m = String(s||"").match(/\d+/g); if (!m) return null; const a = m.map(Number); return [Math.min(...a), Math.max(...a)]; };
+// 할부 수수료: 매 회차 남은 원금 × 연율/12, 원금 균등 상환
+const fee = (P, n, rounds, rate) => { let s = 0; for (let k = 1; k <= rounds; k++) s += (P - P*(k-1)/n) * rate / 1200; return s; };
+
+// 카드사 하나의 현재 업종 조건 (치과·한의원 행이 없으면 일반병원 조건 사용)
+function view(card) {
+  const all = OFFERS.filter(o => o.card === card);
+  const main = all.filter(o => o.scope !== "영중소");
+  let rows = main.filter(o => o.cats.includes(st.cat)), via = null;
+  if (!rows.some(o => o.scope === "업종별") && (st.cat === "치과" || st.cat === "한의원")) {
+    const g = main.filter(o => o.cats.includes("일반병원") && o.scope === "업종별");
+    if (g.length) { rows = [...g, ...rows]; via = "일반병원"; }
+  }
+  const minor = all.filter(o => o.scope === "영중소" && (o.cats.includes(st.cat) || o.cats.includes("일반병원")));
+  const use = st.small ? [...rows, ...minor] : rows;
+  const free = new Map();
+  for (const o of use) { const r = range(o.free); if (!r) continue; for (let m = Math.max(2, r[0]); m <= r[1]; m++) if (!free.has(m)) free.set(m, o); }
+  const partial = new Map();
+  for (const o of use) for (const p of o.partial) {
+    if (free.has(p.m)) continue;
+    const cur = partial.get(p.m);
+    if (!cur || p.paid < cur.paid) partial.set(p.m, { m:p.m, paid:p.paid, name:p.name, row:o });
+  }
+  const fk = [...free.keys()], fmax = fk.length ? Math.max(...fk) : 0, fmin = fk.length ? Math.min(...fk) : 0;
+  const allStore = [...free.values(), ...[...partial.values()].map(p => p.row)].some(o => o.scope === "전가맹점");
+  const special = [...new Set([...partial.values()].map(p => p.name).filter(n => /슬림|다이어트|Light/.test(n)))];
+  return { key:card, unver: !VERIFIED.has(card), name:NAMES[card], rows, minor, use, via, free, fmax, freeTxt: fmax ? (fmin === fmax ? `${fmax}개월` : `${fmin}~${fmax}개월`) : "", partial, allStore, special };
+}
+const sorted = () => views.filter(v => !v.unver).sort((a, b) => b.fmax - a.fmax || b.partial.size - a.partial.size);
+const unverified = () => views.filter(v => v.unver);
+
+function option(v, n = st.months, P = st.amount) {
+  const base = fee(P, n, n, st.rate);
+  if (P < 50000) return { kind:"normal", cost:base, base, how:"5만원 미만 · 일반 할부" };
+  if (n === 1) return { kind:"free", cost:0, base:0, how:"일시불" };
+  if (v.free.has(n)) return { kind:"free", cost:0, base, how:`${n}개월 전액 무이자` };
+  const p = v.partial.get(n);
+  if (p) return { kind:"partial", cost:fee(P, n, p.paid, st.rate), base, how:`${p.name.includes("부분") ? "부분무이자" : p.name} · 1~${p.paid}회만 이자 · ${p.paid+1}~${n}회 면제` };
+  return { kind:"normal", cost:base, base, how:`일반 할부 · ${n}회 모두 이자` };
+}
+const ranked = () => views.filter(v => !v.unver).map(v => ({ v, o: option(v) })).sort((a, b) => a.o.cost - b.o.cost || b.v.fmax - a.v.fmax);
+
+// ───────── 렌더 ─────────
+function renderCats() {
+  $("cats").innerHTML = CATS.map(c => `<button type="button" data-cat="${c}" aria-pressed="${c === st.cat}">${c}</button>`).join("");
+  $("small").checked = !!st.small;
+}
+function renderStats() {
+  const s = sorted(), top = s[0];
+  const topNames = s.filter(v => v.fmax === top.fmax).map(v => v.name).join("·");
+  let longest = null;
+  for (const v of views.filter(v => !v.unver)) for (const p of v.partial.values()) if (!longest || p.m > longest.p.m || (p.m === longest.p.m && p.paid < longest.p.paid)) longest = { v, p };
+  const withFree = views.filter(v => !v.unver && v.fmax).length, five = views.filter(v => !v.unver && v.fmax >= 5).length;
+  $("stats").innerHTML =
+    `<div class="stat"><div class="eyebrow">이번 달 최대 무이자</div><div class="v num">${top.fmax ? top.fmax + "개월" : "없음"}</div><div class="s">${esc(topNames)}</div></div>` +
+    `<div class="stat"><div class="eyebrow">부분무이자 가장 긴 할부</div><div class="v num">${longest ? longest.p.m + "개월" : "없음"}</div><div class="s">${longest ? esc(longest.v.name) + ` 앞 ${longest.p.paid}회 이자` : ""}</div></div>` +
+    `<div class="stat"><div class="eyebrow">전액 무이자 되는 카드사</div><div class="v num">${withFree} / ${views.filter(v => !v.unver).length}곳</div><div class="s">공식 확인된 카드사 기준 · ${five}곳은 5개월 이상</div></div>`;
+}
+function partialRows(v) {
+  const pp = [...v.partial.values()].sort((a, b) => a.m - b.m);
+  if (!pp.length) return `<div class="plist"><div class="h">부분무이자 없음</div></div>`;
+  return `<div class="plist"><div class="h">부분무이자${v.special.length ? " · " + esc(v.special.join("·")) : ""}</div>` +
+    pp.map(p => `<div class="prow"><span class="m">${p.m}개월</span><span class="bar" aria-hidden="true"><i style="width:${(p.paid/p.m*100).toFixed(1)}%"></i></span><span class="t">앞 ${p.paid}회만 이자</span></div>`).join("") + `</div>`;
+}
+function detail(v) {
+  const rows = (st.small ? [...v.rows, ...v.minor] : [...v.rows, ...v.minor]).map(o => {
+    const pp = o.partial.length ? o.partial.map(p => `${p.m}개월(1~${p.paid}회차 고객 부담)`).join(", ") : "없음";
+    const sc = o.scope === "업종별" ? "업종별 행사" : o.scope === "전가맹점" ? "전 가맹점 행사" : "영세·중소 가맹점 행사" + (st.small ? "" : " (체크 시 적용)");
+    return `<div class="drow"><b>구분</b><div>${sc}</div><b>대상</b><div>${esc(o.label)}</div><b>무이자</b><div>${o.free ? esc(o.free) + "개월" : "없음"}</div><b>부분무이자</b><div>${esc(pp)}</div>${o.note ? `<b>조건</b><div>${esc(o.note)}</div>` : ""}<b>최소 금액</b><div>5만원 이상</div></div>`;
+  }).join("");
+  return `<div class="detail">${v.via ? `<p class="small muted" style="margin:0">공지에 ${esc(st.cat)} 항목이 따로 없어 일반병원 조건을 표시했습니다.</p>` : ""}${rows || `<p class="small muted" style="margin:0">${esc(st.cat)}에 해당하는 행사가 없습니다.</p>`}
+    <div><a href="${esc(SRC[v.key])}" target="_blank" rel="noopener">${esc(v.name)}카드 공지 원문 열기 →</a></div></div>`;
+}
+function renderBoard() {
+  $("title").textContent = `11월 ${st.cat} 신용카드 무이자 할부`;
+  $("boardTitle").textContent = `카드사별 무이자·부분무이자 · ${st.cat}`;
+  $("board").innerHTML = sorted().map((v, i) => {
+    const tags = [];
+    if (v.via) tags.push(`<span class="chip">일반병원 기준</span>`);
+    if (v.allStore) tags.push(`<span class="chip free">전 가맹점 행사 포함</span>`);
+    if (v.fmax || v.partial.size) tags.push(`<span class="chip">5만원 이상</span>`);
+    const ex = openCard === v.key;
+    return `<div class="card" role="button" tabindex="0" data-card="${v.key}" aria-expanded="${ex}">
+      <div class="top"><span class="name">${esc(v.name)}</span><span class="rank">${i+1}</span></div>
+      <div class="freebig${v.fmax ? "" : " none"}"><span class="v num">${v.fmax ? v.freeTxt : "무이자 없음"}</span>${v.fmax ? `<span class="l">무이자</span>` : ""}</div>
+      ${partialRows(v)}
+      <div class="tags">${tags.join("")}</div>
+      ${ex ? detail(v) : ""}
+    </div>`;
+  }).join("") + unverified().map(v => `<div class="card" style="cursor:default" data-card="${v.key}">
+      <div class="top"><span class="name">${esc(v.name)}</span><span class="rank">–</span></div>
+      <div class="freebig none"><span class="v num">11월 조건 미확인</span></div>
+      <div class="plist"><div class="h">공식 공지를 확인하지 못해 숫자를 표시하지 않습니다. 카드사 앱·고객센터에서 병원(치과) 업종 조건을 확인하세요.</div></div>
+      <div><a href="${esc(SRC[v.key])}" target="_blank" rel="noopener">${esc(v.name)}카드 공지 열기 →</a></div>
+    </div>`).join("");
+}
+function renderMap() {
+  const ms = Array.from({ length: 23 }, (_, i) => i + 2);
+  const head = `<tr><th></th>${ms.map(m => `<th>${m}</th>`).join("")}</tr>`;
+  const body = sorted().map(v => `<tr><th class="r" scope="row">${esc(v.name)}</th>${ms.map(m => {
+    const sel = v.key === st.card && m === st.months ? " sel" : "";
+    if (v.free.has(m)) return `<td class="f${sel}" data-card="${v.key}" data-m="${m}" title="${esc(v.name)} ${m}개월 전액 무이자"></td>`;
+    const p = v.partial.get(m);
+    if (p) return `<td class="p${sel}" data-card="${v.key}" data-m="${m}" title="${esc(v.name)} ${m}개월 · 앞 ${p.paid}회만 이자"><i style="height:${(p.paid/m*100).toFixed(1)}%"></i><span>${p.paid}</span></td>`;
+    return `<td class="${sel.trim()}" data-card="${v.key}" data-m="${m}" title="${esc(v.name)} ${m}개월 일반 할부"></td>`;
+  }).join("")}</tr>`).join("");
+  $("map").innerHTML = `<thead>${head}</thead><tbody>${body}</tbody>`;
+}
+function renderCalc() {
+  $("calcCat").textContent = `2026-11 · ${st.cat}`;
+  $("amount").value = st.amount ? won(st.amount) : "";
+  $("qa").innerHTML = [1000000, 3000000, 5000000].map(a => `<button type="button" data-a="${a}" aria-pressed="${st.amount === a}">${a/10000}만</button>`).join("");
+  $("months").innerHTML = Array.from({ length: 24 }, (_, i) => i + 1).map(m => `<option value="${m}"${m === st.months ? " selected" : ""}>${m === 1 ? "일시불" : m + "개월"}</option>`).join("");
+  $("qm").innerHTML = [3, 6, 10, 12].map(m => `<button type="button" data-m="${m}" aria-pressed="${st.months === m}">${m}개월</button>`).join("");
+  $("mycard").innerHTML = `<option value="">가장 유리한 카드</option>` + CARDS.filter(([k]) => VERIFIED.has(k)).map(([k, n]) => `<option value="${k}"${k === st.card ? " selected" : ""}>${n}</option>`).join("");
+  $("rate").value = String(st.rate);
+  const list = ranked(), best = list[0];
+  const bests = list.filter(x => Math.round(x.o.cost/100) === Math.round(best.o.cost/100)).map(x => x.v.name);
+  const mine = st.card && VERIFIED.has(st.card) ? list.find(x => x.v.key === st.card) : null;
+  $("calcHead").textContent = !st.amount ? "진료비를 입력하세요" :
+    mine ? `${manwon(st.amount)} ${st.months}개월 · ${mine.v.name}카드 환자 이자 ${mine.o.cost ? "약 " + won100(mine.o.cost) + "원" : "0원"}` :
+    `${manwon(st.amount)} ${st.months}개월이면 ${bests.slice(0,3).join("·")} 이자가 가장 적습니다`;
+  $("result").innerHTML = list.map((x, i) => {
+    const saved = x.o.base - x.o.cost;
+    return `<div class="rrow${i === 0 || bests.includes(x.v.name) ? " best" : ""}${x.v.key === st.card ? " mine" : ""}">
+      <span class="rank">${i+1}</span><b>${esc(x.v.name)}</b><span class="how">${esc(x.o.how)}${x.v.via ? " · 일반병원 기준" : ""} · 월 약 ${won100(st.amount/st.months)}원</span>
+      <span class="c">${x.o.cost ? "약 " + won100(x.o.cost) + "원" : "0원"}${x.o.kind !== "normal" && saved > 50 ? `<small>${won100(saved)}원 아낌</small>` : ""}</span></div>`;
+  }).join("");
+}
+function deskText() {
+  const mm = "11월";
+  const foot1 = "※ 개인 신용카드, 5만원 이상 결제 시 적용됩니다. 체크·법인카드는 제외되며 카드사 사정으로 바뀔 수 있습니다.";
+  if (st.mode === "one") {
+    if (!st.amount) return "진료비를 넣으면 이 환자용 안내문이 만들어집니다.";
+    const list = ranked();
+    const line = ({ v, o }) => `· ${v.name}카드: ${o.how} (예상 이자 ${o.cost ? "약 " + won100(o.cost) + "원" : "0원"})`;
+    const pick = st.card ? list.find(x => x.v.key === st.card) : null;
+    const monthly = `월 약 ${won100(st.amount/st.months)}원씩 나갑니다.`;
+    return `[${mm} 진료비 ${manwon(st.amount)} · ${st.months === 1 ? "일시불" : st.months + "개월 할부"} 안내]\n` +
+      (pick ? `${line(pick)}\n${monthly}\n\n다른 카드라면\n${list.filter(x => x !== pick).slice(0, 3).map(line).join("\n")}`
+            : `${list.slice(0, 4).map(line).join("\n")}\n${monthly}`) +
+      `\n\n${foot1}\n※ 이자는 연 ${st.rate}% 기준 예상치이며 카드 등급에 따라 다릅니다.`;
+  }
+  const ok = sorted().filter(v => v.fmax || v.partial.size);
+  const miss = unverified().map(v => v.name).join("·");
+  if (!ok.length) return `${mm} ${st.cat} 결제에 확인된 카드 무이자 할부 행사가 없습니다.`;
+  const line = v => {
+    const f = v.fmax ? `${v.freeTxt} 무이자` : "";
+    const pp = [...v.partial.values()].sort((a, b) => a.m - b.m);
+    const pt = pp.length ? `부분무이자 ${pp.map(p => `${p.m}개월(앞 ${p.paid}회 이자)`).join(", ")}` : "";
+    return `· ${v.name}카드 ${[f, pt].filter(Boolean).join(" / ")}`;
+  };
+  return `[${mm} 카드 무이자 할부 안내]\n${ok.map(line).join("\n")}\n· ${miss}카드: 11월 조건은 카드사에 문의해 주세요\n\n${foot1}\n※ 부분무이자는 괄호 안 회차만 이자가 붙고 나머지 회차는 카드사가 면제합니다.`;
+}
+function renderDesk() {
+  document.querySelectorAll("#deskMode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === st.mode));
+  $("desk").value = deskText();
+}
+function renderPromos() {
+  const ps = OFFERS.filter(o => o.scope !== "업종별");
+  if (!ps.length) { const sec = $("promos").closest("section"); if (sec) sec.hidden = true; return; }
+  $("promos").innerHTML = ps.map(o => {
+    const sc = o.scope === "전가맹점" ? "전 가맹점" : "영세·중소 가맹점";
+    const light = o.partial.length ? `<div class="small" style="color:var(--pay)">+ ${esc(o.partial[0].name)} ${o.partial[0].m}~${o.partial[o.partial.length-1].m}개월</div>` : "";
+    return `<div class="promo"><div class="tags"><span class="chip">${esc(NAMES[o.card])}</span><span class="chip ${o.scope === "영중소" ? "pay" : "free"}">${sc}</span></div>
+      <div class="t num">${esc(o.free)}개월 무이자</div>${light}
+      <p>${esc(o.label)}${o.note ? " · " + esc(o.note) : ""} · 5만원 이상</p>
+      <a class="small" href="${esc(SRC[o.card])}" target="_blank" rel="noopener">공지 원문 →</a></div>`;
+  }).join("");
+}
+function renderSrcs() {
+  $("srcs").innerHTML = CARDS.map(([k, n]) => `<a href="${esc(SRC[k])}" target="_blank" rel="noopener">${n}카드<span>공지 원문 →</span></a>`).join("");
+}
+function renderBig() {
+  $("bigSub").textContent = `2026년 11월 · ${st.cat} · 신용카드`;
+  $("bigTitle").textContent = "카드사별 무이자 할부 안내";
+  $("bigList").innerHTML = sorted().map(v => {
+    const pp = [...v.partial.values()].sort((a, b) => a.m - b.m);
+    return `<div class="bigrow"><span class="n">${esc(v.name)}</span><span class="f num${v.fmax ? "" : " none"}">${v.fmax ? v.freeTxt + " 무이자" : "무이자 없음"}</span>
+      <span class="p">${pp.length ? "부분무이자 " + pp.map(p => `${p.m}개월(앞 ${p.paid}회 이자)`).join(", ") : ""}</span></div>`;
+  }).join("");
+  $("bigMiss").textContent = "※ " + unverified().map(v => v.name).join("·") + "카드는 11월 조건을 확인하지 못했습니다. 카드사에 문의해 주세요.";
+}
+function renderAll() {
+  views = CARDS.map(([k]) => view(k));
+  renderCats(); renderStats(); renderBoard(); renderMap(); renderCalc(); renderDesk(); renderBig();
+  save();
+}
+
+// ───────── 이벤트 ─────────
+async function copy(text, okMsg) {
+  try { await navigator.clipboard.writeText(text); toast(okMsg); }
+  catch (e) { const t = $("desk"); t.value = text; t.focus(); t.select(); toast("자동 복사가 막혀 있어 안내문을 선택해 두었습니다. Ctrl+C로 복사하세요."); }
+}
+let tt; function toast(m) { $("toast").textContent = m; clearTimeout(tt); tt = setTimeout(() => $("toast").textContent = "", 3500); }
+
+$("cats").addEventListener("click", e => { const b = e.target.closest("button[data-cat]"); if (!b) return; st.cat = b.dataset.cat; openCard = null; renderAll(); });
+$("small").addEventListener("change", e => { st.small = e.target.checked; renderAll(); });
+$("board").addEventListener("click", e => {
+  if (e.target.closest("a") || e.target.closest(".detail")) return;
+  const c = e.target.closest(".card"); if (!c) return;
+  openCard = openCard === c.dataset.card ? null : c.dataset.card; renderBoard();
+});
+$("board").addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("card")) { e.preventDefault(); openCard = openCard === e.target.dataset.card ? null : e.target.dataset.card; renderBoard(); } });
+$("map").addEventListener("click", e => {
+  const td = e.target.closest("td[data-card]"); if (!td) return;
+  st.card = td.dataset.card; st.months = +td.dataset.m; st.mode = "one";
+  renderMap(); renderCalc(); renderDesk(); save();
+  $("calc").scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "start" });
+});
+$("amount").addEventListener("input", e => {
+  const n = +String(e.target.value).replace(/[^\d]/g, "") || 0; st.amount = n;
+  renderCalc(); renderDesk(); save();
+  const el = $("amount"); el.focus(); const L = el.value.length; try { el.setSelectionRange(L, L); } catch(_) {}
+});
+$("qa").addEventListener("click", e => { const b = e.target.closest("button[data-a]"); if (!b) return; st.amount = +b.dataset.a; renderCalc(); renderDesk(); save(); });
+$("months").addEventListener("change", e => { st.months = +e.target.value; renderMap(); renderCalc(); renderDesk(); save(); });
+$("qm").addEventListener("click", e => { const b = e.target.closest("button[data-m]"); if (!b) return; st.months = +b.dataset.m; renderMap(); renderCalc(); renderDesk(); save(); });
+$("mycard").addEventListener("change", e => { st.card = e.target.value; renderMap(); renderCalc(); renderDesk(); save(); });
+$("rate").addEventListener("change", e => { st.rate = +e.target.value; renderCalc(); renderDesk(); save(); });
+$("deskMode").addEventListener("click", e => { const b = e.target.closest("button[data-m]"); if (!b) return; st.mode = b.dataset.m; renderDesk(); });
+$("copyDesk").addEventListener("click", () => copy($("desk").value, "복사했습니다. 카톡·문자에 붙여 넣으세요."));
+$("copyAll").addEventListener("click", () => { st.mode = "all"; renderDesk(); copy($("desk").value, "이번 달 전체 안내문을 복사했습니다."); });
+$("openBig").addEventListener("click", () => { renderBig(); $("big").hidden = false; $("closeBig").focus(); });
+$("closeBig").addEventListener("click", () => { $("big").hidden = true; $("openBig").focus(); });
+document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("big").hidden) { $("big").hidden = true; } });
+
+if (new Date() >= EXPIRE) {
+  const w = $("expired"); w.hidden = false;
+  w.textContent = "이 안내판은 2026년 11월 행사 기준입니다. 오늘은 행사 기간이 끝났으므로 아래 카드사 공지 원문에서 이번 달 조건을 확인한 뒤 사용하세요.";
+}
+renderPromos(); renderSrcs(); renderAll();
+})();
+</script>
+
+</body></html>
