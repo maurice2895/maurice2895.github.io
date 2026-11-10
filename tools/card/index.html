@@ -156,12 +156,12 @@ ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:
 <div class="wrap">
   <header>
     <div class="meta">
-      <span class="eyebrow">신용카드 무이자 할부 · 카드사 9곳 중 3곳 공식 확인</span>
+      <span class="eyebrow" id="eyebrow">신용카드 무이자 할부 · 카드사 9곳 중 3곳 공식 확인</span>
       <h1 id="title">11월 병의원 신용카드 무이자 할부</h1>
       <div class="stamp">
-        <span class="chip num">행사기간 2026.11.01 ~ 11.30</span>
-        <span class="chip">자료 기준 2026.11.10 · 공식 확인 3/9곳</span>
-        <span class="chip">개인 신용카드 · 대부분 5만원 이상</span>
+        <span class="chip num" id="chipPeriod">행사기간 2026.11.01 ~ 11.30</span>
+        <span class="chip" id="chipDate">자료 기준 2026.11.10 · 공식 확인 3/9곳</span>
+        <span class="chip" id="chipNote">개인 신용카드 · 대부분 5만원 이상</span>
       </div>
     </div>
     <div class="actions">
@@ -234,7 +234,7 @@ ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:
   </section>
 
   <section>
-    <div class="sechead"><h2>카드사 공지 원문</h2><span class="small muted">11월 행사가 나오면 이 링크에서 새 조건을 확인하세요</span></div>
+    <div class="sechead"><h2>카드사 공지 원문</h2><span class="small muted">행사가 바뀌면 이 링크에서 새 조건을 확인하세요</span></div>
     <div class="srcs" id="srcs"></div>
   </section>
 
@@ -245,11 +245,11 @@ ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:
       <li>병원이 카드사에 어떤 업종(종합병원·일반병원·치과 등)으로 등록되어 있는지에 따라 적용이 달라집니다. 결제 전 단말기 할부 화면에서 한 번 더 확인하세요.</li>
       <li>하나카드는 공지의 치과·한방병원 칸이 비어 있어 일반병원 조건으로 표시했습니다(“일반병원 기준” 표시). 실제 적용 여부는 카드사에 확인하세요.</li>
       <li>부분무이자는 표시된 앞 회차만 환자가 이자를 내고, 나머지 회차는 카드사가 면제합니다. 신한 슬림할부·삼성 다이어트할부·비씨 Light할부가 여기에 해당합니다.</li>
-      <li>카드사가 행사를 중간에 바꾸거나 멈출 수 있습니다. 이 페이지는 2026년 11월 10일 기준으로 신한·하나·NH농협 공식 공지만 확인해 정리한 것이며 자동 갱신되지 않습니다. 나머지 6개 카드사(삼성·현대·롯데·우리·비씨·KB국민)는 확인되지 않아 숫자를 표시하지 않습니다. 매달 1일 전후로 위 공지 원문에서 새 조건을 확인하세요.</li>
+      <li id="noteDyn">카드사가 행사를 중간에 바꾸거나 멈출 수 있습니다. 매달 1일 전후로 위 공지 원문에서 새 조건을 확인하세요.</li>
     </ul>
   </section>
 </div>
-<p class="small muted" style="max-width:1120px;margin:24px auto 0;text-align:center">© 덴탈솔브 · <a href="/members/">회원전용</a> · 무단 재배포·판매 금지</p>
+<p class="small muted" style="max-width:1120px;margin:24px auto 0;text-align:center"><span id="dataSrc"></span><br>© 덴탈솔브 · <a href="/members/">회원전용</a> · 무단 재배포·판매 금지</p>
 
 <div class="big" id="big" hidden role="dialog" aria-modal="true" aria-labelledby="bigTitle">
   <div class="in">
@@ -265,8 +265,11 @@ ul.notes{margin:0;padding-left:18px;color:var(--muted);font-size:13.5px;display:
 (function(){
 "use strict";
 // ───────── 자료: 2026년 11월 카드사 공지 (2026.11.10 기준, 신한·하나·NH농협 공식 페이지 확인분) ─────────
-const MONTH = "2026-11", EXPIRE = new Date(2026, 11, 1); // 12월 1일 0시부터 만료 안내
-const VERIFIED = new Set(["shinhan","hana","nh"]);
+const SHEET_ID = "1JcBLdLGCok2n_4YZD9IB6lUtcLJo5jKbsG_EFsgl8SE";
+let MONTH = "2026-11", MM = "11월", EXPIRE = new Date(2026, 11, 1); // 12월 1일 0시부터 만료 안내
+let VERIFIED = new Set(["shinhan","hana","nh"]);
+let META = { period:"행사기간 2026.11.01 ~ 11.30", note:"개인 신용카드·대부분 5만원 이상", date:"2026-11-10" };
+let DATA_SRC = "내장값(2026-11-10)";
 const CARDS = [["samsung","삼성"],["shinhan","신한"],["kb","KB국민"],["hyundai","현대"],["lotte","롯데"],["hana","하나"],["woori","우리"],["nh","NH농협"],["bc","비씨"]];
 const NAMES = Object.fromEntries(CARDS);
 const CATS = ["치과","일반병원","한의원","종합병원","동물병원","약국"];
@@ -287,7 +290,7 @@ const HANA_N2 = "하나 개인 신용카드 소지 손님(하나BC제외).";
 const WOORI_N = "우리카드 개인 신용카드 고객(체크, 법인, 선불/기프트카드 제외)";
 const H4 = ["종합병원","일반병원","치과","한의원"];
 // scope: 업종별 / 전가맹점 / 영중소 — 2026-11 공식 페이지 확인분만 수록
-const OFFERS = [
+let OFFERS = [
   // 신한 (2026.11.01~11.30, 개인 신용카드, 5만원 이상)
   {card:"shinhan",scope:"업종별",cats:["종합병원"],label:"종합병원",free:"2~3",note:"슬림할부 7·9·11개월 별도(고객 부담 회차는 공지에 없음 → 카드사 확인)"},
   {card:"shinhan",scope:"업종별",cats:["일반병원","치과","동물병원","한의원","산후조리원"],label:"개인병원/치과병원/동물병원/한의원, 한약방/산후조리원 등",free:"2~3",note:"종합병원 제외. 슬림할부 7·9·11·23개월 별도(고객 부담 회차는 공지에 없음 → 카드사 확인). 일시불을 할부로 전환하면 무이자 혜택 없음."},
@@ -297,6 +300,7 @@ const OFFERS = [
   // NH농협 (연간 행사 2026.01.01~12.31, 개인 신용카드)
   {card:"nh",scope:"업종별",cats:["종합병원","일반병원","한의원","치과","동물병원","약국","산후조리원"],label:"병원(종합/일반, 한의원, 치과, 동물병원 등), 약국, 산후조리원",free:"2~3",note:"연간 행사 2026.01.01~12.31. 기업카드(개인사업자 카드 포함)·체크·기프트카드 제외. 일시불의 할부 전환·개월 변경은 적용 안 됨.",partial:P("4:2,5:2,6:2,7:3,8:3,9:3,10:3,12:4,18:5,24:6","부분무이자할부")}
 ].map(o => Object.assign({ note:"", partial:[], min:50000 }, o));
+const DEFAULT_OFFERS = OFFERS;
 
 // ───────── 상태 ─────────
 const st = { cat:"치과", small:false, amount:3000000, months:12, rate:15, card:"", mode:"all" };
@@ -384,7 +388,7 @@ function detail(v) {
     <div><a href="${esc(SRC[v.key])}" target="_blank" rel="noopener">${esc(v.name)}카드 공지 원문 열기 →</a></div></div>`;
 }
 function renderBoard() {
-  $("title").textContent = `11월 ${st.cat} 신용카드 무이자 할부`;
+  $("title").textContent = `${MM} ${st.cat} 신용카드 무이자 할부`;
   $("boardTitle").textContent = `카드사별 무이자·부분무이자 · ${st.cat}`;
   $("board").innerHTML = sorted().map((v, i) => {
     const tags = [];
@@ -401,7 +405,7 @@ function renderBoard() {
     </div>`;
   }).join("") + unverified().map(v => `<div class="card" style="cursor:default" data-card="${v.key}">
       <div class="top"><span class="name">${esc(v.name)}</span><span class="rank">–</span></div>
-      <div class="freebig none"><span class="v num">11월 조건 미확인</span></div>
+      <div class="freebig none"><span class="v num">${MM} 조건 미확인</span></div>
       <div class="plist"><div class="h">공식 공지를 확인하지 못해 숫자를 표시하지 않습니다. 카드사 앱·고객센터에서 병원(치과) 업종 조건을 확인하세요.</div></div>
       <div><a href="${esc(SRC[v.key])}" target="_blank" rel="noopener">${esc(v.name)}카드 공지 열기 →</a></div>
     </div>`).join("");
@@ -419,7 +423,7 @@ function renderMap() {
   $("map").innerHTML = `<thead>${head}</thead><tbody>${body}</tbody>`;
 }
 function renderCalc() {
-  $("calcCat").textContent = `2026-11 · ${st.cat}`;
+  $("calcCat").textContent = `${MONTH} · ${st.cat}`;
   $("amount").value = st.amount ? won(st.amount) : "";
   $("qa").innerHTML = [1000000, 3000000, 5000000].map(a => `<button type="button" data-a="${a}" aria-pressed="${st.amount === a}">${a/10000}만</button>`).join("");
   $("months").innerHTML = Array.from({ length: 24 }, (_, i) => i + 1).map(m => `<option value="${m}"${m === st.months ? " selected" : ""}>${m === 1 ? "일시불" : m + "개월"}</option>`).join("");
@@ -440,7 +444,7 @@ function renderCalc() {
   }).join("");
 }
 function deskText() {
-  const mm = "11월";
+  const mm = MM;
   const foot1 = "※ 개인 신용카드, 5만원 이상 결제 시 적용됩니다. 체크·법인카드는 제외되며 카드사 사정으로 바뀔 수 있습니다.";
   if (st.mode === "one") {
     if (!st.amount) return "진료비를 넣으면 이 환자용 안내문이 만들어집니다.";
@@ -462,7 +466,7 @@ function deskText() {
     const pt = pp.length ? `부분무이자 ${pp.map(p => `${p.m}개월(앞 ${p.paid}회 이자)`).join(", ")}` : "";
     return `· ${v.name}카드 ${[f, pt].filter(Boolean).join(" / ")}`;
   };
-  return `[${mm} 카드 무이자 할부 안내]\n${ok.map(line).join("\n")}\n· ${miss}카드: 11월 조건은 카드사에 문의해 주세요\n\n${foot1}\n※ 부분무이자는 괄호 안 회차만 이자가 붙고 나머지 회차는 카드사가 면제합니다.`;
+  return `[${mm} 카드 무이자 할부 안내]\n${ok.map(line).join("\n")}\n· ${miss}카드: ${MM} 조건은 카드사에 문의해 주세요\n\n${foot1}\n※ 부분무이자는 괄호 안 회차만 이자가 붙고 나머지 회차는 카드사가 면제합니다.`;
 }
 function renderDesk() {
   document.querySelectorAll("#deskMode button").forEach(b => b.setAttribute("aria-pressed", b.dataset.m === st.mode));
@@ -484,14 +488,14 @@ function renderSrcs() {
   $("srcs").innerHTML = CARDS.map(([k, n]) => `<a href="${esc(SRC[k])}" target="_blank" rel="noopener">${n}카드<span>공지 원문 →</span></a>`).join("");
 }
 function renderBig() {
-  $("bigSub").textContent = `2026년 11월 · ${st.cat} · 신용카드`;
+  $("bigSub").textContent = `${MONTH.slice(0,4)}년 ${MM} · ${st.cat} · 신용카드`;
   $("bigTitle").textContent = "카드사별 무이자 할부 안내";
   $("bigList").innerHTML = sorted().map(v => {
     const pp = [...v.partial.values()].sort((a, b) => a.m - b.m);
     return `<div class="bigrow"><span class="n">${esc(v.name)}</span><span class="f num${v.fmax ? "" : " none"}">${v.fmax ? v.freeTxt + " 무이자" : "무이자 없음"}</span>
       <span class="p">${pp.length ? "부분무이자 " + pp.map(p => `${p.m}개월(앞 ${p.paid}회 이자)`).join(", ") : ""}</span></div>`;
   }).join("");
-  $("bigMiss").textContent = "※ " + unverified().map(v => v.name).join("·") + "카드는 11월 조건을 확인하지 못했습니다. 카드사에 문의해 주세요.";
+  $("bigMiss").textContent = "※ " + unverified().map(v => v.name).join("·") + "카드는 " + MM + " 조건을 확인하지 못했습니다. 카드사에 문의해 주세요.";
 }
 function renderAll() {
   views = CARDS.map(([k]) => view(k));
@@ -537,11 +541,78 @@ $("openBig").addEventListener("click", () => { renderBig(); $("big").hidden = fa
 $("closeBig").addEventListener("click", () => { $("big").hidden = true; $("openBig").focus(); });
 document.addEventListener("keydown", e => { if (e.key === "Escape" && !$("big").hidden) { $("big").hidden = true; } });
 
-if (new Date() >= EXPIRE) {
-  const w = $("expired"); w.hidden = false;
-  w.textContent = "이 안내판은 2026년 11월 행사 기준입니다. 오늘은 행사 기간이 끝났으므로 아래 카드사 공지 원문에서 이번 달 조건을 확인한 뒤 사용하세요.";
+
+// ───────── 구글 시트에서 최신 숫자 읽기 ─────────
+function parseCSV(t) {
+  const rows = []; let row = [], cur = "", q = false;
+  for (let i = 0; i < t.length; i++) {
+    const c = t[i];
+    if (q) { if (c === '"') { if (t[i+1] === '"') { cur += '"'; i++; } else q = false; } else cur += c; }
+    else if (c === '"') q = true;
+    else if (c === ",") { row.push(cur); cur = ""; }
+    else if (c === "\n") { row.push(cur); rows.push(row); row = []; cur = ""; }
+    else if (c !== "\r") cur += c;
+  }
+  if (cur !== "" || row.length) { row.push(cur); rows.push(row); }
+  return rows;
 }
-renderPromos(); renderSrcs(); renderAll();
+function applySheet(rows) {
+  const hdr = rows[0].map(x => x.trim());
+  if (hdr[0] !== "card_key") throw new Error("시트 양식(첫 줄)이 달라졌습니다");
+  const body = rows.slice(1).filter(r => r[0] && r[0].trim()).map(r => r.map(x => (x || "").trim()));
+  const meta = body.find(r => r[0] === "_meta");
+  if (!meta) throw new Error("_meta 줄이 없습니다");
+  const m = meta[1].match(/(\d{4})\D+(\d{1,2})/);
+  if (!m) throw new Error("_meta 월 형식 오류");
+  const yy = +m[1], mo = +m[2];
+  const offers = [], ver = new Set();
+  for (const r of body) {
+    if (r[0] === "_meta" || !NAMES[r[0]]) continue;
+    if (r[2] !== "확인") continue;
+    const cats = (r[3] || "").split(",").map(x => x.trim()).filter(Boolean);
+    if (!cats.length) continue;
+    ver.add(r[0]);
+    let partial = [];
+    if (r[6]) { try { partial = P(r[6].replace(/\s/g, ""), "부분무이자할부"); if (partial.some(p => !(p.m > 0) || !(p.paid >= 0))) throw 0; } catch (e) { throw new Error(r[1] + " 부분무이자 형식 오류: " + r[6]); } }
+    offers.push(Object.assign({ note:"", partial:[], min:50000 }, { card:r[0], scope:"업종별", cats, label:r[4] || cats.join("/"), free:r[5], note:r[7] || "", partial }));
+  }
+  if (!ver.size) throw new Error("확인된 카드사가 없습니다");
+  OFFERS = offers; VERIFIED = ver;
+  MONTH = yy + "-" + String(mo).padStart(2, "0"); MM = mo + "월"; EXPIRE = new Date(yy, mo, 1);
+  META = { period: meta[4], note: meta[7], date: meta[8] };
+  DATA_SRC = "시트(" + (meta[8] || "") + ")";
+}
+function applyMeta() {
+  const nv = VERIFIED.size, miss = CARDS.filter(([k]) => !VERIFIED.has(k)).map(([, n]) => n);
+  $("eyebrow").textContent = `신용카드 무이자 할부 · 카드사 ${CARDS.length}곳 중 ${nv}곳 공식 확인`;
+  $("chipPeriod").textContent = META.period || "";
+  $("chipDate").textContent = `자료 기준 ${META.date || ""} · 공식 확인 ${nv}/${CARDS.length}곳`;
+  $("chipNote").textContent = META.note || "";
+  $("noteDyn").textContent = `카드사가 행사를 중간에 바꾸거나 멈출 수 있습니다. 이 페이지는 ${META.date || ""} 기준으로 공식 공지를 확인한 ${CARDS.filter(([k]) => VERIFIED.has(k)).map(([, n]) => n).join("·")} 자료만 표시하며${miss.length ? ` 나머지 ${miss.length}개 카드사(${miss.join("·")})는 확인되지 않아 숫자를 표시하지 않습니다` : ""}. 매달 1일 전후로 위 공지 원문에서 새 조건을 확인하세요.`;
+  const w = $("expired");
+  if (new Date() >= EXPIRE) { w.hidden = false; w.textContent = `이 안내판은 ${MONTH.slice(0,4)}년 ${MM} 행사 기준입니다. 오늘은 행사 기간이 끝났으므로 아래 카드사 공지 원문에서 이번 달 조건을 확인한 뒤 사용하세요.`; }
+  else w.hidden = true;
+}
+async function loadSheet() {
+  if (!SHEET_ID || SHEET_ID.startsWith("%")) return;
+  const ctl = new AbortController(), to = setTimeout(() => ctl.abort(), 8000);
+  try {
+    const res = await fetch(`https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent("카드혜택")}&_=${Date.now()}`, { cache:"no-store", signal: ctl.signal });
+    if (!res.ok) throw new Error("HTTP " + res.status);
+    applySheet(parseCSV(await res.text()));
+  } catch (e) {
+    console.warn("시트 읽기 실패, 내장값 사용:", e);
+    OFFERS = DEFAULT_OFFERS; DATA_SRC = "내장값(2026-11-10)";
+    const f = $("dataSrc"); if (f) f.textContent = "※ 최신 숫자를 불러오지 못해 저장된 값(" + META.date + " 기준)을 표시합니다.";
+  } finally { clearTimeout(to); }
+}
+applyMeta();
+(async () => {
+  renderPromos(); renderSrcs(); renderAll();
+  await loadSheet();
+  applyMeta(); renderPromos(); renderSrcs(); renderAll();
+  const f = $("dataSrc"); if (f && f.textContent === "") f.textContent = "자료 출처: " + DATA_SRC;
+})();
 })();
 </script>
 
