@@ -1,4 +1,9 @@
 # Cloudflare Pages 리디렉션 설정 (GitHub Pages에서는 쓰이지 않습니다)
+# 공개 자료 안내 종료: 과거 링크는 홈페이지로 연결합니다.
+/documents       /  302
+/documents/*     /  302
+/images/studio/resource-library.svg  /  302
+
 # 저장소 관리용 파일이 웹 주소로 열리지 않게 홈으로 돌려보냅니다.
 # Cloudflare 빌드 설정이 잘못돼 저장소 전체가 올라가도 아래 경로는 열리지 않습니다.
 /README.md    /  301
