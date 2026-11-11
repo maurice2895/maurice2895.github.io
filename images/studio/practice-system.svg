@@ -1,44 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1200" viewBox="0 0 1080 1200" fill="none">
-<title>전자차트와 교육이 하나의 운영 시스템으로 연결되는 덴탈솔브 그래픽</title>
-<style>
-text{font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}.sheet-a{animation:sheetA 4.6s cubic-bezier(.2,.7,.2,1) both}.sheet-b{animation:sheetB 4.6s cubic-bezier(.2,.7,.2,1) both}.sheet-c{animation:sheetC 4.6s cubic-bezier(.2,.7,.2,1) both}.trace{stroke-dasharray:1000;stroke-dashoffset:1000;animation:trace 3s .4s ease-out forwards}.rule{transform-box:fill-box;transform-origin:left;animation:rule 1.3s 1.6s both}
-@keyframes sheetA{0%{transform:translate(-60px,50px) rotate(-5deg);opacity:.4}50%,100%{transform:translate(0,0);opacity:1}}
-@keyframes sheetB{0%{transform:translate(120px,-90px) rotate(5deg);opacity:.3}65%,100%{transform:translate(0,0);opacity:1}}
-@keyframes sheetC{0%{transform:translate(70px,130px);opacity:0}75%,100%{transform:translate(0,0);opacity:1}}
-@keyframes trace{to{stroke-dashoffset:0}}@keyframes rule{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important}.trace{stroke-dashoffset:0}}
-</style>
-<rect width="1080" height="1200" fill="#234BEE"/>
-<g stroke="#FFFFFF" stroke-opacity=".12"><path d="M80 0V1200M310 0V1200M540 0V1200M770 0V1200M1000 0V1200M0 100H1080M0 350H1080M0 600H1080M0 850H1080M0 1100H1080"/></g>
-<text x="68" y="78" fill="#FFF" font-size="17" letter-spacing="4">DENTALSOLVE / PRACTICE SYSTEM</text>
-<path d="M68 112H1012" stroke="#FFF" stroke-opacity=".6"/>
-<path class="trace" d="M105 740V220H890V1000H145" stroke="#B8D7FF" stroke-width="2"/>
-<g class="sheet-a">
-<path d="M154 352L616 210L800 814L338 956Z" fill="#10225E"/>
-<path d="M154 332L616 190L800 794L338 936Z" fill="#CFDDFF"/>
-<path d="M208 408L558 301M229 477L579 370M249 546L599 439M270 615L620 508M291 684L641 577M311 753L661 646" stroke="#234BEE" stroke-opacity=".45" stroke-width="2"/>
-<text x="224" y="373" fill="#1B367A" font-size="27" transform="rotate(-17 224 373)">업무 흐름</text>
-</g>
-<g class="sheet-b">
-<path d="M442 174L928 244L833 897L347 827Z" fill="#12245F" fill-opacity=".5"/>
-<path d="M442 154L928 224L833 877L347 807Z" fill="#F5F2E9"/>
-<g transform="translate(478 232) rotate(8)"><text fill="#131A2C" font-size="25" font-weight="700">운영 시스템</text><text y="36" fill="#6A7180" font-size="14" letter-spacing="2">PRACTICE SYSTEM</text><path d="M0 68H370" stroke="#111B32" stroke-width="3"/><rect y="110" width="370" height="120" fill="#E3E5DF"/><path d="M20 145H230M20 167H310M20 189H180" stroke="#A0A69F" stroke-width="3"/><path d="M0 282H370M0 350H370M0 418H370M0 486H370" stroke="#BCC1B7" stroke-width="2"/><text y="269" fill="#234BEE" font-size="16">설계</text><text y="337" fill="#234BEE" font-size="16">교육</text><text y="405" fill="#234BEE" font-size="16">현장 적용</text></g>
-</g>
-<g class="sheet-c">
-<path d="M199 549H709L759 599V1034H199Z" fill="#10225E" fill-opacity=".4"/>
-<path d="M179 529H689L739 579V1014H179Z" fill="#FFFFFF"/>
-<path d="M689 529V579H739" fill="#D5DFFE"/>
-<text x="220" y="602" fill="#131A2C" font-size="27" font-weight="700">전자차트</text><text x="220" y="635" fill="#727B8E" font-size="13" letter-spacing="2">ELECTRONIC CHART / WORKFLOW</text>
-<path d="M220 662H698" stroke="#19223A" stroke-width="2"/>
-<g fill="#EFF1F6"><rect x="220" y="690" width="144" height="76"/><rect x="380" y="690" width="144" height="76"/><rect x="540" y="690" width="158" height="76"/></g><rect x="220" y="690" width="144" height="76" fill="#234BEE"/>
-<text x="243" y="738" fill="#FFFFFF" font-size="20">처치 버튼</text><text x="403" y="738" fill="#53617B" font-size="20">차팅 흐름</text><text x="563" y="738" fill="#53617B" font-size="20">다음 진료</text>
-<path d="M220 809H698M220 860H698M220 911H698" stroke="#DDE2EB" stroke-width="2"/>
-<path class="rule" d="M220 810H521" stroke="#234BEE" stroke-width="5"/>
-<path class="rule" d="M220 861H636" stroke="#234BEE" stroke-width="5"/>
-<circle cx="678" cy="955" r="20" stroke="#234BEE" stroke-width="2"/><path d="M668 955L676 963L690 947" stroke="#234BEE" stroke-width="3"/>
-<text x="220" y="962" fill="#70788A" font-size="14" letter-spacing="2">ONE SYSTEM. ONE TEAM.</text>
-</g>
-<path d="M68 1090H1012" stroke="#FFF" stroke-opacity=".6"/>
-<text x="68" y="1136" fill="#FFFFFF" font-size="18">흩어진 업무를, 하나의 시스템으로.</text><text x="1010" y="1136" fill="#FFFFFF" font-size="18" text-anchor="end">D / S</text>
-<g stroke="#FFF" stroke-width="2"><path d="M1012 165V197M996 181H1028M68 1004V1036M52 1020H84"/></g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1080" height="1200" viewBox="0 0 720 800" fill="none"><title>전자차트·직원 교육·AI를 연결하는 운영 시스템</title><style>
+text{font-family:Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif}.sheet-a{animation:back 4.6s cubic-bezier(.2,.7,.2,1) both}.sheet-c{animation:front 4.6s cubic-bezier(.2,.7,.2,1) both}.trace{stroke-dasharray:1000;stroke-dashoffset:1000;animation:trace 2s 1.2s forwards}
+@keyframes back{0%{transform:translate(30px,-30px);opacity:.35}55%,100%{transform:none;opacity:1}}@keyframes front{0%{transform:translate(-35px,65px);opacity:0}75%,100%{transform:none;opacity:1}}@keyframes trace{to{stroke-dashoffset:0}}@media(prefers-reduced-motion:reduce){*{animation:none!important}.trace{stroke-dashoffset:0}}
+</style><rect width="720" height="800" fill="#234BEE"/><path d="M40 0V800M360 0V800M680 0V800M0 80H720M0 400H720M0 720H720" stroke="#FFF" stroke-opacity=".14"/>
+<g class="sheet-a"><path d="M130 85L657 131L612 640L85 594Z" fill="#1737AB"/><path d="M118 69L645 115L600 624L73 578Z" fill="#F3F2EC"/><g transform="translate(150 157) rotate(5)"><text font-size="48" font-weight="700" fill="#171F30">운영 시스템</text><path d="M0 42H412M0 92H412M0 142H412" stroke="#BCC4BE" stroke-width="3"/></g></g>
+<g class="sheet-c"><path d="M66 286H636L680 330V734H66Z" fill="#1737AB"/><path d="M50 270H620L664 314V718H50Z" fill="#FFF"/><path d="M620 270V314H664" fill="#D5DFFE"/><path d="M90 407H624M90 537H624M90 667H624" stroke="#D6DCE8" stroke-width="2"/><g font-size="44" font-weight="700" fill="#171F30"><text x="90" y="365">전자차트</text><text x="90" y="495">직원 교육</text><text x="90" y="625">AI 활용</text></g><g fill="#234BEE"><rect x="420" y="335" width="146" height="12"/><rect x="420" y="465" width="112" height="12"/><rect x="420" y="595" width="146" height="12"/></g><path class="trace" d="M598 350V610M586 598L598 610L610 598" stroke="#234BEE" stroke-width="4"/></g><path d="M28 752H692" stroke="#A3B7FF" stroke-width="2"/></svg>

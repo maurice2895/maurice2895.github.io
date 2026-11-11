@@ -176,3 +176,91 @@
 .ds-detail .document-example{background:#E6EAF5}
 @media(max-width:760px){.ds-detail .page-hero h1{font-size:36px}.ds-detail .page-lead{font-size:16px}.ds-detail .card h3{font-size:22px}}
 .ds-home .ds-contact::before,.ds-home .ds-contact::after{display:none}
+
+/* Readability pass: keep display headings, enlarge the text people read. */
+:is(.ds-home,.ds-detail){font-size:18px;line-height:1.8}
+:is(.ds-home,.ds-detail) .site-nav a{font-size:17px}
+:is(.ds-home,.ds-detail) .header-cta{font-size:16px;min-height:46px;padding-inline:18px}
+.ds-label{font-size:14px;line-height:1.7;letter-spacing:.06em}
+.ds-label span{display:inline-block}
+.ds-hero-lead{font-size:19px;line-height:1.85}
+.ds-link{font-size:17px;min-height:48px;line-height:1.6}
+.ds-signature{font-size:16px;line-height:1.8}
+.ds-hero-art{overflow:visible;background:transparent}
+.ds-hero-art img{display:block;background:#234BEE}
+.ds-hero-art figcaption{position:static;padding:16px 0 0;font-size:17px;line-height:1.75;letter-spacing:0;color:#4C5562;background:var(--paper);overflow-wrap:anywhere}
+.ds-hero-bottom{font-size:14px;line-height:1.8;gap:20px;flex-wrap:wrap}
+.ds-hero-bottom>a{font-size:17px}
+.ds-service-no{font-size:14px}
+.ds-service p{font-size:18px;line-height:1.8;color:#505967}
+.ds-person-en{font-size:14px;letter-spacing:.08em}
+.ds-person>p:not(.ds-person-en){font-size:18px;line-height:1.8}
+.ds-credentials li{grid-template-columns:150px 1fr}
+.ds-credentials span{font-size:14px;letter-spacing:.02em}
+.ds-credentials p{font-size:18px;line-height:1.8}
+.ds-contact-link{font-size:18px;min-height:48px}
+.ds-footer-top nav{font-size:16px;gap:20px 28px;flex-wrap:wrap}
+.ds-footer-bottom{font-size:14px;line-height:1.8}
+.ds-home .sticky-cta{font-size:17px;min-height:54px}
+.ds-detail :is(.page-lead,.intro){font-size:18px;line-height:1.9}
+.ds-detail :is(.page-note,.breadcrumb ol){font-size:16px;line-height:1.8}
+.ds-detail :is(.eyebrow,.kicker,.card-no,.step b,.signal span){font-size:14px;line-height:1.7;letter-spacing:.04em}
+.ds-detail :is(.card p,.step p,.signal p,.faq details p,.check-list small,.cta-strip span){font-size:18px;line-height:1.85}
+.ds-detail :is(.card-link,.more-link,.btn){font-size:17px;line-height:1.6}
+.ds-detail .btn{min-height:50px;white-space:normal;text-align:center}
+.ds-detail .service-page-image{align-self:center;width:100%;max-width:620px;margin-inline:auto}
+.ds-detail .service-page-image img{display:block;width:100%;height:auto;object-fit:contain}
+.ds-detail .service-page-image:hover img{transform:none}
+.ds-detail .service-page-image figcaption{font-size:16px;line-height:1.8;padding:18px 20px}
+.ds-detail .footer-desc{font-size:17px;line-height:1.85}
+.ds-detail .footer-grid h2{font-size:18px}
+.ds-detail .footer-grid li{font-size:16px;line-height:1.85}
+.ds-detail .footer-bottom{font-size:14px;line-height:1.8}
+@media(max-width:1080px){
+ .ds-hero-grid{grid-template-columns:1fr;gap:36px}
+ .ds-hero-copy{padding-bottom:0}
+ .ds-hero-art{width:100%;max-width:620px;margin-inline:auto}
+ .ds-credentials li{grid-template-columns:140px 1fr}
+}
+@media(max-width:760px){
+ :is(.ds-home,.ds-detail){font-size:17px}
+ :is(.ds-home,.ds-detail) .header-in{gap:14px}
+ :is(.ds-home,.ds-detail) .header-cta{font-size:16px;min-height:44px;padding-inline:12px}
+ :is(.ds-home,.ds-detail) .nav-toggle{width:44px;height:44px;flex:none}
+ :is(.ds-home,.ds-detail) .site-nav a{font-size:18px;padding-block:14px}
+ .ds-hero-lead{font-size:17px;line-height:1.85}
+ .ds-label{font-size:14px;letter-spacing:.04em}
+ .ds-label span{margin-left:0;display:block;margin-top:4px}
+ .ds-link,.ds-person .ds-link{font-size:17px}
+ .ds-hero-art figcaption{font-size:17px;padding-top:14px}
+ .ds-hero-bottom{align-items:flex-start;flex-direction:column;gap:12px;font-size:14px}
+ .ds-hero-bottom>a{font-size:17px}
+ .ds-service{padding-block:28px}
+ .ds-service-no{font-size:14px}
+ .ds-service p{font-size:17px;line-height:1.85}
+ .ds-person-en{font-size:14px}
+ .ds-person>p:not(.ds-person-en){font-size:17px}
+ .ds-credentials li{grid-template-columns:1fr;gap:8px}
+ .ds-credentials span{font-size:14px;padding-top:0}
+ .ds-credentials p{font-size:17px}
+ .ds-contact-link{font-size:17px}
+ .ds-footer-top nav{font-size:16px;gap:16px 24px}
+ .ds-footer-bottom{font-size:14px}
+ .ds-detail :is(.page-lead,.intro,.card p,.step p,.signal p,.faq details p,.check-list small,.cta-strip span){font-size:17px;line-height:1.85}
+ .ds-detail .service-page-image{margin-top:32px;max-width:560px}
+ .ds-detail .service-page-image figcaption{font-size:16px;padding:16px}
+ .ds-detail .footer-desc{font-size:17px}
+ .ds-detail .footer-grid li{font-size:16px}
+ .ds-detail .footer-bottom{font-size:14px}
+}
+@media(max-width:360px){
+ :is(.ds-home,.ds-detail) .header-in{gap:10px}
+ :is(.ds-home,.ds-detail) .brand-logo{height:31px}
+}
+/* Even secondary labels remain readable without zooming. */
+.ds-label,.ds-person-en,.ds-service-no,.ds-credentials span,.ds-hero-bottom,.ds-footer-bottom{font-size:16px}
+.ds-detail :is(.eyebrow,.kicker,.card-no,.step b,.signal span,.footer-bottom){font-size:16px}
+/* Anchor destinations clear the actual sticky header at each breakpoint. */
+html:has(body.ds-home),html:has(body.ds-detail){--header-h:90px}
+@media(max-width:1080px){html:has(body.ds-home),html:has(body.ds-detail){--header-h:76px}}
+@media(max-width:760px){html:has(body.ds-home),html:has(body.ds-detail){--header-h:68px}}
