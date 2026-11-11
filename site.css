@@ -84,11 +84,6 @@ h2{font-size:clamp(30px,3.6vw,48px);line-height:1.2;letter-spacing:-.04em}
 .hero::before{content:"";position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse 60% 70% at 72% 45%,#000 10%,transparent 72%);mask-image:radial-gradient(ellipse 60% 70% at 72% 45%,#000 10%,transparent 72%)}
 .hero::after{content:"";position:absolute;width:520px;height:520px;right:-120px;top:-160px;border-radius:50%;background:radial-gradient(circle,rgba(36,83,255,.12),transparent 65%);pointer-events:none}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:56px;align-items:center}
-.hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.hero-tags li{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font-size:14px;font-weight:700;color:var(--ink);animation:fadeUp .8s var(--ease) both}
-.hero-tags li:nth-child(2){animation-delay:.06s}
-.hero-tags li:nth-child(3){animation-delay:.12s}
-.hero-tags li:first-child::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);animation:pulse 2.4s ease-out infinite}
 .hero-title{font-size:clamp(44px,6.2vw,86px);line-height:1.08;letter-spacing:-.055em}
 .hero-title .line{display:block;overflow:hidden;padding-bottom:.08em;margin-bottom:-.04em}
 .hero-title .line>span{display:inline-block;animation:rise 1s var(--ease) both}
@@ -483,16 +478,10 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 .workflow-track li:nth-child(4) .workflow-mark{animation-delay:1.05s}
 @keyframes workflow-check{0%,10%{transform:scale(.75);background:#243654;color:#A9C0FF}28%,65%{transform:scale(1.12);background:#2453FF;color:#fff}100%{transform:scale(1);background:#153F40;color:#6DE6C7}}
 .workflow-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:20px;font-size:12px}
-.motion-toggle{color:#fff;border:1px solid #7184A6;background:transparent;border-radius:20px;min-height:44px;padding:8px 12px;font-size:12px;cursor:pointer}
-.motion-toggle[hidden]{display:none}
-.motion-paused *, .motion-paused *::before, .motion-paused *::after{animation-play-state:paused!important}
 .topic-nav{background:var(--navy);color:#fff}
 .topic-nav .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
 .topic-nav a{text-align:center;padding:24px 12px;font-weight:700;border-right:1px solid var(--navy-line);transition:background .2s}
 .topic-nav a:hover{background:var(--navy-2);color:#A9C0FF}
-.document-note{margin-top:24px;padding:20px;border-left:3px solid var(--accent);background:var(--accent-soft);font-size:15px}
-.document-byline{margin-top:20px;font-size:14px;color:var(--muted)}
-.document-byline a{text-decoration:underline}
 .document-content{max-width:880px}
 .document-content h2{margin-bottom:28px}
 .document-content h3{margin-top:28px;margin-bottom:12px;font-size:22px}
@@ -503,7 +492,7 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 .document-example p{margin-bottom:0}
 .document-crosslink{padding-block:32px}
 /* Titles stay still; movement belongs to the explanatory graphic. */
-.hero-title .line>span,.hero-sub,.hero .actions,.hero-trust,.hero-tags li,.hero-tags li:first-child::before{animation:none}
+.hero-title .line>span,.hero-sub,.hero .actions,.hero-trust{animation:none}
 @media(max-width:760px){
  .workflow-panel{padding:24px}
  .topic-nav .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -518,5 +507,4 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 }
 @media(prefers-reduced-motion:reduce){
  .workflow-mark{animation:none!important}
- .motion-toggle{display:none}
 }

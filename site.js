@@ -8,17 +8,6 @@
   document.documentElement.classList.add("js");
 
   const init = () => {
-    /* Pause decorative motion without hiding any explanatory content. */
-    const motionToggle = document.querySelector(".motion-toggle");
-    if (motionToggle) {
-      motionToggle.hidden = false;
-      motionToggle.addEventListener("click", () => {
-        const paused = motionToggle.getAttribute("aria-pressed") !== "true";
-        document.documentElement.classList.toggle("motion-paused", paused);
-        motionToggle.setAttribute("aria-pressed", String(paused));
-        motionToggle.textContent = paused ? "모션 재개" : "모션 일시정지";
-      });
-    }
     /* 1) 모바일 메뉴 */
     const header = document.querySelector(".header");
     const toggle = document.querySelector(".nav-toggle");
