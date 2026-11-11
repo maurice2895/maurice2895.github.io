@@ -153,7 +153,7 @@
 }
 @media(prefers-reduced-motion:reduce){.ds-underline::after{animation:none}.ds-service h3,.ds-service-arrow,.ds-contact-arrow,.ds-link{transition:none}}
 /* The same visual language continues on the information pages. */
-.ds-detail{--bg:#F3F2EC;--surface:#FAF9F5;--studio-line:#D2D3CC;background:#F3F2EC;color:#454C57}
+.ds-detail{--paper:#F3F2EC;--studio-ink:#161C27;--studio-blue:#234BEE;--bg:#F3F2EC;--surface:#FAF9F5;--studio-line:#D2D3CC;background:#F3F2EC;color:#454C57}
 .ds-detail :is(h1,h2,h3){color:#161C27}
 .ds-detail .page-hero{background:#F3F2EC;border-bottom:1px solid #D2D3CC}
 .ds-detail .page-hero::before,.ds-detail .page-hero::after{display:none}
