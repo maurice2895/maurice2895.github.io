@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+<title>치과 문서 서식과 교육·운영 매뉴얼을 담은 덴탈솔브 자료 그래픽</title>
+<rect width="1200" height="900" fill="#171F30"/>
+<path d="M80 126H1120M80 778H1120" stroke="#4A5264"/>
+<text x="80" y="89" fill="#A7B3C8" font-family="Arial,sans-serif" font-size="17" letter-spacing="4">DENTALSOLVE / WORKING LIBRARY</text>
+<g transform="translate(120 250) rotate(-10)"><path d="M0 20H420V540H0Z" fill="#080F1C"/><path d="M0 0H420V520H0Z" fill="#E5E9F0"/><rect x="34" y="36" width="352" height="50" fill="#CCD5E5"/><path d="M34 140H386M34 210H386M34 280H386M34 350H386M34 420H386M150 104V456M300 104V456" stroke="#A8B5CD" stroke-width="2"/><text x="50" y="70" fill="#36445C" font-family="Arial,'Malgun Gothic',sans-serif" font-size="20">업무 서식</text></g>
+<g transform="translate(505 186) rotate(8)"><path d="M0 24H490V564H0Z" fill="#080F1C"/><rect width="490" height="540" fill="#234BEE"/><rect width="38" height="540" fill="#1B3FC6"/><path d="M80 55H438M80 455H438" stroke="#FFFFFF" stroke-opacity=".5"/><text x="80" y="113" fill="#D6E0FF" font-family="Arial,sans-serif" font-size="16" letter-spacing="3">DENTALSOLVE</text><text x="80" y="214" fill="#FFFFFF" font-family="Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="57" font-weight="700">현장에 남는</text><text x="80" y="290" fill="#FFFFFF" font-family="Arial,'Apple SD Gothic Neo','Malgun Gothic',sans-serif" font-size="57" font-weight="700">매뉴얼.</text><text x="80" y="413" fill="#D6E0FF" font-family="Arial,'Malgun Gothic',sans-serif" font-size="18">교육 / 인수인계 / 업무 절차</text><text x="80" y="496" fill="#FFFFFF" font-family="Arial,sans-serif" font-size="17">PRACTICAL BY DESIGN.</text></g>
+<path d="M958 600L1104 600L1104 454" stroke="#B4C4F7" stroke-width="2"/><circle cx="1104" cy="454" r="7" fill="#B4C4F7"/>
+<text x="80" y="828" fill="#A7B3C8" font-family="Arial,'Malgun Gothic',sans-serif" font-size="17">서식과 매뉴얼의 구성을 표현한 이미지</text>
+</svg>

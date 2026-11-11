@@ -20,7 +20,7 @@
 
 ## 페이지
 
-- [홈](https://dentalsolve.kr/): 컨설팅·교육 전체 소개, 진행 방식, 강의 활동, 전자차트 자료
+- [홈](https://dentalsolve.kr/): 컨설팅·교육 분야, 서식·매뉴얼 안내와 강사 소개
 - [조재연 강사 소개](https://dentalsolve.kr/about/): 경력과 활동, 다루는 분야, 채널
 - [치과 컨설팅 · 치과 전자차트 컨설팅](https://dentalsolve.kr/consulting/): 처치 버튼 구성, 치료 술식 입력 기준, 치과 전용 차팅 기준
 - [치과 교육 · 치과 전자차트 강의·직원 교육](https://dentalsolve.kr/oneclick/): 처치 버튼 설정, 치료 술식 입력, 차팅 기준 교육
