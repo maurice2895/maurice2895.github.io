@@ -13,6 +13,8 @@ import xml.etree.ElementTree as ET
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://dentalsolve.kr/"
 ERRORS = []
+# These tools deliberately stay out of search results, sitemaps and RSS.
+PRIVATE_TOOL_PAGES = {"tools/card/index.html", "tools/insurance/index.html"}
 
 class PageParser(HTMLParser):
     def __init__(self):
@@ -120,7 +122,7 @@ for file in html_files:
             fail(f"{rel}: canonical must be {expected_url}")
 
     noindex = "noindex" in parser.meta.get("robots", "").lower()
-    if rel == "404.html" or rel.startswith("members/"):
+    if rel == "404.html" or rel.startswith("members/") or rel in PRIVATE_TOOL_PAGES:
         if not noindex:
             fail(f"{rel}: utility/member page must remain noindex")
     elif noindex:
