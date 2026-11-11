@@ -29,6 +29,8 @@
 - [치과 전자차트 처치 버튼 정리 기준](https://dentalsolve.kr/emr-button-guide/): 버튼 이름 규칙, 폴더 구성, 마취 버튼 분리, 치면 입력, 상용구 기준
 - [자주 묻는 질문](https://dentalsolve.kr/faq/): 진행 방식, 대상 차트, 비용 안내 방식 등
 
+- [치과 필수문서 작성 가이드](https://dentalsolve.kr/documents/): 업무일지, 인수인계서, 직원 교육 체크리스트, 회의록의 작성 항목과 가상 예시. 법정 의무 서류 목록이 아닌 운영 문서 안내.
+
 ## 채널
 
 - [네이버 블로그 '재연의 슬기로운 치과생활'](https://blog.naver.com/maurice2895)

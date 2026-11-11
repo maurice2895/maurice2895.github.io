@@ -108,7 +108,8 @@ for file in html_files:
         if count > 1:
             fail(f"{rel}: duplicate HTML id: {value}")
 
-    if rel != "404.html":
+    utility = rel == "404.html" or rel.startswith(("members/", "tools/"))
+    if not utility:
         if not "".join(parser.title).strip():
             fail(f"{rel}: missing page title")
         if not parser.description:
@@ -120,7 +121,7 @@ for file in html_files:
             fail(f"{rel}: canonical must be {expected_url}")
 
     noindex = "noindex" in parser.meta.get("robots", "").lower()
-    if rel == "404.html" or rel.startswith("members/"):
+    if utility:
         if not noindex:
             fail(f"{rel}: utility/member page must remain noindex")
     elif noindex:

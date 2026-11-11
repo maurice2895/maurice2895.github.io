@@ -37,6 +37,8 @@ class SiteGuardTests(unittest.TestCase):
             ("about/index.html", 'href="https://dentalsolve.kr/about/"',
              'href="https://dentalsolve.kr/"', "canonical must be"),
             ("members/index.html", "noindex,nofollow", "index,follow", "must remain noindex"),
+            ("tools/card/index.html", "noindex,nofollow", "index,follow", "must remain noindex"),
+            ("tools/insurance/index.html", "noindex,nofollow", "index,follow", "must remain noindex"),
             ("index.html", 'content="index, follow', 'content="noindex, follow', "unexpectedly noindex"),
             ("sitemap.xml", "https://dentalsolve.kr/about/", "https://dentalsolve.kr/members/",
              "sitemap/public page mismatch"),

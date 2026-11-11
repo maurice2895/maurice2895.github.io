@@ -291,8 +291,8 @@ h2{font-size:clamp(30px,3.6vw,48px);line-height:1.2;letter-spacing:-.04em}
 .section-soft{background:var(--surface);border-block:1px solid var(--line)}
 .kicker{margin-bottom:12px;font-size:13px;font-weight:800;letter-spacing:.1em;color:var(--accent-ink)}
 .page-sec h2{margin-bottom:36px;font-size:clamp(28px,3.2vw,42px)}
-.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
-.related .card-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr));gap:16px}
+.related .card-grid{grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr))}
 .card{position:relative;display:flex;flex-direction:column;gap:10px;padding:30px;border-radius:var(--r);background:var(--surface);border:1px solid var(--line);transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .3s}
 .section-soft .card{background:var(--bg)}
 article.card::before{content:"";width:36px;height:4px;margin-bottom:10px;border-radius:4px;background:var(--accent)}
@@ -335,7 +335,7 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 .faq details p{padding:0 24px 24px;font-size:16px;line-height:1.8}
 
 /* ---------- 스크롤 등장 효과 (스크립트가 있을 때만) ---------- */
-.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.js .reveal{opacity:1;transform:translateY(16px);transition:transform .6s var(--ease)}
 .js .reveal.is-visible{opacity:1;transform:none}
 
 /* ---------- 애니메이션 ---------- */
@@ -462,4 +462,61 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 @media print{
   .protect body>*{display:none!important}
   .protect body::before{content:"이 페이지는 인쇄가 제한되어 있습니다. © 조재연 강사 · dentalsolve.kr";display:block;padding:40px;font-size:16px;color:#000}
+}
+
+/* Readable workflow motion: text is always present; only accents animate. */
+.hero-sub small{display:block;margin-top:12px;font-size:14px;color:var(--muted)}
+.workflow-panel{padding:30px;border:1px solid var(--navy-line);border-radius:28px;background:var(--navy);color:var(--on-navy);box-shadow:var(--shadow-lg)}
+.workflow-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:20px}
+.workflow-head .eyebrow{margin:0;color:#A9C0FF;font-size:11px}
+.workflow-badge{font-size:11px;white-space:nowrap;border:1px solid #40527A;padding:4px 8px;border-radius:20px}
+.workflow-panel h2{font-size:clamp(24px,2.6vw,34px);line-height:1.4;color:#fff;letter-spacing:-.035em}
+.workflow-track{display:grid;gap:12px;margin-top:28px;position:relative}
+.workflow-track::before{content:"";position:absolute;top:24px;bottom:24px;left:27px;width:2px;background:#40527A}
+.workflow-track li{position:relative;display:flex;align-items:center;gap:16px;min-height:86px;padding:16px;border:1px solid #34486E;border-radius:16px;background:#14244A}
+.workflow-no{position:relative;flex:none;display:grid;place-items:center;width:24px;height:28px;color:#A9C0FF;font-size:12px;font-weight:800;background:#14244A}
+.workflow-track strong{display:block;color:#fff;font-size:18px;line-height:1.4}
+.workflow-track p{margin-top:4px;font-size:14px;line-height:1.55;color:#C7D2E6}
+.workflow-mark{margin-left:auto;flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#153F40;color:#6DE6C7;animation:workflow-check 3.6s ease-out both}
+.workflow-track li:nth-child(2) .workflow-mark{animation-delay:.35s}
+.workflow-track li:nth-child(3) .workflow-mark{animation-delay:.7s}
+.workflow-track li:nth-child(4) .workflow-mark{animation-delay:1.05s}
+@keyframes workflow-check{0%,10%{transform:scale(.75);background:#243654;color:#A9C0FF}28%,65%{transform:scale(1.12);background:#2453FF;color:#fff}100%{transform:scale(1);background:#153F40;color:#6DE6C7}}
+.workflow-foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-top:20px;font-size:12px}
+.motion-toggle{color:#fff;border:1px solid #7184A6;background:transparent;border-radius:20px;min-height:44px;padding:8px 12px;font-size:12px;cursor:pointer}
+.motion-toggle[hidden]{display:none}
+.motion-paused *, .motion-paused *::before, .motion-paused *::after{animation-play-state:paused!important}
+.topic-nav{background:var(--navy);color:#fff}
+.topic-nav .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr))}
+.topic-nav a{text-align:center;padding:24px 12px;font-weight:700;border-right:1px solid var(--navy-line);transition:background .2s}
+.topic-nav a:hover{background:var(--navy-2);color:#A9C0FF}
+.document-note{margin-top:24px;padding:20px;border-left:3px solid var(--accent);background:var(--accent-soft);font-size:15px}
+.document-byline{margin-top:20px;font-size:14px;color:var(--muted)}
+.document-byline a{text-decoration:underline}
+.document-content{max-width:880px}
+.document-content h2{margin-bottom:28px}
+.document-content h3{margin-top:28px;margin-bottom:12px;font-size:22px}
+.document-content p{margin-bottom:20px}
+.document-content .btn{margin-bottom:40px}
+.document-example{margin:24px 0;padding:24px;background:var(--accent-soft);border:1px solid var(--line);border-radius:16px}
+.document-example h3{margin-top:0}
+.document-example p{margin-bottom:0}
+.document-crosslink{padding-block:32px}
+/* Titles stay still; movement belongs to the explanatory graphic. */
+.hero-title .line>span,.hero-sub,.hero .actions,.hero-trust,.hero-tags li,.hero-tags li:first-child::before{animation:none}
+@media(max-width:760px){
+ .workflow-panel{padding:24px}
+ .topic-nav .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .topic-nav a{font-size:15px;padding:18px 8px;border-bottom:1px solid var(--navy-line)}
+}
+@media(max-width:400px){
+ .workflow-head{align-items:flex-start;flex-direction:column}
+ .workflow-panel{padding:20px}
+ .workflow-track li{padding:12px;gap:10px}
+ .workflow-track strong{font-size:17px}
+ .workflow-track p{font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){
+ .workflow-mark{animation:none!important}
+ .motion-toggle{display:none}
 }
