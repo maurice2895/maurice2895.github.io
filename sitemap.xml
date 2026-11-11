@@ -3,7 +3,6 @@
   <url>
     <loc>https://dentalsolve.kr/</loc><lastmod>2026-11-11</lastmod>
     <image:image><image:loc>https://dentalsolve.kr/images/studio/practice-system.svg</image:loc></image:image>
-    <image:image><image:loc>https://dentalsolve.kr/images/studio/resource-library.svg</image:loc></image:image>
   </url>
   <url>
     <loc>https://dentalsolve.kr/about/</loc>
@@ -45,5 +44,4 @@
     <loc>https://dentalsolve.kr/faq/</loc>
     <lastmod>2026-11-11</lastmod>
   </url>
-  <url><loc>https://dentalsolve.kr/documents/</loc><lastmod>2026-11-11</lastmod></url>
 </urlset>

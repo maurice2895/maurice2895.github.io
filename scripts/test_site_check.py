@@ -46,7 +46,7 @@ class SiteGuardTests(unittest.TestCase):
              "RSS items must map"),
             ("index.html", '"@context":', '"@context" BROKEN:', "invalid structured data"),
             ("robots.txt", "Allow: /", "Disallow: /", "robots.txt blocks Googlebot"),
-            ("index.html", 'alt="처치 버튼과 차팅 기준, 업무 서식과 매뉴얼이 하나의 운영 체계로 정돈되는 그래픽"',
+            ("index.html", 'alt="전자차트와 직원 교육, 진료 흐름이 하나의 운영 시스템으로 연결되는 그래픽"',
              'data-removed-alt="description"', "image is missing alt attribute"),
             ("sitemap.xml", '<image:loc>https://dentalsolve.kr/images/studio/practice-system.svg</image:loc>',
              '<image:loc>https://dentalsolve.kr/members/private.webp</image:loc>',
