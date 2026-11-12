@@ -1,47 +1,65 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
-    <loc>https://dentalsolve.kr/</loc><lastmod>2026-11-11</lastmod>
-    <image:image><image:loc>https://dentalsolve.kr/images/studio/practice-system.svg</image:loc></image:image>
+    <loc>https://dentalsolve.kr/</loc>
+    <lastmod>2026-11-05</lastmod>
+    <image:image>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-electronic-chart-consulting.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-work-standardization.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-practical-training.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-ai-workflow.svg</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dentalsolve.kr/images/lecture-emr.webp</image:loc>
+    </image:image>
+    <image:image>
+      <image:loc>https://dentalsolve.kr/images/lecture-gemini.webp</image:loc>
+    </image:image>
   </url>
   <url>
     <loc>https://dentalsolve.kr/about/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://dentalsolve.kr/consulting/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <image:image>
-      <image:loc>https://dentalsolve.kr/images/studio/chart-details.svg</image:loc>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-electronic-chart-consulting.svg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://dentalsolve.kr/oneclick/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <image:image>
-      <image:loc>https://dentalsolve.kr/images/studio/team-training.svg</image:loc>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-practical-training.svg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://dentalsolve.kr/standardization/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <image:image>
-      <image:loc>https://dentalsolve.kr/images/studio/work-standards.svg</image:loc>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-work-standardization.svg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://dentalsolve.kr/ai-training/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
     <image:image>
-      <image:loc>https://dentalsolve.kr/images/studio/ai-workflow.svg</image:loc>
+      <image:loc>https://dentalsolve.kr/images/dentalsolve-ai-workflow.svg</image:loc>
     </image:image>
   </url>
   <url>
     <loc>https://dentalsolve.kr/emr-button-guide/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
   <url>
     <loc>https://dentalsolve.kr/faq/</loc>
-    <lastmod>2026-11-11</lastmod>
+    <lastmod>2026-11-05</lastmod>
   </url>
 </urlset>
