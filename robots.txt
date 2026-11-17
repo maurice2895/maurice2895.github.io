@@ -1,3 +1,4 @@
+#DaumWebMasterTool:481f8e4358974775117f759353e90e3930c0fb92e6eddd4e2cd82b9ffdfcd90b:LSr9wi71I6+MYd9iMzmuXg==
 # Public pages and promotional images may be crawled for search.
 # Member pages remain noindex in HTML and response headers.
 User-agent: *
