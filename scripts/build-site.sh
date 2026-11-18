@@ -9,7 +9,7 @@ PUBLIC_FILES=(index.html 404.html _headers _redirects robots.txt sitemap.xml rss
   security.js site.css site.js favicon.ico favicon.svg favicon-32.png apple-touch-icon.png og-image.png
   googlef97ab000014e40e4.html naver133c3117ea7348c1738597f91a5a3d64.html
   254b7bd0955f7cd140d82f0f30a69fab.txt)
-PUBLIC_DIRS=(about consulting oneclick standardization ai-training emr-button-guide faq members images)
+PUBLIC_DIRS=(about consulting oneclick standardization ai-training emr-button-guide faq members column images)
 for item in "${PUBLIC_FILES[@]}"; do
   test -f "$item" || { echo "필수 공개 파일 누락: $item" >&2; exit 1; }
   cp "$item" "$OUT/"
@@ -20,7 +20,11 @@ for dir in "${PUBLIC_DIRS[@]}"; do
     find "$dir" -maxdepth 1 -type f \( -name '*.svg' -o -name '*.webp' -o -name '*.png' -o -name '*.jpg' -o -name '*.jpeg' -o -name '*.ico' \) -exec cp {} "$OUT/$dir/" \;
   else
     test -f "$dir/index.html" || { echo "페이지 누락: $dir/index.html" >&2; exit 1; }
-    cp "$dir/index.html" "$OUT/$dir/"
+    # 하위 글(예: column/글주소/index.html)까지 함께 복사합니다.
+    find "$dir" -name index.html | while IFS= read -r page; do
+      mkdir -p "$OUT/$(dirname "$page")"
+      cp "$page" "$OUT/$page"
+    done
   fi
 done
 echo "배포 파일 준비 완료: $(find "$OUT" -type f | wc -l)개"
