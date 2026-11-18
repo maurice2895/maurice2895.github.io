@@ -1,0 +1,51 @@
+name: 네이버 블로그 최신 글 연동
+
+# 매일 한 번 네이버 블로그 새 글 목록을 읽어 홈페이지 '최근 글' 칸을 바꿉니다.
+# 제목·날짜·요약 한 줄·블로그 링크만 표시하며 글 전문은 옮기지 않습니다.
+# Actions 탭 → 네이버 블로그 최신 글 연동 → Run workflow 로 바로 실행할 수도 있습니다.
+on:
+  schedule:
+    - cron: "40 20 * * *"   # 매일 오전 5시 40분(한국시간)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: blog-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    name: Update latest blog posts
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Read Naver blog feed and update pages
+        run: python3 scripts/blog_sync.py
+
+      - name: Validate site before publishing
+        run: python3 scripts/site_check.py
+
+      - name: Commit and push when posts changed
+        id: push
+        run: |
+          if git diff --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "새 글 없음"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html column/index.html sitemap.xml
+          git commit -m "네이버 블로그 최신 글 자동 연동"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      # 자동 반영 커밋은 다른 워크플로를 깨우지 않으므로 여기서 검색엔진에 직접 알립니다.
+      - name: Notify search engines (IndexNow)
+        if: steps.push.outputs.changed == 'true'
+        run: python3 scripts/indexnow.py
