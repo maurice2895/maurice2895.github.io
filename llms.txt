@@ -27,8 +27,7 @@
 - [치과 업무 표준화](https://dentalsolve.kr/standardization/): 전자차트 중심 업무 절차, 차팅 기준 일원화, 신규 직원 인수인계
 - [치과 AI·구글 도구 업무 활용 교육](https://dentalsolve.kr/ai-training/): 구글 스프레드시트·문서, 종이 문서의 디지털 전환, 생성형 AI 문서 작성
 - [치과 전자차트 처치 버튼 정리 기준](https://dentalsolve.kr/emr-button-guide/): 버튼 이름 규칙, 폴더 구성, 마취 버튼 분리, 치면 입력, 상용구 기준
-- [치과 실무 칼럼](https://dentalsolve.kr/column/): 치과전자차트·처치 버튼·업무 기준 칼럼 모음
-- [치과전자차트 통계가 맞지 않을 때 확인할 3가지 기준](https://dentalsolve.kr/column/emr-statistics-standards/): 설정·입력·집계 기준, 점검 체크리스트, 신환 내원 경로 입력 예시, 4단계 활용
+- [블로그·인스타 최신 글](https://dentalsolve.kr/column/): 네이버 블로그 최신 글(매일 자동 반영)과 인스타그램 카드뉴스 바로가기
 - [자주 묻는 질문](https://dentalsolve.kr/faq/): 진행 방식, 대상 차트, 비용 안내 방식 등
 
 ## 채널

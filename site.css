@@ -463,3 +463,4 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
   .protect body>*{display:none!important}
   .protect body::before{content:"이 페이지는 인쇄가 제한되어 있습니다. © 조재연 강사 · dentalsolve.kr";display:block;padding:40px;font-size:16px;color:#000}
 }
+.blog-actions{margin-top:28px}
