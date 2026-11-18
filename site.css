@@ -333,6 +333,7 @@ a.card:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color
 .faq summary::after{content:"";width:30px;height:30px;flex:none;border-radius:50%;background:var(--bg) url(/images/icon-plus.svg) center/14px no-repeat;transition:transform .3s var(--ease),background-color .2s}
 .faq details[open] summary::after{transform:rotate(45deg);background-color:var(--accent-soft)}
 .faq details p{padding:0 24px 24px;font-size:16px;line-height:1.8}
+.faq .faq-emphasis{font-weight:600}
 
 /* ---------- 스크롤 등장 효과 (스크립트가 있을 때만) ---------- */
 .js .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
